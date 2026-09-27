@@ -1,0 +1,159 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2864682317306301149
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3209577586591191143}
+  m_Layer: 0
+  m_Name: Chocolate Pie
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3209577586591191143
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2864682317306301149}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 512552925374433513}
+  - {fileID: 5341460519218555724}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &4452461247296086975
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3209577586591191143}
+    m_Modifications:
+    - target: {fileID: 4239758349857549142, guid: 1675d1742bc2c4d179fc2b753b5e812c, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4239758349857549142, guid: 1675d1742bc2c4d179fc2b753b5e812c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.09495684
+      objectReference: {fileID: 0}
+    - target: {fileID: 4239758349857549142, guid: 1675d1742bc2c4d179fc2b753b5e812c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.043604873
+      objectReference: {fileID: 0}
+    - target: {fileID: 4239758349857549142, guid: 1675d1742bc2c4d179fc2b753b5e812c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.25250462
+      objectReference: {fileID: 0}
+    - target: {fileID: 4239758349857549142, guid: 1675d1742bc2c4d179fc2b753b5e812c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4239758349857549142, guid: 1675d1742bc2c4d179fc2b753b5e812c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4239758349857549142, guid: 1675d1742bc2c4d179fc2b753b5e812c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4239758349857549142, guid: 1675d1742bc2c4d179fc2b753b5e812c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4239758349857549142, guid: 1675d1742bc2c4d179fc2b753b5e812c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4239758349857549142, guid: 1675d1742bc2c4d179fc2b753b5e812c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4239758349857549142, guid: 1675d1742bc2c4d179fc2b753b5e812c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6979906015220725902, guid: 1675d1742bc2c4d179fc2b753b5e812c, type: 3}
+      propertyPath: m_Name
+      value: Chocco Pie (Slice).001
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1675d1742bc2c4d179fc2b753b5e812c, type: 3}
+--- !u!4 &512552925374433513 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4239758349857549142, guid: 1675d1742bc2c4d179fc2b753b5e812c, type: 3}
+  m_PrefabInstance: {fileID: 4452461247296086975}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8639484519133099926
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3209577586591191143}
+    m_Modifications:
+    - target: {fileID: 4134932111465401443, guid: 83f05880eaf5a48acbb3a7db9ef0d42c, type: 3}
+      propertyPath: m_Name
+      value: Chocco Pie.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4451020362060242138, guid: 83f05880eaf5a48acbb3a7db9ef0d42c, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4451020362060242138, guid: 83f05880eaf5a48acbb3a7db9ef0d42c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4451020362060242138, guid: 83f05880eaf5a48acbb3a7db9ef0d42c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4451020362060242138, guid: 83f05880eaf5a48acbb3a7db9ef0d42c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4451020362060242138, guid: 83f05880eaf5a48acbb3a7db9ef0d42c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4451020362060242138, guid: 83f05880eaf5a48acbb3a7db9ef0d42c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4451020362060242138, guid: 83f05880eaf5a48acbb3a7db9ef0d42c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4451020362060242138, guid: 83f05880eaf5a48acbb3a7db9ef0d42c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4451020362060242138, guid: 83f05880eaf5a48acbb3a7db9ef0d42c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4451020362060242138, guid: 83f05880eaf5a48acbb3a7db9ef0d42c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4451020362060242138, guid: 83f05880eaf5a48acbb3a7db9ef0d42c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 83f05880eaf5a48acbb3a7db9ef0d42c, type: 3}
+--- !u!4 &5341460519218555724 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4451020362060242138, guid: 83f05880eaf5a48acbb3a7db9ef0d42c, type: 3}
+  m_PrefabInstance: {fileID: 8639484519133099926}
+  m_PrefabAsset: {fileID: 0}

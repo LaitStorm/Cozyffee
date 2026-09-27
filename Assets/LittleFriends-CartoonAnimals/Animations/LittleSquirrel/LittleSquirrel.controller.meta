@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d5e890c1016a7c148ad72b5d65a41e0b
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 258966
+  packageName: Little Friends - Cartoon Animals
+  packageVersion: 1.0.0
+  assetPath: Assets/LittleFriends-CartoonAnimals/Animations/LittleSquirrel/LittleSquirrel.controller
+  uploadId: 604349
