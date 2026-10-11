@@ -24,6 +24,14 @@ namespace Game.Cozyffee
         public Vector3 Direction {get; private set; } = Vector3.forward;
         public Vector3 Position => transform.position;
 
+        public Vector3 SensorPosition
+        {
+            get
+            {
+                return transform.position + Vector3.up * 1.5f;
+            }
+        }
+
         [Header("NPC Components")]
         public Animator Animator;
 
