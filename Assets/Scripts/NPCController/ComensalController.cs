@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
+using Game.Cozyffee.TaskSystem;
 
 namespace Game.Cozyffee
 {
@@ -14,28 +15,11 @@ namespace Game.Cozyffee
 
         Wander wander;
 
-        List<NPCTask> tasks = new List<NPCTask>();
-        NPCTask currentTask;  
-        
-        public override void SetNPC(NPC npc)
+        protected override void CreateTasks()
         {
-            base.SetNPC(npc);
+            wander = new Wander(npc, wanderParameters);
 
-            if (npc != null)
-            {
-                tasks.Clear();
-
-                wander = new Wander(npc, wanderParameters);
-                tasks.Add(wander);
-            }
-        }
-
-        protected override void Update()
-        {
-            base.Update();
-
-            NPCTask currentTask = NPCTask.SelectTaskByUtility(tasks);
-            currentTask.OnUpdate();
+            UtilitySelector.CreateTasks(wander);
         }
     }
 }

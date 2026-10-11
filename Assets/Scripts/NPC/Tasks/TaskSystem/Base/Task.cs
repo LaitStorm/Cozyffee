@@ -2,33 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Game.Cozyffee
+namespace Game.Cozyffee.TaskSystem
 {
-    public enum NPCTaskStatus
+    public enum TaskStatus
     {
         Success,
         Failure,
         Running
     }
-    public abstract class NPCTask
-    {
-        protected NPC npc;
-        public NPCTask(NPC npc)
-        {
-            this.npc = npc;
-        }
 
-        public static NPCTask SelectTaskByUtility(List<NPCTask> tasks)
+    public class Task
+    {
+        public static Task SelectTaskByUtility(List<Task> tasks)
         {
             if (tasks == null || tasks.Count == 0)
             {
                 return null;
             }
 
-            NPCTask bestTask = null;
+            Task bestTask = null;
             float highestUtility = float.MinValue;
 
-            foreach (NPCTask task in tasks)
+            foreach (Task task in tasks)
             {
                 float utility = task.GetUtility();
 
@@ -50,9 +45,9 @@ namespace Game.Cozyffee
         {
         }
 
-        public virtual NPCTaskStatus OnUpdate()
+        public virtual TaskStatus OnUpdate()
         {
-            return NPCTaskStatus.Success;
+            return TaskStatus.Success;
         }
 
         public virtual float GetUtility()

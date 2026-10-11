@@ -4,12 +4,16 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
 
+using Game.Cozyffee.TaskSystem;
+
 namespace Game.Cozyffee
 {
     public class AIController : NPCController
     {
         [SerializeField]
         private NavMeshAgent Agent;
+
+        protected UtilitySelector UtilitySelector = new UtilitySelector();
 
         public override void SetNPC(NPC npc)
         {
@@ -34,6 +38,8 @@ namespace Game.Cozyffee
                     Debug.LogError($"NavMeshAgent not found on NPC '{npc.gameObject.name}'.");
                 }
             }
+
+            CreateTasks();
         }
 
         void OnSetDestination(Vector3 destination)
@@ -59,6 +65,14 @@ namespace Game.Cozyffee
                 npc.Velocity = Agent.velocity;
                 Agent.isStopped = !npc.CanMove;
             }
+
+            UtilitySelector.OnUpdate();
+        }
+        #endregion
+
+        #region Task Management Methods
+        protected virtual void CreateTasks()
+        { 
         }
         #endregion
     }

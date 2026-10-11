@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Game.Cozyffee.TaskSystem;
 
 namespace Game.Cozyffee
 {
@@ -56,7 +57,7 @@ namespace Game.Cozyffee
             }
         }
 
-        public override NPCTaskStatus OnUpdate()
+        public override TaskStatus OnUpdate()
         {
             if (state == EState.Waiting) {
                 waitTime -= Time.deltaTime;
@@ -74,7 +75,7 @@ namespace Game.Cozyffee
                 }
             }
 
-            return NPCTaskStatus.Running;
+            return TaskStatus.Running;
         }
 
         void ChangeState(EState newState)
