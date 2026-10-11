@@ -1,18 +1,21 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit.Interactables; // Necesario para XR Interaction Toolkit 3.x
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
-public class FoodSpawner : MonoBehaviour
+public class FoodRespawn : MonoBehaviour
 {
     [Header("Configuración del Prefab")]
-    [Tooltip("El Prefab que se va a instanciar.")]
+    [Tooltip("El Prefab del objeto que se va a instanciar.")]
     [SerializeField] private GameObject foodPrefab;
 
     [Header("Ajustes de Regeneración")]
-    [Tooltip("Tiempo en segundos antes de que reaparezca instancia.")]
+    [Tooltip("Tiempo en segundos antes de que reaparezca un nuevo objeto.")]
     [SerializeField] private float respawnDelay = 3.0f;
 
     private XRGrabInteractable grabInteractable;
+    private Rigidbody rb;
+
     private Vector3 originalPosition;
     private Quaternion originalRotation;
     private Transform originalParent;
@@ -21,28 +24,41 @@ public class FoodSpawner : MonoBehaviour
     private void Awake()
     {
         grabInteractable = GetComponent<XRGrabInteractable>();
-        
-        // Guardamos la posición, rotación y padre iniciales
+        rb = GetComponent<Rigidbody>();
+
+        // Guardamos la transformación inicial
         originalPosition = transform.position;
         originalRotation = transform.rotation;
         originalParent = transform.parent;
+
+        // Inmóvil al inicio
+        if (rb != null)
+        {
+            rb.isKinematic = true;
+        }
     }
 
     private void OnEnable()
     {
-        // Nos suscribimos al evento cuando el objeto es agarrado
         grabInteractable.selectEntered.AddListener(OnFoodGrabbed);
+        grabInteractable.selectExited.AddListener(OnFoodReleased);
     }
 
     private void OnDisable()
     {
-        // Nos desuscribimos para evitar errores de memoria
         grabInteractable.selectEntered.RemoveListener(OnFoodGrabbed);
+        grabInteractable.selectExited.RemoveListener(OnFoodReleased);
     }
 
     private void OnFoodGrabbed(UnityEngine.XR.Interaction.Toolkit.SelectEnterEventArgs args)
     {
-        // Aseguramos que solo cree una copia por cada agarre
+        // Al tomarlo, habilitamos la física para cuando vuelva a ser soltado
+        if (rb != null)
+        {
+            rb.isKinematic = false;
+        }
+
+        // Iniciar el temporizador de reaparición
         if (!hasRespawned)
         {
             hasRespawned = true;
@@ -50,12 +66,20 @@ public class FoodSpawner : MonoBehaviour
         }
     }
 
+    private void OnFoodReleased(UnityEngine.XR.Interaction.Toolkit.SelectExitEventArgs args)
+    {
+        // Al soltarlo, garantizamos que vuelva a responder totalmente a la gravedad e impulsos
+        if (rb != null)
+        {
+            rb.isKinematic = false;
+            rb.useGravity = true;
+        }
+    }
+
     private IEnumerator SpawnNewFoodRoutine()
     {
-        // Espera los segundos configurados
         yield return new WaitForSeconds(respawnDelay);
 
-        // Instancia un nuevo FOod en el lugar original
         if (foodPrefab != null)
         {
             Instantiate(foodPrefab, originalPosition, originalRotation, originalParent);
