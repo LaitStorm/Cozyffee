@@ -294,6 +294,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   Agent: {fileID: 0}
   Animator: {fileID: 0}
+  Alive: 1
+  Wander: 1
 --- !u!114 &2581116714570886449
 MonoBehaviour:
   m_ObjectHideFlags: 0

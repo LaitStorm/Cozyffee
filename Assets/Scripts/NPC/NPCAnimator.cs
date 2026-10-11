@@ -8,7 +8,11 @@ namespace Game.Cozyffee
     {
         private void Update()
         {
-            npc.Animator.SetFloat("Speed", npc.CurrentSpeed);
+            float forwardSpeed = Vector3.Dot(npc.Velocity, npc.transform.forward);
+            float rightSpeed = Vector3.Dot(npc.Velocity, npc.transform.right);
+
+            npc.Animator.SetFloat("Speed", forwardSpeed);
+            npc.Animator.SetFloat("StrafeSpeed", rightSpeed);
         }
     }
 }

@@ -10,7 +10,12 @@ namespace Game.Cozyffee
 
 		protected virtual void Awake()
 		{
-			npc = GetComponentInParent<NPC>();
+			SetNPC(GetComponentInParent<NPC>());
+		}
+
+		public virtual void SetNPC(NPC npc)
+		{
+			this.npc = npc;
 		}
 	}
 }

@@ -1,31 +1,61 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.AI;
+using UnityEngine.Events;
 
 namespace Game.Cozyffee
 {
-    [RequireComponent(typeof(NavMeshAgent))]
+    [SelectionBase]
     [RequireComponent(typeof(Animator))]
 
     public class NPC : MonoBehaviour
     {
-        [HideInInspector]
-        public NavMeshAgent Agent;
+        public bool CanMove = true;
 
-        [HideInInspector]
+        public float WalkSpeed = 3.5f;
+        public float RunSpeed = 7f;
+
+        public bool Alive = true;
+        public Group Group = null;
+
+        public Vector3 Velocity = Vector3.zero;
+        public Vector3 Direction {get; private set; } = Vector3.forward;
+        public Vector3 Position => transform.position;
+
+        [Header("NPC Components")]
         public Animator Animator;
 
-        public float CurrentSpeed
-        {
-            get { return Agent.velocity.magnitude;}
-        }
+        #region Events
+        public UnityAction<Vector3> SetDestination;
+        public UnityAction<float> SetMaxSpeed;
+        #endregion
+
+        #region UnityCallbacks
 
         private void Awake()
         {
-            Agent = GetComponent<NavMeshAgent>();
-            Animator = GetComponent<Animator>();
+            if (Animator == null)
+            {
+                Animator = GetComponent<Animator>();
+            }
+            if (Animator == null)
+            {
+                Debug.LogError($"Animator not found in '{gameObject.name}'");
+            }
         }
+
+        private void LateUpdate()
+        {
+            Vector3 horizontalVelocity = new Vector3(Velocity.x, 0f, Velocity.z);
+
+            if (horizontalVelocity.sqrMagnitude > 3f)
+            {
+                Direction = horizontalVelocity.normalized;
+            }
+        }
+
+        #endregion
     }
 }
