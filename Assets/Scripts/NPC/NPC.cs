@@ -13,6 +13,7 @@ namespace Game.Cozyffee
     public class NPC : MonoBehaviour
     {
         public bool CanMove = true;
+        public bool CanTurn = true;
 
         public float WalkSpeed = 3.5f;
         public float RunSpeed = 7f;
@@ -35,9 +36,16 @@ namespace Game.Cozyffee
         [Header("NPC Components")]
         public Animator Animator;
 
-        #region Events
+        #region Locomotion Delegates
         public UnityAction<Vector3> SetDestination;
         public UnityAction<float> SetMaxSpeed;
+        public System.Func<bool> HasPathToDestination;
+        public UnityAction<Vector3> LookAt;
+        public System.Func<Vector3, bool> IsLookingAt;
+        #endregion
+
+        #region 
+        public UnityAction<string> Say;
         #endregion
 
         #region UnityCallbacks

@@ -1,8 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Net.Mail;
-using System.Numerics;
 using UnityEngine;
 
 namespace Game.Cozyffee
@@ -46,7 +43,7 @@ namespace Game.Cozyffee
             
             while (true)
             {
-                if (enabled = false)
+                if (enabled == false)
                 {
                     yield return scanTime;
                 }
@@ -69,7 +66,7 @@ namespace Game.Cozyffee
             {
                 NPC otherNPC = collider.GetComponentInParent<NPC>();
 
-                bool valid = otherNPC != null && otherNPC != npc && otherNPC.Alive();
+                bool valid = otherNPC != null && otherNPC != npc && otherNPC.Alive;
 
                 if (valid && !DetectionList.Contains(otherNPC) && IsWithinFOV(otherNPC) && CanRaycast(otherNPC))
                 {
@@ -79,7 +76,7 @@ namespace Game.Cozyffee
                         Visible = true,
                         LastKnownPosition = otherNPC.Position,
                         LastSeenTime = Time.time,
-                        Distance = Vector3.Distance(npc.position, otherNPC.Position),
+                        Distance = Vector3.Distance(npc.Position, otherNPC.Position),
                         Alive = true,
                         Hostile = IsHostile(otherNPC)
                     };
@@ -135,6 +132,8 @@ namespace Game.Cozyffee
                     return true;
                 }
             }
+
+            return false;
         }
 
         void UpdateDetectedEntries()
