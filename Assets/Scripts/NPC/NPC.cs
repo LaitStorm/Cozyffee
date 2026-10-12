@@ -36,6 +36,28 @@ namespace Game.Cozyffee
         [Header("NPC Components")]
         public Animator Animator;
 
+        #region Hunger
+
+        public IHunger Hunger;
+
+        public bool CanOrder
+        {
+            get
+            {
+                if (Hunger == null)
+                {
+                    return false;
+                }
+
+                return Hunger.CanOrder;
+            }
+        }
+
+        public UnityAction Eat;
+        public UnityAction Order;
+
+        #endregion
+
         #region Locomotion Delegates
         public UnityAction<Vector3> SetDestination;
         public UnityAction<float> SetMaxSpeed;
