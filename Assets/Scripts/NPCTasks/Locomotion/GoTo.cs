@@ -23,7 +23,7 @@ namespace Game.Cozyffee
 		{
 			npc.SetDestination?.Invoke(Destination.Value);
 
-			if (npc.HasPathToDestination() == false)
+			if (npc.HasPathToDestination == null || !npc.HasPathToDestination())
 			{
 				return TaskStatus.Failure;
 			}

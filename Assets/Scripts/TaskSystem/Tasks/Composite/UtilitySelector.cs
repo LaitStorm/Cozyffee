@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.IO.Compression;
 using UnityEngine;
 
 namespace Game.Cozyffee.TaskSystem
@@ -88,6 +87,7 @@ namespace Game.Cozyffee.TaskSystem
             {
                 return;
             }
+
             if (currentTask != null && currentTask.Active)
             {
                 Task.Stop(currentTask);

@@ -4,28 +4,37 @@ using UnityEngine;
 
 namespace Game.Cozyffee.TaskSystem
 {
-    public class TaskSystemTest1 : MonoBehaviour
-    {
-        Task root;
+	public class TaskSystemTest1 : MonoBehaviour
+	{
+		Task root;
 
-        void Start()
-        {
-            Sequence sequence = new Sequence();
+		void Start ()
+		{
+			Sequence sequence = new();
+			Log log = new("Hello World!");
+			Wait wait = new(1f);
+			sequence.CreateTasks(log, wait);
+			root = new Repeater(sequence);
 
-            Log log = new Log("Hewwo Fwendy Wends!");
-            Wait wait = new Wait(1f);
+			Task.Awaken(root);
+			Task.Start(root);
+		}
 
-            sequence.CreateTasks(log, wait);
-            Repeater repeater = new Repeater(sequence);
+		private void Update()
+		{
+			if (root.Status == TaskStatus.Running)
+			{
+				Task.Update(root);
+			}
+			else if (root.Status == TaskStatus.Success || root.Status == TaskStatus.Failure)
+			{
+				Task.Stop(root);
+			}
+			else
+			{
+			}
+		}
 
-            root = repeater;
 
-            root.OnEntry();
-        }
-
-        private void Update()
-        {
-            root.OnUpdate();
-        }
-    }
+	}
 }

@@ -12,6 +12,9 @@ namespace Game.Cozyffee
         [SerializeField]
         GameObject Root;
 
+        [SerializeField, Tooltip("Drag the Main Camera from your XR Origin here")]
+        Transform playerCamera; 
+
         [SerializeField]
         float typingDuration = 1f;
 
@@ -33,6 +36,11 @@ namespace Game.Cozyffee
             Root.SetActive(false);
 
             npc.Say += OnSay;
+
+            if (playerCamera == null && Camera.main != null)
+            {
+                Root.transform.LookAt(Root.transform.position + playerCamera.forward);
+            }
         } 
 
         private void Update()
@@ -48,9 +56,9 @@ namespace Game.Cozyffee
 
                 Root.SetActive(true);
 
-                if (Camera.main != null)
+                if (playerCamera != null)
                 {
-                    Root.transform.forward = Camera.main.transform.forward;
+                    Root.transform.forward = playerCamera.forward;
                 }
             }
         }

@@ -31,6 +31,19 @@ namespace Game.Cozyffee.TaskSystem
 
         public float DefaultUtility = 0f;
 
+        #region Status
+
+        public TaskStatus Status { get; set; } = TaskStatus.Inactive;
+
+        public bool Active => Status != TaskStatus.Inactive;
+
+        public bool CompareStatus(TaskStatus other)
+        {
+            return Status == other;
+        }
+
+        #endregion
+
         #region Name and BehaviorTree Viewer Parameters
 
         public string Name { get; set; } = "";
@@ -55,43 +68,7 @@ namespace Game.Cozyffee.TaskSystem
 
         #endregion
 
-        #region Status
-
-        public TaskStatus Status { get; set; } = TaskStatus.Inactive;
-
-        public bool Active => Status != TaskStatus.Inactive;
-
-        public bool CompareStatus(TaskStatus other)
-        {
-            return Status == other;
-        }
-
-        #endregion
-
         #region Virtual Methods
-        public static Task SelectTaskByUtility(List<Task> tasks)
-        {
-            if (tasks == null || tasks.Count == 0)
-            {
-                return null;
-            }
-
-            Task bestTask = null;
-            float highestUtility = float.MinValue;
-
-            foreach (Task task in tasks)
-            {
-                float utility = task.GetUtility();
-
-                if (utility > highestUtility)
-                {
-                    highestUtility = utility;
-                    bestTask = task;
-                }
-            }
-
-            return bestTask;
-        }
 
         protected virtual void OnAwake()
         {
