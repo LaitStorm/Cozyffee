@@ -66,8 +66,9 @@ namespace Game.Cozyffee
         public System.Func<Vector3, bool> IsLookingAt;
         #endregion
 
-        #region 
+        #region Other Unity Actions
         public UnityAction<string> Say;
+        public UnityAction<Sprite, float> SayImage;
         #endregion
 
         #region UnityCallbacks

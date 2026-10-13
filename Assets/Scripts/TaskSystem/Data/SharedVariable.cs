@@ -95,4 +95,12 @@ namespace Game.Cozyffee.TaskSystem
 			return new SharedColor { Value = value };
 		}
 	}
+
+	public class SharedSprite : SharedVariable<Sprite>
+{
+	public static implicit operator SharedSprite(Sprite value)
+	{
+		return new SharedSprite { Value = value };
+	}
+}
 }
