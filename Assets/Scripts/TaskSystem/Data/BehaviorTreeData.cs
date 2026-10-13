@@ -20,5 +20,8 @@ namespace Game.Cozyffee
 		public SharedVariableList<Transform> TransformList = new();
 		public SharedVariableList<GameObject> GameObjectList = new();
 
+		public SharedVariableList<Color> ColorList = new();
+		public SharedVariableList<Sprite> SpritetList = new();
+
 	}
 }

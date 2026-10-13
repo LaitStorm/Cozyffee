@@ -9,12 +9,12 @@ namespace Game.Cozyffee.TaskSystem
         protected List<Task> tasks = new List<Task>();
         public IReadOnlyCollection<Task> Tasks => tasks.AsReadOnly();
 
-        public void ClearTasks()
+        public virtual void ClearTasks()
         {
             this.tasks.Clear();
         }
 
-        public void AddTask(Task task)
+        public virtual void AddTask(Task task)
         {
             tasks.Add(task);
         }
