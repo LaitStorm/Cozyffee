@@ -55,3 +55,14 @@
 ## Referencias de elementos externos
 - [How to make a VR Game in Unity 6 Under 60 minutes - Beginner tutorial](https://youtu.be/ofjPCrh0ZIk?si=RWW3guam17HZ_mrY)
 - [Playlist de video tutoriales para navegación de NPCs](https://www.youtube.com/playlist?list=PLMNkk-YfpOgOkNiCuFr3TU1QVwsxxJeI9)
+
+
+## Referencias IA
+
+> - **Modelo:** Gemini 3.6 Flash
+> - **Plataforma:** Gemini web
+> - **Cómo se usó:** Generación de script para hacer respawn de postres y consulta de errores durante desarrollo
+
+> - **Modelo:** Claude Sonnet 5.5 Extra
+> - **Plataforma:** Claude.ai web
+> - **Cómo se usó:** Ayuda con scripts para generar órden de clientes, destroy de instanciasy consulta de errores
