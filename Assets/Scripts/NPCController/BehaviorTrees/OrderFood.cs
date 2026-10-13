@@ -11,13 +11,16 @@ namespace Game.Cozyffee.ExternalBehaviorTrees
 
         public Sprite CinnamonBubble;
 
-        [Tooltip("Placeholder: how long the NPC waits at the order area, and how long the bubble is shown.")]
-        public float OrderWaitTime = 10f;
+        [Tooltip("ID of the Item the NPC asks for.")]
+        public string ItemId = "cinnamon_roll";
+
+        [Tooltip("Placeholder: how long the NPC waits at the order area.")]
+        public float OrderWaitTime = 600f;
 
         public override Task CreateBehaviorTree()
         {
             RandomChoice randomChoice = new RandomChoice();
-            randomChoice.AddTask(CreateWander(), 19.0f);
+            randomChoice.AddTask(CreateWander(), 9.0f);
             randomChoice.AddTask(CreateOrderThenWander(), 1.0f);
 
             Sequence sequence = new Sequence();
@@ -61,17 +64,20 @@ namespace Game.Cozyffee.ExternalBehaviorTrees
             Sequence sequence = new Sequence() { Name = "Order" };
             Sequence goToOrderArea = new Sequence() { Name = "Go to Order Area" };
             SharedVector3 orderDestination = new();
-            ParallelSelector greet = new();
+            ParallelSelector waitForItem = new();
 
             goToOrderArea.AddTask(new PickRandomDestinationInArea { Destination = orderDestination, AreaId = AreaId });
             goToOrderArea.AddTask(new GoTo { Destination = orderDestination });
 
-            greet.AddTask(new LookAtPlayer { KeepLooking = true });
-            greet.AddTask(new Wait(OrderWaitTime, 0.0f)); // placeholder
+            waitForItem.AddTask(new LookAtPlayer { KeepLooking = true });
+            waitForItem.AddTask(new ReceiveItem { ItemId = ItemId });
+            waitForItem.AddTask(new Wait(OrderWaitTime, 0.0f));
 
             sequence.AddTask(goToOrderArea);
-            sequence.AddTask(new SayImage(CinnamonBubble, OrderWaitTime)); // shown once, not every frame
-            sequence.AddTask(greet);
+            sequence.AddTask(new SayImage(CinnamonBubble, OrderWaitTime));
+            sequence.AddTask(waitForItem);
+            sequence.AddTask(new HideBubble());
+            sequence.AddTask(new ConsumeItem());
 
             return sequence;
         }
