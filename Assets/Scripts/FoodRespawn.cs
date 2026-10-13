@@ -18,7 +18,6 @@ public class FoodRespawn : MonoBehaviour
 
     private Vector3 originalPosition;
     private Quaternion originalRotation;
-    private Vector3 originalScale;
     private Transform originalParent;
     private bool hasRespawned = false;
 
@@ -30,7 +29,6 @@ public class FoodRespawn : MonoBehaviour
         // Guardamos la transformación inicial
         originalPosition = transform.position;
         originalRotation = transform.rotation;
-        originalScale = transform.localScale;
         originalParent = transform.parent;
 
         // Inmóvil al inicio
@@ -54,11 +52,13 @@ public class FoodRespawn : MonoBehaviour
 
     private void OnFoodGrabbed(UnityEngine.XR.Interaction.Toolkit.SelectEnterEventArgs args)
     {
+        // Al tomarlo, habilitamos la física para cuando vuelva a ser soltado
         if (rb != null)
         {
             rb.isKinematic = false;
         }
 
+        // Iniciar el temporizador de reaparición
         if (!hasRespawned)
         {
             hasRespawned = true;
@@ -68,6 +68,7 @@ public class FoodRespawn : MonoBehaviour
 
     private void OnFoodReleased(UnityEngine.XR.Interaction.Toolkit.SelectExitEventArgs args)
     {
+        // Al soltarlo, garantizamos que vuelva a responder totalmente a la gravedad e impulsos
         if (rb != null)
         {
             rb.isKinematic = false;
@@ -78,18 +79,10 @@ public class FoodRespawn : MonoBehaviour
     private IEnumerator SpawnNewFoodRoutine()
     {
         yield return new WaitForSeconds(respawnDelay);
- 
+
         if (foodPrefab != null)
         {
-            GameObject clone = Instantiate(foodPrefab, originalPosition, originalRotation, originalParent);
- 
-            clone.transform.localScale = originalScale;
- 
-            if (clone.TryGetComponent(out FoodRespawn next))
-            {
-                next.foodPrefab = foodPrefab;
-                next.originalScale = originalScale;
-            }
+            Instantiate(foodPrefab, originalPosition, originalRotation, originalParent);
         }
         else
         {
