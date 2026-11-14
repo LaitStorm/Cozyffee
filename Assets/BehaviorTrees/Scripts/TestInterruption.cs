@@ -22,12 +22,12 @@ namespace Game.Cozyffee.ExternalBehaviorTrees
         Task CreateOrderBranch()
         {
             Sequence sequence = new Sequence();
-
-            // sequence.InterruptLowerPriority = true;
+            sequence.InterruptLowerPriority = true;
 
             sequence.AddCondition(new IsHungry());
 
-            sequence.AddTask(new Say("AAAAAAAAAAAA"));
+            sequence.AddTask(new LookAtPlayer());
+            sequence.AddTask(new SayRandom("AAAAA", "OMG", "WHOAAAA"));
 
             sequence.AddTask(new LookAtPlayer { KeepLooking = true });
 

@@ -16,6 +16,9 @@ namespace Game.Cozyffee
         float scanRate = 0.5f;
 
         [SerializeField]
+        float EntryExpirationTime = 30f;
+
+        [SerializeField]
         LayerMask ScanMask = Physics.DefaultRaycastLayers;
 
         [SerializeField]
@@ -25,6 +28,8 @@ namespace Game.Cozyffee
         public int VisibleHostileCount => DetectionList.VisibleHostileCount;
 
         public int OutOfSightHostileCount => DetectionList.OutOfSightHostileCount;
+
+        public int HostilesCount => DetectionList.HostilesCount;
         #endregion
 
         #region Unity Methods
@@ -56,6 +61,22 @@ namespace Game.Cozyffee
                 yield return scanTime;
             }
         }
+
+        private void Update()
+        {
+            foreach (var entry in DetectionList.List)
+            {
+                if (entry.Visible)
+                {
+                    entry.Alive = entry.NPC.Alive;
+                    entry.Hostile = IsHostile(entry.NPC);
+
+                    entry.LastKnownPosition = entry.NPC.Position;
+                    entry.LastSeenTime = Time.time;
+                }
+            }
+        }
+
         #endregion
 
         void Scan()
@@ -139,7 +160,7 @@ namespace Game.Cozyffee
         void UpdateDetectedEntries()
         {
             DetectionList.RemoveDeadEntries();
-            DetectionList.RemoveOldEntries(120.0f);
+            DetectionList.RemoveOldEntries(EntryExpirationTime);
 
             for (int i = DetectionList.Count - 1; i >= 0; i--)
             {
@@ -149,7 +170,7 @@ namespace Game.Cozyffee
 
                 entry.Distance = distance;
 
-                if (distance > range + 2f || IsWithinFOV(entry.NPC))
+                if (distance > range + 2f || !IsWithinFOV(entry.NPC))
                 {
                     entry.Visible = false;
                 }

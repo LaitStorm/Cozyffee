@@ -1,16 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Game.Cozyffee.TaskSystem;
 
-namespace Game.Cozyffee.TaskSystem
+namespace Game.Cozyffee
 {
-    public class LookAtDirection : NPCAction
+    public class LookAtNPC : NPCAction
     {
-        public SharedVector3 Direction;
+        public SharedNPC Target;
 
         protected override TaskStatus OnUpdate()
         {
-            Vector3 targetPosition = npc.SensorPosition + Direction.Value * 100.0f;
+            if (Target == null || Target.Value == null)
+            {
+                return TaskStatus.Failure;
+            }
+
+            Vector3 targetPosition = Target.Value.SensorPosition;
+
             npc.LookAt?.Invoke(targetPosition);
 
             if (npc.IsLookingAt(targetPosition))
