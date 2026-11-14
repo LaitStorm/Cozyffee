@@ -5,6 +5,10 @@ namespace Game.Cozyffee.TaskSystem
 {
     public class RandomChoice : Composite
     {
+        public RandomChoice() {}
+
+        public RandomChoice(params Task[] tasks) : base(tasks) {}
+
         public const float DefaultWeight = 1f;
 
         private readonly List<float> weights = new List<float>();

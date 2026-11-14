@@ -6,6 +6,10 @@ namespace Game.Cozyffee.TaskSystem
 {
     public class Sequence : Composite
     {
+        public Sequence() {}
+
+        public Sequence(params Task[] tasks) : base(tasks) {}
+        
         protected int currentTaskIndex = 0;
         protected Task currentTask
         {

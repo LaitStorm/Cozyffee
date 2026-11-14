@@ -9,6 +9,17 @@ namespace Game.Cozyffee.TaskSystem
         protected List<Task> tasks = new List<Task>();
         public IReadOnlyCollection<Task> Tasks => tasks.AsReadOnly();
 
+        protected List<Condition> conditions = new List<Condition>();
+
+        public Composite(){}
+
+        public Composite(params Task[] tasks)
+        {
+            this.tasks = new List<Task>(tasks);
+        }
+
+        #region Tasks Methods
+
         public virtual void ClearTasks()
         {
             this.tasks.Clear();
@@ -29,6 +40,37 @@ namespace Game.Cozyffee.TaskSystem
             }
         }
 
+        #endregion
+
+        #region Condition Methods
+
+        public void SetConditions(params Condition[] conditions)
+        {
+            this.conditions = new List<Condition>(conditions);
+        }
+
+        public void AddCondition(Condition condition)
+        {
+            conditions.Add(condition);
+        }
+
+        public bool EvaluateConditions()
+        {
+            foreach (Condition c in conditions)
+            {
+                TaskStatus status = Task.Update(c);
+
+                if (status == TaskStatus.Failure)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        #endregion
+
         public override void SetOwner(GameObject owner)
         {
             base.SetOwner(owner);
@@ -37,6 +79,11 @@ namespace Game.Cozyffee.TaskSystem
             {
                 task.SetOwner(owner);
             }
+
+            foreach (Condition condition in conditions)
+            {
+                condition.SetOwner(owner);
+            }
         }
 
         protected override void OnAwake()
@@ -44,6 +91,11 @@ namespace Game.Cozyffee.TaskSystem
             foreach (Task task in tasks)
             {
                 Task.Awaken(task);
+            }
+
+            foreach (Task condition in conditions)
+            {
+                Task.Awaken(condition);
             }
         }
 

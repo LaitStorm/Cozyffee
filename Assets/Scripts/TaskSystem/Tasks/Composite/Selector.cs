@@ -6,6 +6,10 @@ namespace Game.Cozyffee.TaskSystem
 {
 	public class Selector : Sequence
 	{
+		public Selector() {}
+
+        public Selector(params Task[] tasks) : base(tasks) {}
+
 		protected override TaskStatus OnUpdate()
 		{
 			if (tasks.Count <= 0)
@@ -22,6 +26,8 @@ namespace Game.Cozyffee.TaskSystem
 			}
 			else if (status == TaskStatus.Failure)
 			{
+				Task.Stop(currentTask);
+				
 				currentTaskIndex++;
 
 				if (currentTaskIndex >= tasks.Count)

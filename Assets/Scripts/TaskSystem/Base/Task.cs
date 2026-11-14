@@ -33,7 +33,28 @@ namespace Game.Cozyffee.TaskSystem
 
         #region Status
 
-        public TaskStatus Status { get; set; } = TaskStatus.Inactive;
+        private TaskStatus status = TaskStatus.Inactive;
+
+        public TaskStatus Status
+        {
+            get
+            {
+                return status;
+            }
+            set
+            {
+                if (status != value)
+                {
+                    if (value == TaskStatus.Success || value == TaskStatus.Failure)
+                    {
+                        ViewParameters.FinishedTime = Time.time;
+                        ViewParameters.FinishedStatus = value;
+                    }
+                }
+
+                status = value;
+            }
+        }
 
         public bool Active => Status != TaskStatus.Inactive;
 
@@ -134,6 +155,11 @@ namespace Game.Cozyffee.TaskSystem
                 return;
             }
 
+            if (task is Condition)
+            {
+                return;
+            }
+
             task.Status = TaskStatus.Running;
             task.OnEntry();
         }
@@ -155,6 +181,11 @@ namespace Game.Cozyffee.TaskSystem
             if (task.CompareStatus(TaskStatus.Inactive))
             {
                 Debug.LogError($"Task '{task.FullName}' is already inactive, thus cannot be stopped!");
+                return;
+            }
+
+            if (task is Condition)
+            {
                 return;
             }
 
@@ -183,7 +214,12 @@ namespace Game.Cozyffee.TaskSystem
                 return TaskStatus.Failure;
             }
 
-            if (task.Status == TaskStatus.Failure || task.Status == TaskStatus.Failure)
+            if (task is Condition)
+            {
+                return UpdateCondition((Condition)task);
+            }
+
+            if (task.Status == TaskStatus.Success || task.Status == TaskStatus.Failure)
             {
                 return task.Status;
             }
@@ -194,14 +230,44 @@ namespace Game.Cozyffee.TaskSystem
                 return TaskStatus.Inactive;
             }
 
+            if (task is Composite)
+            {
+                return UpdateComposite((Composite)task);
+            }
+
             TaskStatus status = task.OnUpdate();
             task.Status = status;
 
-            if (task.Status == TaskStatus.Success || task.Status == TaskStatus.Failure)
+            return status;
+        }
+
+        private static TaskStatus UpdateCondition(Condition condition)
+        {
+            condition.Status = condition.OnUpdate();
+
+            if (condition.Status != TaskStatus.Success && condition.Status != TaskStatus.Failure)
             {
-                task.ViewParameters.FinishedTime = Time.time;
-                task.ViewParameters.FinishedStatus = task.Status;
+                Debug.LogError($"Condition '{condition.FullName}' can only return success or failure, but it's returning '{condition.Status}', which is something else!");
             }
+
+            if (condition.Invert)
+            {
+                condition.Status = (condition.Status == TaskStatus.Success) ? TaskStatus.Failure : TaskStatus.Success;
+            }
+
+            return condition.Status;
+        }
+
+        private static TaskStatus UpdateComposite(Composite task)
+        {
+            if (task.EvaluateConditions() == false)
+            {
+                Stop(task);
+                task.Status = TaskStatus.Failure;
+                return TaskStatus.Failure;
+            }
+
+            TaskStatus status = task.OnUpdate();
 
             return status;
         }
