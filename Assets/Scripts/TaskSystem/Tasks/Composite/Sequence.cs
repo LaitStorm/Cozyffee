@@ -9,7 +9,7 @@ namespace Game.Cozyffee.TaskSystem
         public Sequence() {}
 
         public Sequence(params Task[] tasks) : base(tasks) {}
-        
+
         protected int currentTaskIndex = 0;
         protected Task currentTask
         {
@@ -33,6 +33,21 @@ namespace Game.Cozyffee.TaskSystem
             return currentTaskIndex >= 0 && currentTaskIndex < tasks.Count;
         }
 
+        bool ShouldInterruptLowerPriority(Task task)
+		{
+			if (task is Composite)
+			{
+				Composite c = (Composite)task;
+
+				if (c.InterruptLowerPriority && c.EvaluateConditions() == false)
+				{
+					return true;
+				}
+			}
+
+			return false;
+		}
+
         protected override void OnEntry()
         {
             currentTaskIndex = 0;
@@ -49,6 +64,18 @@ namespace Game.Cozyffee.TaskSystem
             {
                 return TaskStatus.Failure;
             }
+
+            for (int i = 0; i < currentTaskIndex; i++)
+			{
+				if (ShouldInterruptLowerPriority(tasks[i]))
+				{
+					Task.Stop(currentTask);
+					currentTaskIndex = i;
+					Task.Start(currentTask);
+
+					break;
+				}
+			}
 
             TaskStatus status = Task.Update(currentTask);
 

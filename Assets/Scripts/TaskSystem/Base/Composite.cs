@@ -9,6 +9,8 @@ namespace Game.Cozyffee.TaskSystem
         protected List<Task> tasks = new List<Task>();
         public IReadOnlyCollection<Task> Tasks => tasks.AsReadOnly();
 
+        public bool InterruptLowerPriority = false;
+
         protected List<Condition> conditions = new List<Condition>();
 
         public Composite(){}
