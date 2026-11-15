@@ -17,6 +17,8 @@ namespace Game.Cozyffee.TaskSystem
 
         public ConditionEvaluationMode EvaluationMode = ConditionEvaluationMode.AND;
 
+        public bool Empty => conditions.Count <= 0;
+
         public void SetConditions(params Condition[] conditions)
         {
             this.conditions = new List<Condition>(conditions);

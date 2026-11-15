@@ -116,7 +116,7 @@ namespace Game.Cozyffee.TaskSystem
             {
                 return UtilityOverride(this);
             }
-            
+
             return DefaultUtility;
         }
 
@@ -272,6 +272,12 @@ namespace Game.Cozyffee.TaskSystem
                 Stop(task);
                 task.Status = TaskStatus.Failure;
                 return TaskStatus.Failure;
+            }
+
+            if (task.InterruptSelf && task.EvaluateConditions() == true)
+            {
+                Restart(task);
+                return TaskStatus.Running;
             }
 
             TaskStatus status = task.OnUpdate();

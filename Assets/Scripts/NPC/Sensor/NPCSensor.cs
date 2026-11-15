@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Game.Cozyffee
 {
-    public class NPCSensor : NPCComponent
+    public class NPCSensor : NPCComponent, INoiseListener
     {
         [SerializeField]
         float range = 10.0f;
@@ -30,6 +31,82 @@ namespace Game.Cozyffee
         public int OutOfSightHostileCount => DetectionList.OutOfSightHostileCount;
 
         public int HostilesCount => DetectionList.HostilesCount;
+        #endregion
+
+        #region Hearing
+
+        public bool NoiseHeard { get; private set; } = false;
+        public Vector3 NoisePosition { get; private set; }
+        public NoiseType NoiseType { get; private set; } = NoiseType.Common;
+        public float NoiseTime { get; private set; } = 0f;
+        public float TimeSinceHeardNoise => Time.time - NoiseTime;
+
+        public bool IsCombatNoise => NoiseSystem.IsCombatNoise(NoiseType);
+        public bool IsCoffeeMachineNoise => NoiseSystem.IsCoffeeMachineNoise(NoiseType);
+
+        [Header("Hearing")]
+        [SerializeField]
+        string hearingDebug = "";
+
+        [SerializeField]
+        Color noiseGizmosColor = Color.magenta;
+
+        public void OnNoiseHeard(NoiseInfo noise)
+        {
+            // Ignore own noises
+            if (noise.Owner == npc)
+            {
+                return;
+            }
+
+            // Ignore noises from visible NPCs
+            if (noise.Owner != null && IsVisible(noise.Owner))
+            {
+                return;
+            }
+
+            // Ignore lower priority noises if a higher priority noise has been heard recently
+            if (TimeSinceHeardNoise <= 5f && IsCombatNoise && !NoiseSystem.IsCombatNoise(noise.Type))
+            {
+                return;
+            }
+
+            NoiseHeard = true;
+            NoiseTime = Time.time;
+            NoiseType = noise.Type;
+
+            if (NavMesh.SamplePosition(noise.Position, out NavMeshHit hit, 4f, NavMesh.AllAreas))
+            {
+                NoisePosition = hit.position;
+            }
+            else
+            {
+                NoisePosition = noise.Position;
+            }
+        }
+
+        void UpdateHearing()
+        {
+            if (NoiseHeard == false)
+            {
+                hearingDebug = "NONE";
+                return;
+            }
+
+            hearingDebug = $"Heard Noise {Mathf.RoundToInt(TimeSinceHeardNoise)} seconds ago.\n\r";
+            hearingDebug += $"  Type = {NoiseType}";
+
+            if (TimeSinceHeardNoise >= EntryExpirationTime)
+            {
+                ForgetNoise();
+            }
+        }
+
+        public void ForgetNoise()
+        {
+            NoiseHeard = false;
+        }
+
         #endregion
 
         #region Unity Methods
@@ -63,6 +140,7 @@ namespace Game.Cozyffee
 
                 Scan();
                 UpdateDetectedEntries();
+                UpdateHearing();
 
                 DetectionList.Sort();
 

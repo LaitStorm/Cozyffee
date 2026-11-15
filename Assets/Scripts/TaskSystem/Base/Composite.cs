@@ -10,6 +10,7 @@ namespace Game.Cozyffee.TaskSystem
         public IReadOnlyCollection<Task> Tasks => tasks.AsReadOnly();
 
         public bool InterruptLowerPriority = false;
+        public bool InterruptSelf = false;
 
         protected CompositeCondition condition = new CompositeCondition();
         protected CompositeCondition interruptCondition = new CompositeCondition();
@@ -69,6 +70,11 @@ namespace Game.Cozyffee.TaskSystem
 
         public bool EvaluateConditions()
         {
+            if (condition.Empty)
+            {
+                return true;
+            }
+
             return condition.Evaluate();
         }
 
@@ -84,6 +90,11 @@ namespace Game.Cozyffee.TaskSystem
 
         public bool EvaluateInterruptConditions()
         {
+            if (interruptCondition.Empty)
+            {
+                return false;
+            }
+
             return interruptCondition.Evaluate();
         }
 
@@ -130,7 +141,7 @@ namespace Game.Cozyffee.TaskSystem
             {
                 return UtilityOverride(this);
             }
-            
+
             float maxUtility = 0.0f;
 
             foreach (Task task in tasks)
