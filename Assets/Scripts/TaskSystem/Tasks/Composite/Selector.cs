@@ -34,7 +34,7 @@ namespace Game.Cozyffee.TaskSystem
 
 			for (int i = 0; i < currentTaskIndex; i++)
 			{
-				if (ShouldInterruptLowerPriority(tasks[i]))
+				if (ShouldInterruptLowerPriority(GetTask(i)))
 				{
 					Task.Stop(currentTask);
 					currentTaskIndex = i;

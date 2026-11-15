@@ -10,14 +10,19 @@ namespace Game.Cozyffee.TaskSystem
 
         public Sequence(params Task[] tasks) : base(tasks) {}
 
+        protected List<int> childIndexes = new List<int>();
+
         protected int currentTaskIndex = 0;
+
+        public bool Randomize = false;
+
         protected Task currentTask
         {
             get
             {
                 try
                 {
-                    return tasks[currentTaskIndex];
+                    return GetTask(currentTaskIndex);
                 }
                 catch
                 {
@@ -48,9 +53,40 @@ namespace Game.Cozyffee.TaskSystem
 			return false;
 		}
 
+        protected Task GetTask(int index)
+        {
+            int indexInTasks = childIndexes[index];
+
+            return tasks[indexInTasks];
+        }
+
+        protected void CreateChildIndexes()
+        {
+            childIndexes.Clear();
+
+            for (int i = 0; i < tasks.Count; i++)
+            {
+                childIndexes.Add(i);
+            }
+
+            if (Randomize)
+            {
+                for (int i = 0; i < childIndexes.Count; i++)
+                {
+                    int otherIndex = Random.Range(0, childIndexes.Count);
+
+                    int value = childIndexes[otherIndex];
+                    childIndexes[otherIndex] = childIndexes[i];
+                    childIndexes[i] = value;
+                }
+            }
+        }
+
         protected override void OnEntry()
         {
             currentTaskIndex = 0;
+
+            CreateChildIndexes();
 
             if (IsCurrentTaskIndexValid())
             {
@@ -67,7 +103,7 @@ namespace Game.Cozyffee.TaskSystem
 
             for (int i = 0; i < currentTaskIndex; i++)
 			{
-				if (ShouldInterruptLowerPriority(tasks[i]))
+				if (ShouldInterruptLowerPriority(GetTask(i)))
 				{
 					Task.Stop(currentTask);
 					currentTaskIndex = i;
