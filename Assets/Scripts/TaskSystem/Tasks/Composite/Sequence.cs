@@ -39,7 +39,7 @@ namespace Game.Cozyffee.TaskSystem
 			{
 				Composite c = (Composite)task;
 
-				if (c.InterruptLowerPriority && c.EvaluateConditions() == false)
+				if (c.InterruptLowerPriority && c.EvaluateInterruptConditions() == false)
 				{
 					return true;
 				}

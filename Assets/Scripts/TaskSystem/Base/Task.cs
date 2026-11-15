@@ -22,7 +22,7 @@ namespace Game.Cozyffee.TaskSystem
     public abstract class Task
     {
         private bool hasAwaken = false;
-        protected GameObject Owner { get; set; }
+        public GameObject Owner { get; protected set; }
 
         public virtual void SetOwner(GameObject owner)
         {

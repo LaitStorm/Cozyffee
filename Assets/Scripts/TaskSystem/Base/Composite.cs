@@ -11,7 +11,8 @@ namespace Game.Cozyffee.TaskSystem
 
         public bool InterruptLowerPriority = false;
 
-        protected List<Condition> conditions = new List<Condition>();
+        protected CompositeCondition condition = new CompositeCondition();
+        protected CompositeCondition interruptCondition = new CompositeCondition();
 
         public Composite(){}
 
@@ -46,29 +47,44 @@ namespace Game.Cozyffee.TaskSystem
 
         #region Condition Methods
 
+        public void SetConditionsEvaluationMode(ConditionEvaluationMode evaluationMode)
+        {
+            condition.EvaluationMode = evaluationMode;
+        }
+
+        public void SetInterruptConditionsEvaluationMode(ConditionEvaluationMode evaluationMode)
+        {
+            interruptCondition.EvaluationMode = evaluationMode;
+        }
+
         public void SetConditions(params Condition[] conditions)
         {
-            this.conditions = new List<Condition>(conditions);
+            condition.SetConditions(conditions);
         }
 
         public void AddCondition(Condition condition)
         {
-            conditions.Add(condition);
+            this.condition.AddCondition(condition);
         }
 
         public bool EvaluateConditions()
         {
-            foreach (Condition c in conditions)
-            {
-                TaskStatus status = Task.Update(c);
+            return condition.Evaluate();
+        }
 
-                if (status == TaskStatus.Failure)
-                {
-                    return false;
-                }
-            }
+        public void SetInterruptConditions(params Condition[] conditions)
+        {
+            interruptCondition.SetConditions(conditions);
+        }
 
-            return true;
+        public void AddInterruptCondition(Condition condition)
+        {
+            interruptCondition.AddCondition(condition);
+        }
+
+        public bool EvaluateInterruptConditions()
+        {
+            return interruptCondition.Evaluate();
         }
 
         #endregion
@@ -82,10 +98,8 @@ namespace Game.Cozyffee.TaskSystem
                 task.SetOwner(owner);
             }
 
-            foreach (Condition condition in conditions)
-            {
-                condition.SetOwner(owner);
-            }
+            condition.SetOwner(owner);
+            interruptCondition.SetOwner(owner);
         }
 
         protected override void OnAwake()
@@ -95,10 +109,8 @@ namespace Game.Cozyffee.TaskSystem
                 Task.Awaken(task);
             }
 
-            foreach (Task condition in conditions)
-            {
-                Task.Awaken(condition);
-            }
+            Task.Awaken(condition);
+            Task.Awaken(interruptCondition);
         }
 
         protected override void OnExit()

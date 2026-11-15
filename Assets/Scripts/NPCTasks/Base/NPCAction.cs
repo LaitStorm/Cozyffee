@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game.Cozyffee.TaskSystem
 {
-  public abstract class NPCAction: Action
+	public abstract class NPCAction: Action
 	{
 		protected NPC npc;
 		protected NPCSensor sensor;
