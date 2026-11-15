@@ -18,7 +18,7 @@ namespace Game.Cozyffee.ExternalBehaviorTrees
 
 		public EVersion Version = EVersion.V2;
 
-		public override Task CreateBehaviorTree()
+		public override Task CreateBehaviorTree(BehaviorTree behaviorTree)
 		{
 			if (Version == EVersion.V1)
 			{
@@ -30,10 +30,6 @@ namespace Game.Cozyffee.ExternalBehaviorTrees
 			}
 
 			return null;
-		}
-
-		public override void CreateData(BehaviorTreeData data)
-		{
 		}
 
 		Task CreateV1()

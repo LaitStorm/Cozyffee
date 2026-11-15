@@ -30,6 +30,16 @@ namespace Game.Cozyffee.TaskSystem
             }
         }
 
+        public override void SetBehaviorTree(BehaviorTree behaviorTree)
+        {
+            base.SetBehaviorTree(behaviorTree);
+
+            foreach (Condition condition in Conditions)
+            {
+                condition.SetBehaviorTree(behaviorTree);
+            }
+        }
+
         protected override void OnAwake()
         {
             base.OnAwake();

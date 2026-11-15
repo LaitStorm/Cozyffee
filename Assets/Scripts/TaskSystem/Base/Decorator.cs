@@ -21,6 +21,12 @@ namespace Game.Cozyffee.TaskSystem
             Child.SetOwner(owner);
         }
 
+        public override void SetBehaviorTree(BehaviorTree behaviorTree)
+        {
+            base.SetBehaviorTree(behaviorTree);
+            Child.SetBehaviorTree(behaviorTree);
+        }
+
         protected override void OnAwake()
         {
             Task.Awaken(child);

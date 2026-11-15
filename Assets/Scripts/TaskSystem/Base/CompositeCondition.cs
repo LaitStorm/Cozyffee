@@ -63,9 +63,21 @@ namespace Game.Cozyffee.TaskSystem
 
         public override void SetOwner(GameObject owner)
         {
+            base.SetOwner(owner);
+
             foreach (Condition c in conditions)
             {
                 c.SetOwner(owner);
+            }
+        }
+
+        public override void SetBehaviorTree(BehaviorTree behaviorTree)
+        {
+            base.SetBehaviorTree(behaviorTree);
+            
+            foreach (Condition c in conditions)
+            {
+                c.SetBehaviorTree(behaviorTree);
             }
         }
 

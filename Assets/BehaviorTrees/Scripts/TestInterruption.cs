@@ -9,7 +9,7 @@ namespace Game.Cozyffee.ExternalBehaviorTrees
     [CreateAssetMenu(menuName = "Cozyffee/AI/BehaviorTrees/Test/InterruptionTest")]
     public class TestInterruption : ExternalBehaviorTree
     {
-        public override Task CreateBehaviorTree()
+        public override Task CreateBehaviorTree(BehaviorTree behaviorTree)
         {
             Selector selector = new Selector();
 

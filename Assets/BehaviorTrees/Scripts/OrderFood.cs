@@ -17,8 +17,12 @@ namespace Game.Cozyffee.ExternalBehaviorTrees
         [Tooltip("Placeholder: how long the NPC waits at the order area.")]
         public float OrderWaitTime = 600f;
 
-        public override Task CreateBehaviorTree()
+        public override Task CreateBehaviorTree(BehaviorTree behaviorTree)
         {
+            SharedNPC npc = new SharedNPC();
+            npc.Value = behaviorTree.GetComponentInParent<NPC>();
+            behaviorTree.Data.SetNPC("npc", npc);
+
             RandomChoice randomChoice = new RandomChoice();
             randomChoice.AddTask(CreateWander(), 9.0f);
             randomChoice.AddTask(CreateOrderThenWander(), 1.0f);
@@ -80,10 +84,6 @@ namespace Game.Cozyffee.ExternalBehaviorTrees
             sequence.AddTask(new ConsumeItem());
 
             return sequence;
-        }
-
-        public override void CreateData(BehaviorTreeData data)
-        {
         }
     }
 }

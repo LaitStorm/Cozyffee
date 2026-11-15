@@ -9,7 +9,7 @@ namespace Game.Cozyffee.ExternalBehaviorTrees
     [CreateAssetMenu(menuName = "Cozyffee/AI/BehaviorTrees/Test/TurningTest")]
     public class TurnTest : ExternalBehaviorTree
     {
-        public override Task CreateBehaviorTree()
+        public override Task CreateBehaviorTree(BehaviorTree behaviorTree)
         {
             Sequence sequence = new Sequence();
             sequence.AddTask(new LookAtRandomAngle());

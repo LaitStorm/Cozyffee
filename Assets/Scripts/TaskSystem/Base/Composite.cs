@@ -113,6 +113,19 @@ namespace Game.Cozyffee.TaskSystem
             interruptCondition.SetOwner(owner);
         }
 
+        public override void SetBehaviorTree(BehaviorTree behaviorTree)
+        {
+            base.SetBehaviorTree(behaviorTree);
+
+            foreach (Task task in tasks)
+            {
+                task.SetBehaviorTree(behaviorTree);
+            }
+
+            condition.SetBehaviorTree(behaviorTree);
+            interruptCondition.SetBehaviorTree(behaviorTree);
+        }
+
         protected override void OnAwake()
         {
             foreach (Task task in tasks)

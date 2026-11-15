@@ -23,10 +23,17 @@ namespace Game.Cozyffee.TaskSystem
     {
         private bool hasAwaken = false;
         public GameObject Owner { get; protected set; }
+        public BehaviorTree BehaviorTree { get; protected set; }
+        public BehaviorTreeData Data => BehaviorTree.Data;
 
         public virtual void SetOwner(GameObject owner)
         {
             Owner = owner;
+        }
+
+        public virtual void SetBehaviorTree(BehaviorTree behaviorTree)
+        {
+            this.BehaviorTree = behaviorTree;
         }
 
         public float DefaultUtility = 0f;
