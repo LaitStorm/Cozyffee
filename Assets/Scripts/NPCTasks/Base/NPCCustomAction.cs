@@ -14,7 +14,6 @@ namespace Game.Cozyffee.TaskSystem
         public UnityAction<NPCCustomAction> Entry;
         public UnityAction<NPCCustomAction> Exit;
         public new System.Func<NPCCustomAction, TaskStatus> Update;
-        public System.Func<NPCCustomAction, float> Utility;
 
         protected override void OnAwake()
         {
@@ -42,16 +41,6 @@ namespace Game.Cozyffee.TaskSystem
             }
 
             return TaskStatus.Success;
-        }
-
-        public override float GetUtility()
-        {
-            if (Utility != null)
-            {
-                return Utility.Invoke(this);
-            }
-
-            return DefaultUtility;
         }
     }
 }

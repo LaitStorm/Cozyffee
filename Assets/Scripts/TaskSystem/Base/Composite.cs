@@ -126,6 +126,11 @@ namespace Game.Cozyffee.TaskSystem
 
         public override float GetUtility()
         {
+            if (UtilityOverride != null)
+            {
+                return UtilityOverride(this);
+            }
+            
             float maxUtility = 0.0f;
 
             foreach (Task task in tasks)

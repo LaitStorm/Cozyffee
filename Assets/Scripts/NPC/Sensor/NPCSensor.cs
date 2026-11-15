@@ -33,6 +33,14 @@ namespace Game.Cozyffee
         #endregion
 
         #region Unity Methods
+
+        public override void SetNPC(NPC npc)
+        {
+            base.SetNPC(npc);
+
+            npc.Sensor = this;
+        }
+
         private void OnDisable()
         {
             DetectionList.Clear();
@@ -107,6 +115,18 @@ namespace Game.Cozyffee
             }
         }
 
+        public float GetLastSeenDuration(NPC target)
+        {
+            DetectionEntry entry = DetectionList.GetEntry(target);
+
+            if (entry == null)
+            {
+                return 3600.0f;
+            }
+
+            return Mathf.Max(Time.time - entry.LastSeenTime, 0f);
+        }
+
         public bool IsVisible(NPC target)
         {
             return DetectionList.IsVisible(target);
@@ -116,6 +136,16 @@ namespace Game.Cozyffee
         public bool IsHostile(NPC target)
         {
             return false;
+        }
+
+        public bool HasHostiles()
+        {
+            return HostilesCount > 0;
+        }
+
+        public bool HasVisibleHostiles()
+        {
+            return VisibleHostileCount > 0;
         }
 
         bool IsWithinFOV(NPC target)

@@ -47,6 +47,11 @@ namespace Game.Cozyffee.TaskSystem
 
         public override float GetUtility()
         {
+            if (UtilityOverride != null)
+            {
+                return UtilityOverride(this);
+            }
+            
             if (currentTask != null)
             {
                 return currentTask.GetUtility();

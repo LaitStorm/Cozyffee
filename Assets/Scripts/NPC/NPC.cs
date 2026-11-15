@@ -25,6 +25,8 @@ namespace Game.Cozyffee
         public Vector3 Direction {get; private set; } = Vector3.forward;
         public Vector3 Position => transform.position;
 
+        public NPCSensor Sensor;
+
         public Vector3 SensorPosition
         {
             get

@@ -31,6 +31,8 @@ namespace Game.Cozyffee.TaskSystem
 
         public float DefaultUtility = 0f;
 
+        public System.Func<Task, float> UtilityOverride = null;
+
         #region Status
 
         private TaskStatus status = TaskStatus.Inactive;
@@ -110,6 +112,11 @@ namespace Game.Cozyffee.TaskSystem
 
         public virtual float GetUtility()
         {
+            if (UtilityOverride != null)
+            {
+                return UtilityOverride(this);
+            }
+            
             return DefaultUtility;
         }
 
