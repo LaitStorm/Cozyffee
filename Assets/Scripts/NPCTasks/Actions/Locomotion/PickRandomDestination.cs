@@ -12,6 +12,17 @@ namespace Game.Cozyffee
 		public SharedFloat Radius = 20.0f;
 		public SharedVector3 Destination = new SharedVector3();
 
+		public PickRandomDestination()
+		{
+			
+		}
+
+		public PickRandomDestination(SharedFloat radius, SharedVector3 destination)
+		{
+			Radius = radius;
+			Destination = destination;
+		}
+
 		protected override TaskStatus OnUpdate()
 		{
 			for (int i = 0; i < 1000; i++)

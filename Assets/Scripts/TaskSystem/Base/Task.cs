@@ -96,6 +96,20 @@ namespace Game.Cozyffee.TaskSystem
         [HideInInspector]
         internal TaskViewParameters ViewParameters = new TaskViewParameters();
 
+        public bool FoldoutVisible
+        {
+            get { return ViewParameters.ShowFoldout; }
+            set
+            {
+                ViewParameters.ShowFoldout = value;
+            }
+        }
+
+        public void SetFoldoutVisible(bool visible)
+        {
+            ViewParameters.ShowFoldout = visible;
+        }
+
         #endregion
 
         #region Virtual Methods

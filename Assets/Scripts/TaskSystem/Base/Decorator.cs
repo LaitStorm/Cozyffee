@@ -8,7 +8,11 @@ namespace Game.Cozyffee.TaskSystem
     {
         protected Task child;
 
-        public Task Child => child;
+        public Task Child { get { return child; } set { child = value; } }
+
+        public Decorator()
+		{
+		}
 
         public Decorator(Task childTask)
         {

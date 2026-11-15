@@ -19,48 +19,31 @@ namespace Game.Cozyffee.ExternalBehaviorTrees
 
         public override Task CreateBehaviorTree(BehaviorTree behaviorTree)
         {
+            WanderParameters wanderParameters = new WanderParameters();
+
             SharedNPC npc = new SharedNPC();
             npc.Value = behaviorTree.GetComponentInParent<NPC>();
             behaviorTree.Data.SetNPC("npc", npc);
 
             RandomChoice randomChoice = new RandomChoice();
-            randomChoice.AddTask(CreateWander(), 9.0f);
-            randomChoice.AddTask(CreateOrderThenWander(), 1.0f);
+            randomChoice.AddTask(BehaviorFactory.Wander(wanderParameters), 9.0f);
+            randomChoice.AddTask(CreateOrderThenWander(wanderParameters), 1.0f);
 
             Sequence sequence = new Sequence();
-            sequence.AddTask(CreateWander());
-            sequence.AddTask(CreateOrderThenWander());
+            sequence.AddTask(BehaviorFactory.Wander(wanderParameters));
+            sequence.AddTask(CreateOrderThenWander(wanderParameters));
             sequence.AddTask(new Repeater(randomChoice));
 
             return sequence;
         }
 
-        public Task CreateOrderThenWander()
+        public Task CreateOrderThenWander(WanderParameters wanderParameters)
         {
             Sequence orderThenWander = new Sequence() { Name = "Order then wander" };
             orderThenWander.AddTask(CreateOrder());
-            orderThenWander.AddTask(CreateWander());
+            orderThenWander.AddTask(BehaviorFactory.Wander(wanderParameters));
 
             return orderThenWander;
-        }
-
-        public Task CreateWander()
-        {
-            Sequence wanderSequence = new Sequence();
-            SharedVector3 wanderDestination = new();
-            ParallelSelector parallelSelector = new();
-
-            Sequence moveSequence = new Sequence() { Name = "Wander" };
-            moveSequence.AddTask(new PickRandomDestination { Destination = wanderDestination });
-            moveSequence.AddTask(new GoTo { Destination = wanderDestination });
-
-            parallelSelector.AddTask(new Repeater(moveSequence));
-            parallelSelector.AddTask(new Wait(2f, 3f));
-
-            wanderSequence.AddTask(new Wait(1f, 3f));
-            wanderSequence.AddTask(parallelSelector);
-
-            return wanderSequence;
         }
 
         public Task CreateOrder()
@@ -70,7 +53,7 @@ namespace Game.Cozyffee.ExternalBehaviorTrees
             SharedVector3 orderDestination = new();
             ParallelSelector waitForItem = new();
 
-            goToOrderArea.AddTask(new PickRandomDestinationInArea { Destination = orderDestination, AreaId = AreaId });
+            goToOrderArea.AddTask(new PickRandomDestinationInAreaID { Destination = orderDestination, AreaId = AreaId });
             goToOrderArea.AddTask(new GoTo { Destination = orderDestination });
 
             waitForItem.AddTask(new LookAtPlayer { KeepLooking = true });
