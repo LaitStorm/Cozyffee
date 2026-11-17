@@ -14,18 +14,24 @@ namespace Game.Cozyffee
         float fov = 0.5f;
 
         [SerializeField]
-        float scanRate = 0.5f;
+        float scanRate = 1f;
 
         [SerializeField]
         float EntryExpirationTime = 30f;
 
-        [SerializeField]
+        [SerializeField, Tooltip("This mask should only contain character layers!")]
         LayerMask ScanMask = Physics.DefaultRaycastLayers;
+
+        [SerializeField, Tooltip("This mask should contain character and obstacle layers")]
+        LayerMask RaycastMask = Physics.DefaultRaycastLayers;
 
         [SerializeField]
         public DetectionList DetectionList = new DetectionList();
 
-        #region Convinient Properties
+        const int collidersBufferSize = 67;
+        Collider[] collidersBuffer = new Collider[collidersBufferSize];
+
+        #region Convenient Properties
         public int VisibleHostileCount => DetectionList.VisibleHostileCount;
 
         public int OutOfSightHostileCount => DetectionList.OutOfSightHostileCount;
@@ -167,10 +173,20 @@ namespace Game.Cozyffee
 
         void Scan()
         {
-            Collider[] colliders = Physics.OverlapSphere(npc.SensorPosition, range, ScanMask, QueryTriggerInteraction.Ignore);
+            // Collider[] colliders = Physics.OverlapSphere(npc.SensorPosition, range, ScanMask, QueryTriggerInteraction.Ignore);
 
-            foreach (Collider collider in colliders)
+            int size = Physics.OverlapSphereNonAlloc(npc.SensorPosition, range, collidersBuffer, ScanMask, QueryTriggerInteraction.Ignore);
+
+            if (size >= collidersBufferSize)
             {
+                Debug.Log("Colliders buffer size has been reached!!!");
+            }
+
+            // foreach (Collider collider in colliders)
+            for (int i = 0; i < size; i++)
+            {
+                Collider collider = collidersBuffer[i];
+
                 NPC otherNPC = collider.GetComponentInParent<NPC>();
 
                 bool valid = otherNPC != null && otherNPC != npc && otherNPC.Alive;
@@ -238,7 +254,7 @@ namespace Game.Cozyffee
         {
             Ray ray = new Ray(npc.SensorPosition, target.SensorPosition - npc.SensorPosition);
 
-            RaycastHit[] hits = Physics.RaycastAll(ray, range, ScanMask, QueryTriggerInteraction.Ignore);
+            RaycastHit[] hits = Physics.RaycastAll(ray, range, RaycastMask, QueryTriggerInteraction.Ignore);
 
             System.Array.Sort(hits, (hit1, hit2) => hit1.distance.CompareTo(hit2.distance));
 

@@ -59,21 +59,21 @@ namespace Game.Cozyffee
 				{
 					continue;
 				}
- 
+
 				Vector3 flat = hit.position - center;
 				flat.y = 0f;
- 
+
 				if (flat.sqrMagnitude <= Radius * Radius)
 				{
 					point = hit.position;
 					return true;
 				}
 			}
- 
+
 			point = center;
 			return false;
 		}
- 
+
 		public Vector3 GetRandomPoint()
 		{
 			TryGetRandomPoint(out Vector3 point);

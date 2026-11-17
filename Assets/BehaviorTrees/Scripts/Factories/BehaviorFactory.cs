@@ -49,5 +49,19 @@ namespace Game.Cozyffee
 
             return root;
         }
+
+        public static Task Wander()
+        {
+            return Wander(new WanderParameters
+            {
+                SearchRadius = 20,
+
+                MaxWanderTime = 5,
+                MaxWanderTimeRandom = 25,
+                
+                MaxWaitTime = 1,
+                MaxWaitTimeRandom = 5
+            });
+        }
     }
 }
