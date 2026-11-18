@@ -8,7 +8,7 @@ using UnityEngine.Events;
 namespace Game.Cozyffee
 {
     [SelectionBase]
-    [RequireComponent(typeof(Animator))]
+    // [RequireComponent(typeof(Animator))]
 
     public class NPC : MonoBehaviour
     {
@@ -47,7 +47,8 @@ namespace Game.Cozyffee
         #endregion
 
         [Header("NPC Components")]
-        public Animator Animator;
+        // public Animator Animator;
+        public System.Func<Animator> GetAnimator;
 
         #region Hunger
 
@@ -71,6 +72,14 @@ namespace Game.Cozyffee
 
         #endregion
 
+        #region Animator Booleans
+
+        public bool IsOrdering = false;
+        public bool IsEating = false;
+        public bool IsSleeping = false;
+
+        #endregion
+
         #region Locomotion Delegates
         public UnityAction<Vector3> SetDestination;
         public UnityAction<float> SetMaxSpeed;
@@ -88,14 +97,6 @@ namespace Game.Cozyffee
 
         private void Awake()
         {
-            if (Animator == null)
-            {
-                Animator = GetComponent<Animator>();
-            }
-            if (Animator == null)
-            {
-                Debug.LogError($"Animator not found in '{gameObject.name}'");
-            }
         }
 
         private void LateUpdate()
