@@ -12,6 +12,9 @@ namespace Game.Cozyffee
 		public SharedFloat Radius = 20.0f;
 		public SharedVector3 Destination = new SharedVector3();
 
+		[Tooltip("If set, points inside any Area with this ID are rejected.")]
+		public SharedString AvoidAreaId = "";
+
 		public PickRandomDestination()
 		{
 			
@@ -32,6 +35,13 @@ namespace Game.Cozyffee
 
 				if (NavMesh.SamplePosition(randomDirection, out NavMeshHit hit, 5f, NavMesh.AllAreas))
 				{
+					string avoidId = AvoidAreaId?.Value;
+
+					if (!string.IsNullOrEmpty(avoidId) && Area.IsInsideAny(avoidId, hit.position))
+					{
+						continue;
+					}
+
 					Destination.Value = hit.position;
 					return TaskStatus.Success;
 				}

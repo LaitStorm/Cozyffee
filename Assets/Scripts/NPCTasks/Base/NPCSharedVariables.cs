@@ -19,4 +19,9 @@ namespace Game.Cozyffee.TaskSystem
             return new SharedDetectionEntry { Value = value };
         }
     }
+
+    public class SharedEmotion : SharedVariable<Emotion>
+    {
+        public static implicit operator SharedEmotion(Emotion value) => new SharedEmotion { Value = value };
+    }
 }

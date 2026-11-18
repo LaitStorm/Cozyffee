@@ -88,6 +88,13 @@ namespace Game.Cozyffee
         public System.Func<Vector3, bool> IsLookingAt;
         #endregion
 
+        #region Emotion Delegates
+
+        public UnityAction<Emotion> SetEmotion;
+        public System.Func<Emotion> GetEmotion;
+
+        #endregion
+
         #region Other Unity Actions
         public UnityAction<string> Say;
         public UnityAction<Sprite, float> SayImage;
