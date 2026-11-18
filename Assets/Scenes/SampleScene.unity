@@ -9001,6 +9001,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeftHandQuestVisual
       objectReference: {fileID: 0}
+    - target: {fileID: 1801240328544028736, guid: ffd656bf2a3ba3d41b1e4a94b81b7c85, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1801240328544028736, guid: ffd656bf2a3ba3d41b1e4a94b81b7c85, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 94f2b9bafa8c33d478bba1cae6d64efd, type: 2}
     - target: {fileID: 2599780285154657760, guid: ffd656bf2a3ba3d41b1e4a94b81b7c85, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -29483,6 +29491,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: RightHandQuestVisual
       objectReference: {fileID: 0}
+    - target: {fileID: 2430180933195963327, guid: 89e80c47615e4f043926d66492d3ca5f, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2430180933195963327, guid: 89e80c47615e4f043926d66492d3ca5f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 94f2b9bafa8c33d478bba1cae6d64efd, type: 2}
     - target: {fileID: 2605394267117782397, guid: 89e80c47615e4f043926d66492d3ca5f, type: 3}
       propertyPath: m_Enabled
       value: 0
