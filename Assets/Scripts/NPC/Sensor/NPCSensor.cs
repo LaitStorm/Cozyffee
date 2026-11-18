@@ -28,7 +28,7 @@ namespace Game.Cozyffee
         [SerializeField]
         public DetectionList DetectionList = new DetectionList();
 
-        const int collidersBufferSize = 67;
+        const int collidersBufferSize = 100;
         Collider[] collidersBuffer = new Collider[collidersBufferSize];
 
         #region Convenient Properties

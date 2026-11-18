@@ -44,6 +44,8 @@ namespace Game.Cozyffee
 
         void SetSpineRigWeight(float weight)
 		{
+			if (SpineRig == null) return;
+
 			float smoothing = 5f;
 
 			SpineRig.weight = Mathf.Lerp(SpineRig.weight, weight, smoothing * Time.deltaTime);
@@ -58,6 +60,8 @@ namespace Game.Cozyffee
             targetPosition = position;
 
             SetSpineRigWeight(1.0f);
+
+            if (AimTarget == null) return;
 
             AimTarget.position = position;
             ClampAimTargetAngle();
