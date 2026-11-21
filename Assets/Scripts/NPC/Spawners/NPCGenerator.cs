@@ -23,6 +23,17 @@ namespace Game.Cozyffee.NavigationTutorial
 		[SerializeField]
 		float MaxStartingHunger = 100f;
 
+		[Header("Spacing")]
+		[Tooltip("Minimum distance (on the XZ plane) between spawned NPCs. Roughly twice the NavMeshAgent radius works well.")]
+		[SerializeField]
+		float MinSpacing = 1f;
+
+		[Tooltip("How many random points to try before giving up on a spawn.")]
+		[SerializeField]
+		int MaxPlacementAttempts = 30;
+
+		readonly List<Vector3> NPCPositions = new List<Vector3>();
+
 		private void Start()
 		{
 			for (int i = 0; i < Count; i++)
@@ -41,7 +52,13 @@ namespace Game.Cozyffee.NavigationTutorial
 				return null;
 			}
 
-			Vector3 position = Area.GetRandomPoint();
+			if (!TryGetFreePosition(out Vector3 position))
+			{
+				Debug.LogWarning($"NPCGenerator '{name}' couldn't find a free spot to spawn an NPC; the area may be too crowded or off the NavMesh.", this);
+				return null;
+			}
+
+			NPCPositions.Add(position);
 			Quaternion rotation = Quaternion.Euler(0f, Random.Range(0f, 360f), 0f);
 
 			NPC npc = Instantiate(prefab, position, rotation);
@@ -49,6 +66,40 @@ namespace Game.Cozyffee.NavigationTutorial
 			RandomizeHunger(npc);
 
 			return npc;
+		}
+
+		bool TryGetFreePosition(out Vector3 position)
+		{
+			float minSqr = MinSpacing * MinSpacing;
+
+			for (int attempt = 0; attempt < MaxPlacementAttempts; attempt++)
+			{
+				if (!Area.TryGetRandomPoint(out position))
+				{
+					continue;
+				}
+
+				bool free = true;
+				foreach (Vector3 other in NPCPositions)
+				{
+					Vector3 delta = position - other;
+					delta.y = 0f;
+
+					if (delta.sqrMagnitude < minSqr)
+					{
+						free = false;
+						break;
+					}
+				}
+
+				if (free)
+				{
+					return true;
+				}
+			}
+
+			position = default;
+			return false;
 		}
 
 		NPC GetRandomPrefab()
@@ -97,6 +148,8 @@ namespace Game.Cozyffee.NavigationTutorial
 		private void OnValidate()
 		{
 			Count = Mathf.Max(Count, 0);
+			MinSpacing = Mathf.Max(MinSpacing, 0f);
+			MaxPlacementAttempts = Mathf.Max(MaxPlacementAttempts, 1);
 			MinStartingHunger = Mathf.Max(MinStartingHunger, 0f);
 			MaxStartingHunger = Mathf.Max(MaxStartingHunger, MinStartingHunger);
 		}
