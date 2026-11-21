@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52ab1816a29014e4fa4742ffd1b7383b, type: 3}
+  m_Name: Customer
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.ExternalBehaviorTrees.Customer
+  wanderParameters:
+    SearchRadius: 10
+    MaxWanderTime: 3
+    MaxWanderTimeRandom: 5
+    MaxWaitTime: 3
+    MaxWaitTimeRandom: 5
+  AreaId: OrderArea
+  OrderBubble: {fileID: 0}
+  ItemId: cinnamon_roll
+  OrderWaitTime: 600
+  FillAmount: 60
+  HungryThreshold: 30
+  SleepyThreshold: 80
+  IdleHungerInterval: 3
+  IdleHungerIntervalRandom: 4
+  IdleHungerAmount: 3
+  IdleHungerAmountRandom: 5
+  SleepChance: 0.3
+  SleepCheckInterval: 10
+  SleepDuration: 20
+  SleepDurationRandom: 10
+  SleepHungerInterval: 5
+  SleepHungerIntervalRandom: 3
+  SleepHungerAmount: 0.5
+  SleepHungerAmountRandom: 1

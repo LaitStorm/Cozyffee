@@ -9,6 +9,21 @@ namespace Game.Cozyffee.TaskSystem
         protected List<Task> tasks = new List<Task>();
         public IReadOnlyCollection<Task> Tasks => tasks.AsReadOnly();
 
+        public bool InterruptLowerPriority = false;
+        public bool InterruptSelf = false;
+
+        protected CompositeCondition condition = new CompositeCondition();
+        protected CompositeCondition interruptCondition = new CompositeCondition();
+
+        public Composite(){}
+
+        public Composite(params Task[] tasks)
+        {
+            this.tasks = new List<Task>(tasks);
+        }
+
+        #region Tasks Methods
+
         public virtual void ClearTasks()
         {
             this.tasks.Clear();
@@ -29,6 +44,62 @@ namespace Game.Cozyffee.TaskSystem
             }
         }
 
+        #endregion
+
+        #region Condition Methods
+
+        public void SetConditionsEvaluationMode(ConditionEvaluationMode evaluationMode)
+        {
+            condition.EvaluationMode = evaluationMode;
+        }
+
+        public void SetInterruptConditionsEvaluationMode(ConditionEvaluationMode evaluationMode)
+        {
+            interruptCondition.EvaluationMode = evaluationMode;
+        }
+
+        public void SetConditions(params Condition[] conditions)
+        {
+            condition.SetConditions(conditions);
+        }
+
+        public void AddCondition(Condition condition)
+        {
+            this.condition.AddCondition(condition);
+        }
+
+        public bool EvaluateConditions()
+        {
+            if (condition.Empty)
+            {
+                return true;
+            }
+
+            return condition.Evaluate();
+        }
+
+        public void SetInterruptConditions(params Condition[] conditions)
+        {
+            interruptCondition.SetConditions(conditions);
+        }
+
+        public void AddInterruptCondition(Condition condition)
+        {
+            interruptCondition.AddCondition(condition);
+        }
+
+        public bool EvaluateInterruptConditions()
+        {
+            if (interruptCondition.Empty)
+            {
+                return false;
+            }
+
+            return interruptCondition.Evaluate();
+        }
+
+        #endregion
+
         public override void SetOwner(GameObject owner)
         {
             base.SetOwner(owner);
@@ -37,6 +108,22 @@ namespace Game.Cozyffee.TaskSystem
             {
                 task.SetOwner(owner);
             }
+
+            condition.SetOwner(owner);
+            interruptCondition.SetOwner(owner);
+        }
+
+        public override void SetBehaviorTree(BehaviorTree behaviorTree)
+        {
+            base.SetBehaviorTree(behaviorTree);
+
+            foreach (Task task in tasks)
+            {
+                task.SetBehaviorTree(behaviorTree);
+            }
+
+            condition.SetBehaviorTree(behaviorTree);
+            interruptCondition.SetBehaviorTree(behaviorTree);
         }
 
         protected override void OnAwake()
@@ -45,6 +132,9 @@ namespace Game.Cozyffee.TaskSystem
             {
                 Task.Awaken(task);
             }
+
+            Task.Awaken(condition);
+            Task.Awaken(interruptCondition);
         }
 
         protected override void OnExit()
@@ -60,6 +150,11 @@ namespace Game.Cozyffee.TaskSystem
 
         public override float GetUtility()
         {
+            if (UtilityOverride != null)
+            {
+                return UtilityOverride(this);
+            }
+
             float maxUtility = 0.0f;
 
             foreach (Task task in tasks)

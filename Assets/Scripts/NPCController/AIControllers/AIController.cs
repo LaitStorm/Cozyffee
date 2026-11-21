@@ -20,6 +20,7 @@ namespace Game.Cozyffee
                 this.npc.SetDestination -= OnSetDestination;
                 this.npc.SetMaxSpeed -= OnSetMaxSpeed;
                 this.npc.HasPathToDestination -= OnHasPathToDestination;
+                this.npc.Eat -= OnEat;
             }
             base.SetNPC(npc);
 
@@ -32,6 +33,7 @@ namespace Game.Cozyffee
                 npc.SetDestination += OnSetDestination;
                 npc.SetMaxSpeed += OnSetMaxSpeed;
                 npc.HasPathToDestination += OnHasPathToDestination;
+                npc.Eat += OnEat;
 
                 if (Agent == null)
                 {
@@ -48,6 +50,11 @@ namespace Game.Cozyffee
         void OnSetMaxSpeed(float maxSpeed)
         {
             Agent.speed = maxSpeed;
+        }
+
+        void OnEat()
+        {
+            return;
         }
 
         bool OnHasPathToDestination()

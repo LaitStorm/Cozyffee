@@ -12,6 +12,11 @@ namespace Game.Cozyffee.TaskSystem
         public bool EndOnFailure = false;
         private int timesToRepeat = 0;
 
+        public Repeater()
+		{
+
+		}
+
         public Repeater(Task childTask, bool forever = true, int iterations = 10, int iterationsRandom = 0) : base(childTask)
         {
             RepeatForever = forever;

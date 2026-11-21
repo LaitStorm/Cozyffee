@@ -1,0 +1,53 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.AI;
+
+using Game.Cozyffee.TaskSystem;
+
+namespace Game.Cozyffee
+{
+	public class PickRandomDestination : NPCAction
+	{
+		public SharedFloat Radius = 20.0f;
+		public SharedVector3 Destination = new SharedVector3();
+
+		[Tooltip("If set, points inside any Area with this ID are rejected.")]
+		public SharedString AvoidAreaId = "";
+
+		public PickRandomDestination()
+		{
+			
+		}
+
+		public PickRandomDestination(SharedFloat radius, SharedVector3 destination)
+		{
+			Radius = radius;
+			Destination = destination;
+		}
+
+		protected override TaskStatus OnUpdate()
+		{
+			for (int i = 0; i < 1000; i++)
+			{
+				Vector3 randomDirection = Random.insideUnitSphere * Radius.Value;
+				randomDirection += npc.Position;
+
+				if (NavMesh.SamplePosition(randomDirection, out NavMeshHit hit, 5f, NavMesh.AllAreas))
+				{
+					string avoidId = AvoidAreaId?.Value;
+
+					if (!string.IsNullOrEmpty(avoidId) && Area.IsInsideAny(avoidId, hit.position))
+					{
+						continue;
+					}
+
+					Destination.Value = hit.position;
+					return TaskStatus.Success;
+				}
+			}
+
+			return TaskStatus.Failure;
+		}
+	}
+}

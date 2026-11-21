@@ -8,7 +8,7 @@ using UnityEngine.Events;
 namespace Game.Cozyffee
 {
     [SelectionBase]
-    [RequireComponent(typeof(Animator))]
+    // [RequireComponent(typeof(Animator))]
 
     public class NPC : MonoBehaviour
     {
@@ -25,6 +25,10 @@ namespace Game.Cozyffee
         public Vector3 Direction {get; private set; } = Vector3.forward;
         public Vector3 Position => transform.position;
 
+        #region Sensors
+
+        public NPCSensor Sensor;
+
         public Vector3 SensorPosition
         {
             get
@@ -33,8 +37,18 @@ namespace Game.Cozyffee
             }
         }
 
+        public void MakeNoise(NoiseInfo noiseInfo)
+        {
+            noiseInfo.Owner = this;
+
+            NoiseSystem.Instance?.MakeNoise(noiseInfo);
+        }
+
+        #endregion
+
         [Header("NPC Components")]
-        public Animator Animator;
+        // public Animator Animator;
+        public System.Func<Animator> GetAnimator;
 
         #region Hunger
 
@@ -58,12 +72,27 @@ namespace Game.Cozyffee
 
         #endregion
 
+        #region Animator Booleans
+
+        public bool IsOrdering = false;
+        public bool IsEating = false;
+        public bool IsSleeping = false;
+
+        #endregion
+
         #region Locomotion Delegates
         public UnityAction<Vector3> SetDestination;
         public UnityAction<float> SetMaxSpeed;
         public System.Func<bool> HasPathToDestination;
         public UnityAction<Vector3> LookAt;
         public System.Func<Vector3, bool> IsLookingAt;
+        #endregion
+
+        #region Emotion Delegates
+
+        public UnityAction<Emotion> SetEmotion;
+        public System.Func<Emotion> GetEmotion;
+
         #endregion
 
         #region Other Unity Actions
@@ -75,14 +104,6 @@ namespace Game.Cozyffee
 
         private void Awake()
         {
-            if (Animator == null)
-            {
-                Animator = GetComponent<Animator>();
-            }
-            if (Animator == null)
-            {
-                Debug.LogError($"Animator not found in '{gameObject.name}'");
-            }
         }
 
         private void LateUpdate()

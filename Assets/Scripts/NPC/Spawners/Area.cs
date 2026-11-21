@@ -15,7 +15,7 @@ namespace Game.Cozyffee
 		public float SampleDistance = 2f;
 
 		static readonly List<Area> registry = new();
- 
+
 		private void OnEnable() => registry.Add(this);
 		private void OnDisable() => registry.Remove(this);
 		static void ResetStatics() => registry.Clear();
@@ -26,15 +26,15 @@ namespace Game.Cozyffee
 			{
 				return null;
 			}
- 
+
 			Area best = null;
 			float bestSqrDistance = float.MaxValue;
- 
+
 			foreach (Area candidate in registry)
 			{
 				if (candidate.Id != id)
 					continue;
- 
+
 				float sqrDistance = (candidate.transform.position - nearTo).sqrMagnitude;
 				if (sqrDistance < bestSqrDistance)
 				{
@@ -42,38 +42,70 @@ namespace Game.Cozyffee
 					bestSqrDistance = sqrDistance;
 				}
 			}
- 
+
 			return best;
+		}
+
+		/// <summary>
+		/// True if any enabled Area with the given ID contains <paramref name="point"/> (on the XZ plane).
+		/// </summary>
+		public static bool IsInsideAny(string id, Vector3 point)
+		{
+			if (string.IsNullOrEmpty(id))
+			{
+				return false;
+			}
+
+			foreach (Area candidate in registry)
+			{
+				if (candidate.Id == id && candidate.Contains(point))
+				{
+					return true;
+				}
+			}
+
+			return false;
+		}
+
+		/// <summary>
+		/// True if <paramref name="point"/> is within <see cref="Radius"/> of this area's center, ignoring height.
+		/// </summary>
+		public bool Contains(Vector3 point)
+		{
+			Vector3 flat = point - transform.position;
+			flat.y = 0f;
+
+			return flat.sqrMagnitude <= Radius * Radius;
 		}
 
 		public bool TryGetRandomPoint(out Vector3 point, int maxAttempts = 30)
 		{
 			Vector3 center = transform.position;
- 
+
 			for (int i = 0; i < maxAttempts; i++)
 			{
 				Vector2 offset = Random.insideUnitCircle * Radius;
 				Vector3 candidate = center + new Vector3(offset.x, 0f, offset.y);
- 
+
 				if (!NavMesh.SamplePosition(candidate, out NavMeshHit hit, SampleDistance, NavMesh.AllAreas))
 				{
 					continue;
 				}
- 
+
 				Vector3 flat = hit.position - center;
 				flat.y = 0f;
- 
+
 				if (flat.sqrMagnitude <= Radius * Radius)
 				{
 					point = hit.position;
 					return true;
 				}
 			}
- 
+
 			point = center;
 			return false;
 		}
- 
+
 		public Vector3 GetRandomPoint()
 		{
 			TryGetRandomPoint(out Vector3 point);
