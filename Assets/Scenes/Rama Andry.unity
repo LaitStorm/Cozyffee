@@ -1715,6 +1715,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6377833800213193542, guid: de13c850f8a7c456c873573c794b96af, type: 3}
       insertIndex: -1
       addedObject: {fileID: 593518081}
+    - targetCorrespondingSourceObject: {fileID: 6377833800213193542, guid: de13c850f8a7c456c873573c794b96af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 593518085}
     - targetCorrespondingSourceObject: {fileID: 36951204143704064, guid: de13c850f8a7c456c873573c794b96af, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2118442785}
@@ -4975,6 +4978,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 591516938}
+  - component: {fileID: 591516939}
   m_Layer: 0
   m_Name: NPC Generator
   m_TagString: Untagged
@@ -4999,6 +5003,30 @@ Transform:
   - {fileID: 758622362}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &591516939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591516937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05cc921ba4b5e42c1b546062f21ea85c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.NavigationTutorial.NPCGenerator
+  NPCPrefabs:
+  - {fileID: 4694023089020308897, guid: a9e1e6049fa9240d7954cc7ac9705c21, type: 3}
+  - {fileID: 7557829645403346646, guid: f101eeb31ff3d4ca0b6fbb9d56e33159, type: 3}
+  - {fileID: 299856972211410539, guid: 520c12e11c1d145179a7ad4399687b05, type: 3}
+  - {fileID: 5648887991382630351, guid: c3203d573994a47cb9050b7d6763a2af, type: 3}
+  - {fileID: 7695300379631734080, guid: 35e90325750494c57b78d1459e989fbf, type: 3}
+  - {fileID: 3394471395329052103, guid: fd07d9b5508154839bf78eb075dbf283, type: 3}
+  - {fileID: 7958980249364837230, guid: c48c4baffdd7e4d66b0f985f9a906176, type: 3}
+  Area: {fileID: 758622363}
+  Count: 15
+  MinStartingHunger: 20
+  MaxStartingHunger: 100
 --- !u!1 &593518077 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6377833800213193542, guid: de13c850f8a7c456c873573c794b96af, type: 3}
@@ -5026,6 +5054,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 6802812156481094822, guid: e44398b8debef4010a789dd58c1ae19a, type: 3}
+--- !u!208 &593518085
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593518077}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 2.7500002, y: 0.034, z: 1.7500001}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 2.4150002, z: -0.17500001}
+  m_TimeToStationary: 0.5
 --- !u!1 &612672515 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 747780859215125528, guid: aa7ad93ac951043a6a6743586279f3e2, type: 3}
@@ -6305,7 +6349,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 3b279f118f5ed4a43a63bca3fa703e3b, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 93652c22391ea46fbb7441929c3a9b33, type: 2}
   m_BuildHeightMesh: 1
 --- !u!4 &794382979
 Transform:
@@ -22068,6 +22112,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cat_NPC
       objectReference: {fileID: 0}
+    - target: {fileID: 6599641837568267762, guid: f101eeb31ff3d4ca0b6fbb9d56e33159, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22084,6 +22132,10 @@ PrefabInstance:
     - target: {fileID: 2476670002562483575, guid: c3203d573994a47cb9050b7d6763a2af, type: 3}
       propertyPath: m_Name
       value: Panda_NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476670002562483575, guid: c3203d573994a47cb9050b7d6763a2af, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6851432399008034827, guid: c3203d573994a47cb9050b7d6763a2af, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22142,6 +22194,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Racoon_NPC
       objectReference: {fileID: 0}
+    - target: {fileID: 708244834827487683, guid: fd07d9b5508154839bf78eb075dbf283, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5127136233729061781, guid: fd07d9b5508154839bf78eb075dbf283, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -22199,6 +22255,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Squirrel_NPC
       objectReference: {fileID: 0}
+    - target: {fileID: 709725102762292929, guid: c48c4baffdd7e4d66b0f985f9a906176, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1428440644083045543, guid: c48c4baffdd7e4d66b0f985f9a906176, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.9871202
@@ -22255,6 +22315,10 @@ PrefabInstance:
     - target: {fileID: 110785358667474781, guid: 35e90325750494c57b78d1459e989fbf, type: 3}
       propertyPath: m_Name
       value: Rabbit_NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 110785358667474781, guid: 35e90325750494c57b78d1459e989fbf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3426536286095811297, guid: 35e90325750494c57b78d1459e989fbf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22328,6 +22392,10 @@ PrefabInstance:
     - target: {fileID: 729481719251606873, guid: a9e1e6049fa9240d7954cc7ac9705c21, type: 3}
       propertyPath: m_Name
       value: Bear_NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 729481719251606873, guid: a9e1e6049fa9240d7954cc7ac9705c21, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5978851110085659135, guid: a9e1e6049fa9240d7954cc7ac9705c21, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22425,6 +22493,10 @@ PrefabInstance:
     - target: {fileID: 7502588952038480077, guid: 520c12e11c1d145179a7ad4399687b05, type: 3}
       propertyPath: m_Name
       value: Dog_NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 7502588952038480077, guid: 520c12e11c1d145179a7ad4399687b05, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
