@@ -15794,6 +15794,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2115231420134357087, guid: 31bfd99a2b157410e9821563a9477158, type: 3}
   m_PrefabInstance: {fileID: 1233299281}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &970061670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970061660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adcd7357e9e8103498a1775d8017d906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FoodRespawn
+  foodPrefab: {fileID: 1590086681894724325, guid: 31bfd99a2b157410e9821563a9477158, type: 3}
+  respawnDelay: 5
 --- !u!1001 &976814292
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20698,6 +20712,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1590086681894724325, guid: 31bfd99a2b157410e9821563a9477158, type: 3}
       insertIndex: -1
       addedObject: {fileID: 970061661}
+    - targetCorrespondingSourceObject: {fileID: 1590086681894724325, guid: 31bfd99a2b157410e9821563a9477158, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 970061670}
   m_SourcePrefab: {fileID: 100100000, guid: 31bfd99a2b157410e9821563a9477158, type: 3}
 --- !u!4 &1233542667 stripped
 Transform:
