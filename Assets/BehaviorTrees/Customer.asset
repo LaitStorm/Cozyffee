@@ -19,17 +19,18 @@ MonoBehaviour:
     MaxWaitTime: 3
     MaxWaitTimeRandom: 5
   AreaId: OrderArea
+  Menu: {fileID: 11400000, guid: f4e0cb63112d54e09b7d43c22484ffb9, type: 2}
+  OrderWaitTime: 600
   OrderBubble: {fileID: 0}
   ItemId: cinnamon_roll
-  OrderWaitTime: 600
   FillAmount: 60
-  HungryThreshold: 30
+  HungryThreshold: 40
   SleepyThreshold: 80
   IdleHungerInterval: 3
   IdleHungerIntervalRandom: 4
   IdleHungerAmount: 3
   IdleHungerAmountRandom: 5
-  SleepChance: 0.3
+  SleepChance: 0.4
   SleepCheckInterval: 10
   SleepDuration: 20
   SleepDurationRandom: 10

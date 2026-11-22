@@ -9,6 +9,10 @@ namespace Game.Cozyffee.ExternalBehaviorTrees
     {
         public string AreaId = "OrderArea";
 
+        [Tooltip("What NPCs can order. Each order picks a random available item from it. Leave empty to use the single item below.")]
+        public CafeMenu Menu;
+
+        [Header("Single Item (used only when Menu is empty)")]
         public Sprite CinnamonBubble;
 
         [Tooltip("ID of the Item the NPC asks for.")]
@@ -48,7 +52,9 @@ namespace Game.Cozyffee.ExternalBehaviorTrees
 
         public Task CreateOrder()
         {
-            return BehaviorFactory.Order(AreaId, ItemId, CinnamonBubble, OrderWaitTime);
+            return Menu != null
+                ? BehaviorFactory.Order(AreaId, Menu, OrderWaitTime, eatForHunger: false)
+                : BehaviorFactory.Order(AreaId, ItemId, CinnamonBubble, OrderWaitTime);
         }
     }
 }

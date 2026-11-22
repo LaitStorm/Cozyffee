@@ -70,6 +70,9 @@ namespace Game.Cozyffee
         public UnityAction Eat;
         public UnityAction Order;
 
+        /// <summary>What this NPC is currently waiting for, or null when it isn't ordering. Set by the PickOrder task.</summary>
+        public CafeMenuItem CurrentOrder;
+
         #endregion
 
         #region Animator Booleans

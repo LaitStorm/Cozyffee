@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24d56fa2e61b745368e9ba5c5120a20d, type: 3}
+  m_Name: Cupcakes
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.CafeMenu
+  displayName: Cupcakes
+  available: 1
+  entries:
+  - Option: {fileID: 11400000, guid: e55ff47a3d29e4dd5bad0bd6e95c2748, type: 2}
+    Weight: 1
+    Chance: 12.5%
+    initialized: 1
+  - Option: {fileID: 11400000, guid: 43ab623429c5542c68124eb118ba271a, type: 2}
+    Weight: 1
+    Chance: 12.5%
+    initialized: 1
+  - Option: {fileID: 11400000, guid: 522a1c5c23df4491596bb81d56aedc40, type: 2}
+    Weight: 1
+    Chance: 12.5%
+    initialized: 1
+  - Option: {fileID: 11400000, guid: 95183f21ac45d46a992bb4bddd9760ff, type: 2}
+    Weight: 1
+    Chance: 12.5%
+    initialized: 1
+  - Option: {fileID: 11400000, guid: d40e11c5f357249a7846e4698ae22c76, type: 2}
+    Weight: 1
+    Chance: 12.5%
+    initialized: 1
+  - Option: {fileID: 11400000, guid: b48a20a2e72754dd793a802564a81b10, type: 2}
+    Weight: 1
+    Chance: 12.5%
+    initialized: 1
+  - Option: {fileID: 11400000, guid: 0ce22c215551d4ae4b7f31bdacd72a02, type: 2}
+    Weight: 1
+    Chance: 12.5%
+    initialized: 1
+  - Option: {fileID: 11400000, guid: e5f3b7a7b0d0e42d89453c9dc68bcb14, type: 2}
+    Weight: 1
+    Chance: 12.5%
+    initialized: 1
