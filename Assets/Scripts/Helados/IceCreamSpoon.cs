@@ -15,6 +15,7 @@ public class IceCreamSpoon : MonoBehaviour
 
     private GameObject currentScoopInstance;
     private GameObject currentScoopPrefab;
+    private string currentScoopFlavor;
     private Vector3 lastPosition;
     private float accumulatedScrapeDistance;
 
@@ -22,14 +23,12 @@ public class IceCreamSpoon : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // 1. Si ya tenemos un scoop y tocamos un cono, lo transferimos al cono
+        // 1. Si ya tenemos un scoop y tocamos un cono, lo transferimos con su sabor y limpiamos la cuchara
         if (HasScoop && other.TryGetComponent(out IceCreamCone cone))
         {
-            if (cone.TryAddScoop(currentScoopPrefab))
+            if (cone.TryAddScoop(currentScoopPrefab, currentScoopFlavor))
             {
-                Destroy(currentScoopInstance);
-                currentScoopInstance = null;
-                currentScoopPrefab = null;
+                ClearScoop();
             }
             return;
         }
@@ -50,6 +49,7 @@ public class IceCreamSpoon : MonoBehaviour
         Destroy(currentScoopInstance);
         currentScoopInstance = null;
         currentScoopPrefab = null;
+        currentScoopFlavor = string.Empty;
         accumulatedScrapeDistance = 0f;
         return true;
     }
@@ -67,14 +67,15 @@ public class IceCreamSpoon : MonoBehaviour
 
             if (accumulatedScrapeDistance >= scrapeDistanceRequired)
             {
-                SpawnScoopOnSpoon(cassata.scoopPrefab);
+                SpawnScoopOnSpoon(cassata.scoopPrefab, cassata.flavorName);
             }
         }
     }
 
-    private void SpawnScoopOnSpoon(GameObject prefab)
+    private void SpawnScoopOnSpoon(GameObject prefab, string flavor)
     {
         currentScoopPrefab = prefab;
+        currentScoopFlavor = flavor;
         currentScoopInstance = Instantiate(prefab, scoopHoldPoint.position, scoopHoldPoint.rotation, scoopHoldPoint);
 
         // Desactivar físicas y colisiones mientras está en la cuchara para evitar fallos
