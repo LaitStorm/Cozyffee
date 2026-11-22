@@ -42,6 +42,18 @@ public class IceCreamSpoon : MonoBehaviour
         }
     }
 
+    public bool ClearScoop()
+    {
+        if (currentScoopInstance == null)
+            return false;
+
+        Destroy(currentScoopInstance);
+        currentScoopInstance = null;
+        currentScoopPrefab = null;
+        accumulatedScrapeDistance = 0f;
+        return true;
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (HasScoop) return;
