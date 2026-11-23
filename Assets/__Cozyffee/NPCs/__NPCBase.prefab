@@ -453,6 +453,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6015481499714111784, guid: 4cfc9709d7667477f8c62133bedb3145, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7169185590524247685, guid: 4cfc9709d7667477f8c62133bedb3145, type: 3}
       propertyPath: m_Name
       value: ParticleSystem

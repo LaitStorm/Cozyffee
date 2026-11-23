@@ -29,6 +29,10 @@ namespace Game.Cozyffee.ExternalBehaviorTrees
         [Tooltip("How long the NPC waits at the order area for its item.")]
         public float OrderWaitTime = 600f;
 
+        [Tooltip("Seconds between 'Ordering' animations while waiting for the item. The first one plays as soon as the order starts. 0 = play it only once.")]
+        [Min(0f)]
+        public float OrderAnimationInterval = BehaviorFactory.DefaultOrderAnimationInterval;
+
         [Header("Single Item (used only when Menu is empty)")]
         public Sprite OrderBubble;
 
@@ -132,8 +136,10 @@ namespace Game.Cozyffee.ExternalBehaviorTrees
             branch.AddCondition(new IsHungry(HungryThreshold));
 
             Task order = Menu != null
-                ? BehaviorFactory.Order(AreaId, Menu, OrderWaitTime, eatForHunger: true, waitingWander: wanderParameters)
-                : BehaviorFactory.Order(AreaId, ItemId, OrderBubble, OrderWaitTime, new EatItem(FillAmount), wanderParameters);
+                ? BehaviorFactory.Order(AreaId, Menu, OrderWaitTime, eatForHunger: true, waitingWander: wanderParameters,
+                                        orderAnimationInterval: OrderAnimationInterval)
+                : BehaviorFactory.Order(AreaId, ItemId, OrderBubble, OrderWaitTime, new EatItem(FillAmount), wanderParameters,
+                                        OrderAnimationInterval);
 
             branch.AddTask(order);
 

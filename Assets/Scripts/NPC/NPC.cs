@@ -78,6 +78,13 @@ namespace Game.Cozyffee
 
         #endregion
 
+        #region Animation
+
+        /// <summary>Plays an Animator state once (e.g. "Ordering"), then goes back to the usual state.</summary>
+        public UnityAction<string> PlayAnimation;
+
+        #endregion
+
         #region Animator Booleans
 
         public bool IsOrdering = false;
@@ -92,6 +99,9 @@ namespace Game.Cozyffee
         public System.Func<bool> HasPathToDestination;
         public UnityAction<Vector3> LookAt;
         public System.Func<Vector3, bool> IsLookingAt;
+
+        /// <summary>True while the NPC is holding a spot (HoldPosition task): other NPCs should steer around it.</summary>
+        public UnityAction<bool> SetHoldingPosition;
         #endregion
 
         #region Emotion Delegates

@@ -56,7 +56,7 @@ namespace Game.Cozyffee
 
 		bool HasArrived()
 		{
-			return Vector3.Distance(npc.Position, Destination.Value) <= 1f;
+			return Vector3.Distance(npc.Position, Destination.Value) <= ArriveDistance.Value;
 		}
 
 	}

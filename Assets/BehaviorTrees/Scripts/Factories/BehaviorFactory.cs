@@ -89,10 +89,11 @@ namespace Game.Cozyffee
         /// waits for the item (or until <paramref name="waitTime"/> runs out), then runs <paramref name="eatTask"/>
         /// (defaults to <see cref="ConsumeItem"/>).
         /// </summary>
-        public static Task Order(string areaId, string itemId, Sprite bubble, float waitTime, Task eatTask = null, WanderParameters waitingWander = null)
+        public static Task Order(string areaId, string itemId, Sprite bubble, float waitTime, Task eatTask = null, WanderParameters waitingWander = null,
+                                 float orderAnimationInterval = DefaultOrderAnimationInterval)
         {
             Sequence sequence = new Sequence() { Name = "Order" };
-            AddOrderSteps(sequence, areaId, itemId, itemId, bubble, waitTime, eatTask ?? new ConsumeItem(), waitingWander);
+            AddOrderSteps(sequence, areaId, itemId, itemId, bubble, waitTime, eatTask ?? new ConsumeItem(), waitingWander, orderAnimationInterval);
 
             return new OrderScope(sequence) { Name = "Single Item Order" };
         }
@@ -104,7 +105,8 @@ namespace Game.Cozyffee
         /// <see cref="CafeMenuItem.HungerFill"/>; otherwise the item is just consumed.
         /// While every order spot is taken, the NPC wanders with <paramref name="waitingWander"/> (or stands still if null).
         /// </summary>
-        public static Task Order(string areaId, CafeMenu menu, float waitTime, bool eatForHunger = true, WanderParameters waitingWander = null)
+        public static Task Order(string areaId, CafeMenu menu, float waitTime, bool eatForHunger = true, WanderParameters waitingWander = null,
+                                 float orderAnimationInterval = DefaultOrderAnimationInterval)
         {
             // One set of variables per order task, so each NPC's tree tracks its own order.
             SharedString itemId = new();
@@ -116,12 +118,16 @@ namespace Game.Cozyffee
             sequence.AddTask(new PickOrder(menu, itemId, displayName, icon, hungerFill) { Name = "Pick Order" });
 
             Task eatTask = eatForHunger ? new EatItem(hungerFill) : new ConsumeItem();
-            AddOrderSteps(sequence, areaId, itemId, displayName, icon, waitTime, eatTask, waitingWander);
+            AddOrderSteps(sequence, areaId, itemId, displayName, icon, waitTime, eatTask, waitingWander, orderAnimationInterval);
 
             return new OrderScope(sequence) { Name = "Menu Order" };
         }
 
-        static void AddOrderSteps(Sequence sequence, string areaId, SharedString itemId, SharedString displayName, SharedSprite icon, float waitTime, Task eatTask, WanderParameters waitingWander)
+        /// <summary>Seconds between "Ordering" animations while an NPC waits for its item, when the caller doesn't say.</summary>
+        public const float DefaultOrderAnimationInterval = 8f;
+
+        static void AddOrderSteps(Sequence sequence, string areaId, SharedString itemId, SharedString displayName, SharedSprite icon, float waitTime, Task eatTask, WanderParameters waitingWander,
+                                  float orderAnimationInterval)
         {
             Sequence goToOrderArea = new Sequence() { Name = "Go to Order Area" };
             SharedVector3 orderDestination = new();
@@ -138,9 +144,28 @@ namespace Game.Cozyffee
             goToOrderArea.AddTask(claimSpot);
             goToOrderArea.AddTask(new GoTo { Destination = orderDestination });
 
+            // Walks back to the spot if a passing NPC pushes it away while it waits
+            waitForItem.AddTask(new HoldPosition(orderDestination) { Name = "Hold Order Spot" });
             waitForItem.AddTask(new LookAtPlayer { KeepLooking = true });
             waitForItem.AddTask(new ReceiveItem { ItemId = itemId });
             waitForItem.AddTask(new Wait(waitTime, 0.0f));
+
+            // Play the "Ordering" animation as soon as the order starts, then again every orderAnimationInterval seconds.
+            // 0 or less: play it only once.
+            Sequence orderAnimation = new Sequence() { Name = "Ordering Animation" };
+            orderAnimation.AddTask(new PlayAnimation("Ordering"));
+
+            if (orderAnimationInterval > 0f)
+            {
+                orderAnimation.AddTask(new Wait(orderAnimationInterval));
+                waitForItem.AddTask(new Repeater(orderAnimation) { Name = "Repeat Ordering Animation" });
+            }
+            else
+            {
+                // A ParallelSelector ends when any child succeeds, so keep this branch Running after playing once
+                orderAnimation.AddTask(new Idle());
+                waitForItem.AddTask(orderAnimation);
+            }
 
             // Show the item's icon. Until an icon exists, fall back to saying its name so the order still works.
             Selector showOrder = new Selector(

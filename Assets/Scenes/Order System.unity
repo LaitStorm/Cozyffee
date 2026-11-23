@@ -1874,37 +1874,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6653574892485257811, guid: de13c850f8a7c456c873573c794b96af, type: 3}
   m_PrefabInstance: {fileID: 260323590}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &263691611
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 263691612}
-  m_Layer: 0
-  m_Name: NPCAxolotl1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &263691612
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 263691611}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &266461429
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6852,6 +6821,7 @@ GameObject:
   m_Component:
   - component: {fileID: 846658007}
   - component: {fileID: 846658006}
+  - component: {fileID: 846658008}
   m_Layer: 0
   m_Name: NPC Generator
   m_TagString: Untagged
@@ -6880,7 +6850,7 @@ MonoBehaviour:
   - {fileID: 5546073786106881116, guid: fd07d9b5508154839bf78eb075dbf283, type: 3}
   - {fileID: 6220715460163939567, guid: c48c4baffdd7e4d66b0f985f9a906176, type: 3}
   Area: {fileID: 685143367}
-  Count: 12
+  Count: 1
   MinStartingHunger: 20
   MaxStartingHunger: 100
   MinSpacing: 1
@@ -6904,6 +6874,33 @@ Transform:
   - {fileID: 685143368}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &846658008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846658005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05cc921ba4b5e42c1b546062f21ea85c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.NavigationTutorial.NPCGenerator
+  NPCPrefabs:
+  - {fileID: 9187865227509600507, guid: 8e8490e0b6f7b492f9281ea70a54a2e9, type: 3}
+  - {fileID: 9187865227509600507, guid: cb3cca3544a6f4330a1e8bc581854f50, type: 3}
+  - {fileID: 9187865227509600507, guid: 7282130ed677459fbcb2122eb8db6aea, type: 3}
+  - {fileID: 9187865227509600507, guid: d39bacbe44774cc78cb3a9d18deca744, type: 3}
+  - {fileID: 9187865227509600507, guid: 3b07d712ccf24e4d8077725805090712, type: 3}
+  - {fileID: 9187865227509600507, guid: 72442b607094437b9490dfd826d75fe7, type: 3}
+  - {fileID: 9187865227509600507, guid: ae354bf605b648f58d91b29f4df04c32, type: 3}
+  - {fileID: 9187865227509600507, guid: abd954532909456191c0b12e2060aead, type: 3}
+  Area: {fileID: 685143367}
+  Count: 15
+  MinStartingHunger: 60
+  MaxStartingHunger: 100
+  MinSpacing: 1
+  MaxPlacementAttempts: 30
 --- !u!1001 &852000443
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14789,63 +14786,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1060416175}
   m_SourcePrefab: {fileID: 100100000, guid: 0d75f96e8937f4555aadd1a53804db23, type: 3}
---- !u!1001 &1553656847
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3243090565305160523, guid: a9e1e6049fa9240d7954cc7ac9705c21, type: 3}
-      propertyPath: m_Name
-      value: Bear_NPC
-      objectReference: {fileID: 0}
-    - target: {fileID: 3966089784567361837, guid: a9e1e6049fa9240d7954cc7ac9705c21, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.67819
-      objectReference: {fileID: 0}
-    - target: {fileID: 3966089784567361837, guid: a9e1e6049fa9240d7954cc7ac9705c21, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3966089784567361837, guid: a9e1e6049fa9240d7954cc7ac9705c21, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.47772
-      objectReference: {fileID: 0}
-    - target: {fileID: 3966089784567361837, guid: a9e1e6049fa9240d7954cc7ac9705c21, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3966089784567361837, guid: a9e1e6049fa9240d7954cc7ac9705c21, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3966089784567361837, guid: a9e1e6049fa9240d7954cc7ac9705c21, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3966089784567361837, guid: a9e1e6049fa9240d7954cc7ac9705c21, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3966089784567361837, guid: a9e1e6049fa9240d7954cc7ac9705c21, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3966089784567361837, guid: a9e1e6049fa9240d7954cc7ac9705c21, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3966089784567361837, guid: a9e1e6049fa9240d7954cc7ac9705c21, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a9e1e6049fa9240d7954cc7ac9705c21, type: 3}
 --- !u!4 &1554563514 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 746677316862652807, guid: 4195e9d40f9d84140a086bd129febc60, type: 3}
@@ -28290,5 +28230,3 @@ SceneRoots:
   - {fileID: 846658007}
   - {fileID: 794382979}
   - {fileID: 1718729511}
-  - {fileID: 263691612}
-  - {fileID: 1553656847}
