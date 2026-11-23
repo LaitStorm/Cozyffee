@@ -6850,11 +6850,11 @@ MonoBehaviour:
   - {fileID: 5546073786106881116, guid: fd07d9b5508154839bf78eb075dbf283, type: 3}
   - {fileID: 6220715460163939567, guid: c48c4baffdd7e4d66b0f985f9a906176, type: 3}
   Area: {fileID: 685143367}
-  Count: 1
+  Count: 10
   MinStartingHunger: 20
   MaxStartingHunger: 100
   MinSpacing: 1
-  MaxPlacementAttempts: 30
+  MaxPlacementAttempts: 20
 --- !u!4 &846658007
 Transform:
   m_ObjectHideFlags: 0
@@ -6896,11 +6896,11 @@ MonoBehaviour:
   - {fileID: 9187865227509600507, guid: ae354bf605b648f58d91b29f4df04c32, type: 3}
   - {fileID: 9187865227509600507, guid: abd954532909456191c0b12e2060aead, type: 3}
   Area: {fileID: 685143367}
-  Count: 15
-  MinStartingHunger: 60
+  Count: 4
+  MinStartingHunger: 40
   MaxStartingHunger: 100
   MinSpacing: 1
-  MaxPlacementAttempts: 30
+  MaxPlacementAttempts: 20
 --- !u!1001 &852000443
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10000,7 +10000,7 @@ Transform:
   m_GameObject: {fileID: 1108628059}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.29258, y: 0, z: 0.2127099}
+  m_LocalPosition: {x: -2.29258, y: 0, z: 0.7127099}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13131,7 +13131,7 @@ Transform:
   m_GameObject: {fileID: 1427933826}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.29258, y: 0, z: -1.0372901}
+  m_LocalPosition: {x: -2.29258, y: 0, z: -1.2872901}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
