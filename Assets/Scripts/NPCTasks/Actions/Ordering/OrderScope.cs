@@ -2,7 +2,8 @@ namespace Game.Cozyffee.TaskSystem
 {
     /// <summary>
     /// Runs its child and, when the child stops for any reason (served, timed out, or interrupted by a
-    /// higher-priority branch), clears <see cref="NPC.CurrentOrder"/> and frees the order spot the NPC reserved.
+    /// higher-priority branch), clears <see cref="NPC.CurrentOrder"/>, frees the order spot the NPC reserved
+    /// and fires <see cref="NPC.OrderEnded"/>.
     /// </summary>
     public class OrderScope : Decorator
     {
@@ -34,6 +35,7 @@ namespace Game.Cozyffee.TaskSystem
             {
                 npc.CurrentOrder = null;
                 Area.ReleaseAll(npc);
+                npc.OrderEnded?.Invoke();
             }
         }
     }

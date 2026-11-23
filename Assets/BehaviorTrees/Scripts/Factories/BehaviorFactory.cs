@@ -149,6 +149,7 @@ namespace Game.Cozyffee
             ) { Name = "Show Order" };
 
             sequence.AddTask(goToOrderArea);
+            sequence.AddTask(new AnnounceOrder { Name = "Announce Order" });
             sequence.AddTask(showOrder);
             sequence.AddTask(waitForItem);
             sequence.AddTask(new HideBubble());

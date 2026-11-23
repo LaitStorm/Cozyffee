@@ -54,21 +54,14 @@ namespace Game.Cozyffee
 
         public IHunger Hunger;
 
-        public bool CanOrder
-        {
-            get
-            {
-                if (Hunger == null)
-                {
-                    return false;
-                }
-
-                return Hunger.CanOrder;
-            }
-        }
-
+        /// <summary>Fired by the EatItem task when the NPC eats an item it was given.</summary>
         public UnityAction Eat;
+
+        /// <summary>Fired by the AnnounceOrder task when the NPC reaches its order spot and asks for its item.</summary>
         public UnityAction Order;
+
+        /// <summary>Fired by OrderScope whenever an order ends: served, timed out or interrupted.</summary>
+        public UnityAction OrderEnded;
 
         /// <summary>What this NPC is currently waiting for, or null when it isn't ordering. Set by the PickOrder task.</summary>
         public CafeMenuItem CurrentOrder;

@@ -8,6 +8,5 @@ namespace Game.Cozyffee
     {
         float Points { get; set; }
         float MaxPoints { get; set; }
-        bool CanOrder { get; }
     }
 }

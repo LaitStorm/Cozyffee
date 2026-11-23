@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game.Cozyffee
 {
-    public class OrderSoundPlayer : NPCComponent
+    public class NPCSoundPlayer : NPCComponent
     {
         [SerializeField]
         AudioSource audioSource;
@@ -27,7 +27,7 @@ namespace Game.Cozyffee
             }
         }
 
-        void Destroy()
+        void OnDestroy()
         {
             if (this.npc != null)
             {
