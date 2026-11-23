@@ -18,6 +18,7 @@ public class FoodRespawn : MonoBehaviour
 
     private Vector3 originalPosition;
     private Quaternion originalRotation;
+    private Vector3 originalLocalScale;
     private Transform originalParent;
     private bool hasRespawned = false;
 
@@ -29,7 +30,13 @@ public class FoodRespawn : MonoBehaviour
         // Guardamos la transformación inicial
         originalPosition = transform.position;
         originalRotation = transform.rotation;
+        originalLocalScale = transform.localScale;
         originalParent = transform.parent;
+
+        if (grabInteractable == null)
+        {
+            Debug.LogWarning($"FoodRespawn on '{name}' needs an XRGrabInteractable on the same GameObject; respawning is disabled.", this);
+        }
 
         // Inmóvil al inicio
         if (rb != null)
@@ -40,12 +47,16 @@ public class FoodRespawn : MonoBehaviour
 
     private void OnEnable()
     {
+        if (grabInteractable == null) return;
+
         grabInteractable.selectEntered.AddListener(OnFoodGrabbed);
         grabInteractable.selectExited.AddListener(OnFoodReleased);
     }
 
     private void OnDisable()
     {
+        if (grabInteractable == null) return;
+
         grabInteractable.selectEntered.RemoveListener(OnFoodGrabbed);
         grabInteractable.selectExited.RemoveListener(OnFoodReleased);
     }
@@ -82,7 +93,17 @@ public class FoodRespawn : MonoBehaviour
 
         if (foodPrefab != null)
         {
-            Instantiate(foodPrefab, originalPosition, originalRotation, originalParent);
+            GameObject clone = Instantiate(foodPrefab, originalPosition, originalRotation, originalParent);
+
+            // foodPrefab is often this same scene object. XRGrabInteractable unparents it on grab
+            // (keeping world scale), so its localScale no longer matches originalParent. Restore it.
+            clone.transform.localScale = originalLocalScale;
+
+            // The clone's Awake already ran inside Instantiate with the wrong scale, so hand it the correct one.
+            if (clone.TryGetComponent(out FoodRespawn cloneRespawn))
+            {
+                cloneRespawn.originalLocalScale = originalLocalScale;
+            }
         }
         else
         {

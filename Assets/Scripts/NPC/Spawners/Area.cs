@@ -14,11 +14,112 @@ namespace Game.Cozyffee
 		[Tooltip("How far (in any direction) to search for the nearest NavMesh point from each random candidate.")]
 		public float SampleDistance = 2f;
 
+		[Tooltip("How many NPCs can reserve this area at once (e.g. one customer per order spot). 0 = unlimited. " +
+		         "Only NPCs that reserve it count; NPCs just walking through don't.")]
+		[Min(0)]
+		public int Capacity = 1;
+
 		static readonly List<Area> registry = new();
 
+		readonly List<NPC> occupants = new();
+
 		private void OnEnable() => registry.Add(this);
-		private void OnDisable() => registry.Remove(this);
+		private void OnDisable()
+		{
+			registry.Remove(this);
+			occupants.Clear();
+		}
+
 		static void ResetStatics() => registry.Clear();
+
+		#region Reservations
+
+		/// <summary>Every enabled Area (for debugging tools).</summary>
+		public static IReadOnlyList<Area> All => registry;
+
+		/// <summary>NPCs currently holding a reservation here.</summary>
+		public IReadOnlyList<NPC> Occupants => occupants;
+
+		public int OccupantCount
+		{
+			get
+			{
+				// NPCs destroyed while holding a spot shouldn't block it forever.
+				occupants.RemoveAll(o => o == null);
+				return occupants.Count;
+			}
+		}
+
+		public bool IsReservedBy(NPC npc) => npc != null && occupants.Contains(npc);
+
+		public bool HasRoomFor(NPC npc) => IsReservedBy(npc) || Capacity <= 0 || OccupantCount < Capacity;
+
+		public bool TryReserve(NPC npc)
+		{
+			if (npc == null || !HasRoomFor(npc))
+			{
+				return false;
+			}
+
+			if (!occupants.Contains(npc))
+			{
+				occupants.Add(npc);
+			}
+
+			return true;
+		}
+
+		public void Release(NPC npc) => occupants.Remove(npc);
+
+		/// <summary>Releases every area <paramref name="npc"/> has reserved.</summary>
+		public static void ReleaseAll(NPC npc)
+		{
+			foreach (Area area in registry)
+			{
+				area.Release(npc);
+			}
+		}
+
+		/// <summary>
+		/// The closest enabled Area with this ID that still has room for <paramref name="npc"/>, or null if they're all full.
+		/// </summary>
+		public static Area FindFree(string id, Vector3 nearTo, NPC npc)
+		{
+			if (string.IsNullOrEmpty(id))
+			{
+				return null;
+			}
+
+			Area best = null;
+			float bestSqrDistance = float.MaxValue;
+
+			foreach (Area candidate in registry)
+			{
+				if (candidate.Id != id || !candidate.HasRoomFor(npc))
+					continue;
+
+				float sqrDistance = (candidate.transform.position - nearTo).sqrMagnitude;
+				if (sqrDistance < bestSqrDistance)
+				{
+					best = candidate;
+					bestSqrDistance = sqrDistance;
+				}
+			}
+
+			return best;
+		}
+
+		public static bool Exists(string id)
+		{
+			foreach (Area candidate in registry)
+			{
+				if (candidate.Id == id) return true;
+			}
+
+			return false;
+		}
+
+		#endregion
 
 		public static Area Find(string id, Vector3 nearTo)
 		{

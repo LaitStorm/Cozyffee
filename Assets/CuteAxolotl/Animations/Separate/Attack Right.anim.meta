@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 7f55f03f02e7ac74db3755d4049c68aa
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 242131
+  packageName: Cute Axolotl
+  packageVersion: 1.0
+  assetPath: Assets/CuteAxolotl/Animations/Separate/Attack Right.anim
+  uploadId: 550541

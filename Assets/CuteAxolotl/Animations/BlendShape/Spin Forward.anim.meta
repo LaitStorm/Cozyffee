@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 4b6722167a240a841b56ca2264d8b4be
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 242131
+  packageName: Cute Axolotl
+  packageVersion: 1.0
+  assetPath: Assets/CuteAxolotl/Animations/BlendShape/Spin Forward.anim
+  uploadId: 550541

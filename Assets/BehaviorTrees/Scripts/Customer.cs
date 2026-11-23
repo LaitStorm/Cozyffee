@@ -23,15 +23,23 @@ namespace Game.Cozyffee.ExternalBehaviorTrees
         public string AreaId = "OrderArea";
 
         [Header("Order")]
+        [Tooltip("What NPCs can order. Each order picks a random available item from it. Leave empty to use the single item below.")]
+        public CafeMenu Menu;
+
+        [Tooltip("How long the NPC waits at the order area for its item.")]
+        public float OrderWaitTime = 600f;
+
+        [Tooltip("Seconds between 'Ordering' animations while waiting for the item. The first one plays as soon as the order starts. 0 = play it only once.")]
+        [Min(0f)]
+        public float OrderAnimationInterval = BehaviorFactory.DefaultOrderAnimationInterval;
+
+        [Header("Single Item (used only when Menu is empty)")]
         public Sprite OrderBubble;
 
         [Tooltip("ID of the Item the NPC asks for.")]
         public string ItemId = "cinnamon_roll";
 
-        [Tooltip("How long the NPC waits at the order area for its item.")]
-        public float OrderWaitTime = 600f;
-
-        [Tooltip("Hunger Points restored when the NPC eats its item (clamped to MaxPoints).")]
+        [Tooltip("Hunger Points restored when the NPC eats its item (clamped to MaxPoints). With a Menu, each item's own Hunger Fill is used.")]
         public float FillAmount = 60f;
 
         [Header("Hunger Thresholds")]
@@ -127,7 +135,13 @@ namespace Game.Cozyffee.ExternalBehaviorTrees
             // so the condition holds for the whole order.
             branch.AddCondition(new IsHungry(HungryThreshold));
 
-            branch.AddTask(BehaviorFactory.Order(AreaId, ItemId, OrderBubble, OrderWaitTime, new EatItem(FillAmount)));
+            Task order = Menu != null
+                ? BehaviorFactory.Order(AreaId, Menu, OrderWaitTime, eatForHunger: true, waitingWander: wanderParameters,
+                                        orderAnimationInterval: OrderAnimationInterval)
+                : BehaviorFactory.Order(AreaId, ItemId, OrderBubble, OrderWaitTime, new EatItem(FillAmount), wanderParameters,
+                                        OrderAnimationInterval);
+
+            branch.AddTask(order);
 
             return branch;
         }

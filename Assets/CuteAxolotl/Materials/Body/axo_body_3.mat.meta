@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e641e882f16aec342a284872e5a61c02
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 242131
+  packageName: Cute Axolotl
+  packageVersion: 1.0
+  assetPath: Assets/CuteAxolotl/Materials/Body/axo_body_3.mat
+  uploadId: 550541

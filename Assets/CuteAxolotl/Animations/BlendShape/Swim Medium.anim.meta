@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c72f3743ef829be41bf6e0fb8101d3b1
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 242131
+  packageName: Cute Axolotl
+  packageVersion: 1.0
+  assetPath: Assets/CuteAxolotl/Animations/BlendShape/Swim Medium.anim
+  uploadId: 550541

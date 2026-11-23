@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 86651d1887713734da516837ca9a7af6
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 242131
+  packageName: Cute Axolotl
+  packageVersion: 1.0
+  assetPath: Assets/CuteAxolotl/Animations/BlendShape/AxoAnims_bs.controller
+  uploadId: 550541

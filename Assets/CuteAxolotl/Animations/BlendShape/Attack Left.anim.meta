@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ff2bae74865f6ad4fbd31e9959fc4e9b
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 242131
+  packageName: Cute Axolotl
+  packageVersion: 1.0
+  assetPath: Assets/CuteAxolotl/Animations/BlendShape/Attack Left.anim
+  uploadId: 550541

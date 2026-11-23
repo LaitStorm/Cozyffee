@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d3823657282da764c81cba68221ab832
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 242131
+  packageName: Cute Axolotl
+  packageVersion: 1.0
+  assetPath: Assets/CuteAxolotl/Animations/Separate/Blink/Face7_blink.controller
+  uploadId: 550541

@@ -54,21 +54,34 @@ namespace Game.Cozyffee
 
         public IHunger Hunger;
 
-        public bool CanOrder
-        {
-            get
-            {
-                if (Hunger == null)
-                {
-                    return false;
-                }
-
-                return Hunger.CanOrder;
-            }
-        }
-
+        /// <summary>Fired by the EatItem task when the NPC eats an item it was given.</summary>
         public UnityAction Eat;
+
+        /// <summary>Fired by the AnnounceOrder task when the NPC reaches its order spot and asks for its item.</summary>
         public UnityAction Order;
+
+        /// <summary>Fired by OrderScope whenever an order ends: served, timed out or interrupted.</summary>
+        public UnityAction OrderEnded;
+
+        /// <summary>What this NPC is currently waiting for, or null when it isn't ordering. Set by the PickOrder task.</summary>
+        public CafeMenuItem CurrentOrder;
+
+        #endregion
+
+        #region Sleep
+
+        /// <summary>Fired by the Sleep task when the NPC falls asleep.</summary>
+        public UnityAction FallAsleep;
+
+        /// <summary>Fired by the Sleep task when the NPC wakes up: nap finished or interrupted.</summary>
+        public UnityAction WakeUp;
+
+        #endregion
+
+        #region Animation
+
+        /// <summary>Plays an Animator state once (e.g. "Ordering"), then goes back to the usual state.</summary>
+        public UnityAction<string> PlayAnimation;
 
         #endregion
 
@@ -86,6 +99,9 @@ namespace Game.Cozyffee
         public System.Func<bool> HasPathToDestination;
         public UnityAction<Vector3> LookAt;
         public System.Func<Vector3, bool> IsLookingAt;
+
+        /// <summary>True while the NPC is holding a spot (HoldPosition task): other NPCs should steer around it.</summary>
+        public UnityAction<bool> SetHoldingPosition;
         #endregion
 
         #region Emotion Delegates

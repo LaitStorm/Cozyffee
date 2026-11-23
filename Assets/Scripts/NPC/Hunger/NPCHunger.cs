@@ -15,17 +15,6 @@ namespace Game.Cozyffee
             set
             {
                 points = value;
-
-                if (!canOrder && points <= 0f)
-                {
-                    canOrder = true;
-                    npc.Order?.Invoke();
-                }
-                else if (canOrder && points > 0f)
-                {
-                    canOrder = false;
-                    npc.Eat?.Invoke();
-                }
             }
             get
             {
@@ -42,10 +31,6 @@ namespace Game.Cozyffee
             get { return maxPoints; }
             set { maxPoints = Mathf.Max(value, 0f); }
         }
-
-        protected bool canOrder = false;
-
-        public bool CanOrder => canOrder;
 
         public override void SetNPC(NPC npc)
         {

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 1fdbfd03ef825674bb84b97ce781391f
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 242131
+  packageName: Cute Axolotl
+  packageVersion: 1.0
+  assetPath: Assets/CuteAxolotl/Animations/BlendShape/Swim Back Out.anim
+  uploadId: 550541

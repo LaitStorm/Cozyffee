@@ -33,6 +33,8 @@ namespace Game.Cozyffee.TaskSystem
                 npc.Hunger.Points = Mathf.Min(npc.Hunger.Points + FillAmount.Value, npc.Hunger.MaxPoints);
             }
 
+            npc.Eat?.Invoke();
+
             return TaskStatus.Success;
         }
     }

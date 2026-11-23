@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 90d4718bd40ef6e479c471add4e0575e
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 242131
+  packageName: Cute Axolotl
+  packageVersion: 1.0
+  assetPath: Assets/CuteAxolotl/Animations/Separate/Blink/Face2_blink.anim
+  uploadId: 550541
