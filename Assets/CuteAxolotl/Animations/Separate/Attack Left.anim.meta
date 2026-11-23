@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 7face453a5608f84bbd5256b1f2272de
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 242131
+  packageName: Cute Axolotl
+  packageVersion: 1.0
+  assetPath: Assets/CuteAxolotl/Animations/Separate/Attack Left.anim
+  uploadId: 550541

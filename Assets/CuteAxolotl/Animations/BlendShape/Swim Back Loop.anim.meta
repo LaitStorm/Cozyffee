@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a0444f6399c96694890a390623fe2347
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 242131
+  packageName: Cute Axolotl
+  packageVersion: 1.0
+  assetPath: Assets/CuteAxolotl/Animations/BlendShape/Swim Back Loop.anim
+  uploadId: 550541

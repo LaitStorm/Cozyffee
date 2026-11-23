@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 981a3ddee40c1b445b2c806698cd04b6
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 242131
+  packageName: Cute Axolotl
+  packageVersion: 1.0
+  assetPath: Assets/CuteAxolotl/Animations/BlendShape/Swim Back In.anim
+  uploadId: 550541

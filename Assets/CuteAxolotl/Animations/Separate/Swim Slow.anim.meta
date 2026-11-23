@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: bb74c4c242e477d42ae629761e0aacb4
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 242131
+  packageName: Cute Axolotl
+  packageVersion: 1.0
+  assetPath: Assets/CuteAxolotl/Animations/Separate/Swim Slow.anim
+  uploadId: 550541

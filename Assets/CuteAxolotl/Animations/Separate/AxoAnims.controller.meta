@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: bdf33c26f89e0da449ffd53f8b46e980
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 242131
+  packageName: Cute Axolotl
+  packageVersion: 1.0
+  assetPath: Assets/CuteAxolotl/Animations/Separate/AxoAnims.controller
+  uploadId: 550541

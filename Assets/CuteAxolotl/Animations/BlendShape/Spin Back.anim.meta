@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e8c91bb3324debd409e58a25b2457687
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 242131
+  packageName: Cute Axolotl
+  packageVersion: 1.0
+  assetPath: Assets/CuteAxolotl/Animations/BlendShape/Spin Back.anim
+  uploadId: 550541

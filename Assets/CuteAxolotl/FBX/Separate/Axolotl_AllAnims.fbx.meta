@@ -1,0 +1,296 @@
+fileFormatVersion: 2
+guid: 0e5ddb296ec17184eb97c47c86a8a0b8
+ModelImporter:
+  serializedVersion: 19301
+  internalIDToNameTable:
+  - first:
+      74: -6712725380312225458
+    second: Tpose
+  - first:
+      74: -3100369314251171874
+    second: Idle
+  - first:
+      74: 9100216021506230292
+    second: Swim Slow
+  - first:
+      74: 6726594082106270087
+    second: Swim Medium
+  - first:
+      74: -4390371481616045292
+    second: Collision
+  - first:
+      74: -8049255563240517970
+    second: Spin Forward
+  - first:
+      74: 2388055123709203977
+    second: Spin Back
+  - first:
+      74: 8063103327797011806
+    second: Clapp All
+  - first:
+      74: 8350160135735018559
+    second: Clapp Loop
+  - first:
+      74: 689727143527590355
+    second: Happy
+  - first:
+      74: 2461290236856679792
+    second: Happy Loop
+  - first:
+      74: 2701706534422090701
+    second: Swim Back In
+  - first:
+      74: -1260529443344549578
+    second: Swim Back Loop
+  - first:
+      74: -2340997933047438143
+    second: Attack Left
+  - first:
+      74: -6766722741127836893
+    second: Attack Right
+  - first:
+      74: -8047172828100683661
+    second: Swim Back Out
+  - first:
+      74: 926818827261013298
+    second: Clapp In
+  - first:
+      74: 1929683703455791600
+    second: Clapp Out
+  - first:
+      74: 4367594488273867817
+    second: All Anim
+  - first:
+      74: 4943355670896247591
+    second: All Anim.001
+  - first:
+      74: 2424024483388418576
+    second: Armature|_All Anim
+  - first:
+      74: -8663081987791189653
+    second: Armature|All Anim
+  - first:
+      74: -36541324021387398
+    second: Armature|All Anim.001
+  - first:
+      74: 6552127679177013591
+    second: Armature|Attack Left
+  - first:
+      74: -4614572676067771272
+    second: Armature|Attack Left.001
+  - first:
+      74: -5792674587811479244
+    second: Armature|Attack Right
+  - first:
+      74: 6695601676406214909
+    second: Armature|Attack Right.001
+  - first:
+      74: -1596238047140851101
+    second: Armature|Clapp All
+  - first:
+      74: 308028424879714852
+    second: Armature|Clapp All.001
+  - first:
+      74: 5820764283709664209
+    second: Armature|Clapp In
+  - first:
+      74: 2056749774070756900
+    second: Armature|Clapp In.001
+  - first:
+      74: -4648350447800472880
+    second: Armature|Clapp Loop
+  - first:
+      74: 1612861987248148652
+    second: Armature|Clapp Loop.001
+  - first:
+      74: 8785504829325214421
+    second: Armature|Clapp Out
+  - first:
+      74: -350582164712207820
+    second: Armature|Clapp Out.001
+  - first:
+      74: -7489721896243022055
+    second: Armature|Collision
+  - first:
+      74: -7401368570872353182
+    second: Armature|Collision.001
+  - first:
+      74: -8544982944672715099
+    second: Armature|Happy
+  - first:
+      74: -3141492165845188862
+    second: Armature|Happy Loop
+  - first:
+      74: 3557401080752688708
+    second: Armature|Happy Loop.001
+  - first:
+      74: -6667197439857540140
+    second: Armature|Happy.001
+  - first:
+      74: -8945691123924629249
+    second: Armature|Idle
+  - first:
+      74: 4106399916549189888
+    second: Armature|Idle.001
+  - first:
+      74: 4710241572771398341
+    second: Armature|Spin Back
+  - first:
+      74: -2220955691579216809
+    second: Armature|Spin Back.001
+  - first:
+      74: 4749945194654041929
+    second: Armature|Spin Forward
+  - first:
+      74: 2512717676503907374
+    second: Armature|Spin Forward.001
+  - first:
+      74: -8038201807421798532
+    second: Armature|Swim Back In
+  - first:
+      74: -2300470169916566110
+    second: Armature|Swim Back In.001
+  - first:
+      74: 2883083982339081744
+    second: Armature|Swim Back Loop
+  - first:
+      74: -5483289998356094341
+    second: Armature|Swim Back Loop.001
+  - first:
+      74: 2910270715023206855
+    second: Armature|Swim Back Out
+  - first:
+      74: -38907494386785528
+    second: Armature|Swim Back Out.001
+  - first:
+      74: -2785229696304156532
+    second: Armature|Swim Medium
+  - first:
+      74: 8371630146252660168
+    second: Armature|Swim Medium.001
+  - first:
+      74: -3830895713247279824
+    second: Armature|Swim Slow
+  - first:
+      74: 3874179304129850510
+    second: Armature|Swim Slow.001
+  - first:
+      74: -4779212398625334856
+    second: Armature|Tpose
+  - first:
+      74: 275102261649850229
+    second: Armature|Tpose.001
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: axo._face
+    second: {fileID: 2100000, guid: 338f2babd3d7fdc408b90f2f2446fd88, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: axo_body
+    second: {fileID: 2100000, guid: c2ff703fae806334082bd9172d890a94, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: axo_ferns
+    second: {fileID: 2100000, guid: 8b926b06a7bb8334c914101acaee7143, type: 2}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 242131
+  packageName: Cute Axolotl
+  packageVersion: 1.0
+  assetPath: Assets/CuteAxolotl/FBX/Separate/Axolotl_AllAnims.fbx
+  uploadId: 550541

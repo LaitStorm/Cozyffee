@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: cd0b082a535e5494189e9f9675400b5f
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 242131
+  packageName: Cute Axolotl
+  packageVersion: 1.0
+  assetPath: Assets/CuteAxolotl/Animations/Separate/Happy Loop.anim
+  uploadId: 550541
