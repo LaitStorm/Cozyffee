@@ -6844,13 +6844,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.NavigationTutorial.NPCGenerator
   NPCPrefabs:
-  - {fileID: 4694023089020308897, guid: a9e1e6049fa9240d7954cc7ac9705c21, type: 3}
-  - {fileID: 7557829645403346646, guid: f101eeb31ff3d4ca0b6fbb9d56e33159, type: 3}
-  - {fileID: 299856972211410539, guid: 520c12e11c1d145179a7ad4399687b05, type: 3}
-  - {fileID: 5648887991382630351, guid: c3203d573994a47cb9050b7d6763a2af, type: 3}
-  - {fileID: 7695300379631734080, guid: 35e90325750494c57b78d1459e989fbf, type: 3}
-  - {fileID: 3394471395329052103, guid: fd07d9b5508154839bf78eb075dbf283, type: 3}
-  - {fileID: 7958980249364837230, guid: c48c4baffdd7e4d66b0f985f9a906176, type: 3}
+  - {fileID: 5380478608286422756, guid: a9e1e6049fa9240d7954cc7ac9705c21, type: 3}
+  - {fileID: 6038568126641924108, guid: f101eeb31ff3d4ca0b6fbb9d56e33159, type: 3}
+  - {fileID: 5902122789184296028, guid: 520c12e11c1d145179a7ad4399687b05, type: 3}
+  - {fileID: 5002118737907529711, guid: c3203d573994a47cb9050b7d6763a2af, type: 3}
+  - {fileID: 5597173632941425586, guid: 35e90325750494c57b78d1459e989fbf, type: 3}
+  - {fileID: 5546073786106881116, guid: fd07d9b5508154839bf78eb075dbf283, type: 3}
+  - {fileID: 6220715460163939567, guid: c48c4baffdd7e4d66b0f985f9a906176, type: 3}
   Area: {fileID: 685143367}
   Count: 10
   MinStartingHunger: 20
