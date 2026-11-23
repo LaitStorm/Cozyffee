@@ -29,6 +29,7 @@ namespace Game.Cozyffee
 
             npc.CanMove = false;
             npc.IsSleeping = true;
+            npc.FallAsleep?.Invoke();
         }
 
         protected override TaskStatus OnUpdate()
@@ -38,6 +39,7 @@ namespace Game.Cozyffee
         {
             npc.IsSleeping = false;
             npc.CanMove = true;
+            npc.WakeUp?.Invoke();
         }
     }
 }

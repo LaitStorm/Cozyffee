@@ -7,12 +7,14 @@ namespace Game.Cozyffee
         [SerializeField]
         ParticleSystem orderParticles;
 
+        [SerializeField]
+        ParticleSystem sleepParticles;
+
         public override void SetNPC(NPC npc)
         {
             if (this.npc != null)
             {
-                this.npc.Order -= PlayOrderParticles;
-                this.npc.OrderEnded -= StopOrderParticles;
+                Unsubscribe(this.npc);
             }
 
             base.SetNPC(npc);
@@ -21,6 +23,8 @@ namespace Game.Cozyffee
             {
                 npc.Order += PlayOrderParticles;
                 npc.OrderEnded += StopOrderParticles;
+                npc.FallAsleep += PlaySleepParticles;
+                npc.WakeUp += StopSleepParticles;
             }
         }
 
@@ -28,20 +32,39 @@ namespace Game.Cozyffee
         {
             if (npc != null)
             {
-                npc.Order -= PlayOrderParticles;
-                npc.OrderEnded -= StopOrderParticles;
+                Unsubscribe(npc);
             }
         }
 
-        public void PlayOrderParticles()
+        void Unsubscribe(NPC npc)
         {
-            orderParticles.Play();
+            npc.Order -= PlayOrderParticles;
+            npc.OrderEnded -= StopOrderParticles;
+            npc.FallAsleep -= PlaySleepParticles;
+            npc.WakeUp -= StopSleepParticles;
         }
 
-        public void StopOrderParticles()
+        public void PlayOrderParticles() => Play(orderParticles);
+        public void StopOrderParticles() => Stop(orderParticles);
+
+        public void PlaySleepParticles() => Play(sleepParticles);
+        public void StopSleepParticles() => Stop(sleepParticles);
+
+        static void Play(ParticleSystem particles)
+        {
+            if (particles != null)
+            {
+                particles.Play();
+            }
+        }
+
+        static void Stop(ParticleSystem particles)
         {
             // StopEmitting lets particles already on screen fade out instead of vanishing
-            orderParticles.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            if (particles != null)
+            {
+                particles.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            }
         }
     }
 }

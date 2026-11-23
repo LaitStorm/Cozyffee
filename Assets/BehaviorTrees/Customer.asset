@@ -25,12 +25,12 @@ MonoBehaviour:
   ItemId: cinnamon_roll
   FillAmount: 60
   HungryThreshold: 40
-  SleepyThreshold: 80
+  SleepyThreshold: 70
   IdleHungerInterval: 3
   IdleHungerIntervalRandom: 4
   IdleHungerAmount: 3
   IdleHungerAmountRandom: 5
-  SleepChance: 0.4
+  SleepChance: 0.8
   SleepCheckInterval: 10
   SleepDuration: 20
   SleepDurationRandom: 10

@@ -68,6 +68,16 @@ namespace Game.Cozyffee
 
         #endregion
 
+        #region Sleep
+
+        /// <summary>Fired by the Sleep task when the NPC falls asleep.</summary>
+        public UnityAction FallAsleep;
+
+        /// <summary>Fired by the Sleep task when the NPC wakes up: nap finished or interrupted.</summary>
+        public UnityAction WakeUp;
+
+        #endregion
+
         #region Animator Booleans
 
         public bool IsOrdering = false;
