@@ -42,7 +42,7 @@ public class IceCreamCone : MonoBehaviour
     /// <summary>ID de lo que hay en el cono (ver <see cref="IceCreamRecipe"/>); "" si está vacío.</summary>
     public string RecipeId { get; private set; } = "";
 
-    // Los scoops y toppings se instancian dentro de este hijo. Si FoodRespawn clona un cono ya armado,
+    // Los scoops y toppings se instancian dentro de este hijo. Si se clona un cono ya armado (Instantiate de un cono de la escena),
     // el clon copia este hijo pero no la lista de ingredientes, así que se borra en Awake para que empiece vacío.
     private const string ContentsName = "IceCreamContents";
     private Transform contents;
