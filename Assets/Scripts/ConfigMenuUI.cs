@@ -64,8 +64,9 @@ public class ConfigMenuUI : MonoBehaviour
         btnVolver = root.Q<Button>(BtnVolverName);
 
         // Cargar valores guardados previamente (PlayerPrefs) y sincronizar UI
-        float savedAmbient = PlayerPrefs.GetFloat("Config_Ambient", 0.8f);
-        float savedSfx = PlayerPrefs.GetFloat("Config_SFX", 1.0f);
+        // Al iniciar el juego estos volúmenes los aplica AudioVolumeSettings (objeto Music), porque este panel empieza desactivado.
+        float savedAmbient = AudioVolumeSettings.SavedAmbient;
+        float savedSfx = AudioVolumeSettings.SavedSfx;
         int savedNpcs = PlayerPrefs.GetInt("Config_NPCs", npcPool.Count);
         bool savedSnapTurn = PlayerPrefs.GetInt("Config_SnapTurn", 0) == 1;
 
@@ -121,13 +122,13 @@ public class ConfigMenuUI : MonoBehaviour
     private void OnAmbientChanged(ChangeEvent<float> evt)
     {
         ApplyAmbientVolume(evt.newValue);
-        PlayerPrefs.SetFloat("Config_Ambient", evt.newValue);
+        PlayerPrefs.SetFloat(AudioVolumeSettings.AmbientKey, evt.newValue);
     }
 
     private void OnSfxChanged(ChangeEvent<float> evt)
     {
         ApplySfxVolume(evt.newValue);
-        PlayerPrefs.SetFloat("Config_SFX", evt.newValue);
+        PlayerPrefs.SetFloat(AudioVolumeSettings.SfxKey, evt.newValue);
     }
 
     private void OnNpcsChanged(ChangeEvent<int> evt)
@@ -147,9 +148,7 @@ public class ConfigMenuUI : MonoBehaviour
     {
         if (mainAudioMixer != null)
         {
-            // Conversión logarítmica estándar (0.0001 a 1 -> -80dB a 0dB)
-            float db = Mathf.Log10(Mathf.Max(0.0001f, value)) * 20f;
-            mainAudioMixer.SetFloat(ambientMixerParam, db);
+            AudioVolumeSettings.Apply(mainAudioMixer, ambientMixerParam, value);
         }
         else if (ambientAudioSource != null)
         {
@@ -161,8 +160,7 @@ public class ConfigMenuUI : MonoBehaviour
     {
         if (mainAudioMixer != null)
         {
-            float db = Mathf.Log10(Mathf.Max(0.0001f, value)) * 20f;
-            mainAudioMixer.SetFloat(sfxMixerParam, db);
+            AudioVolumeSettings.Apply(mainAudioMixer, sfxMixerParam, value);
         }
         else
         {

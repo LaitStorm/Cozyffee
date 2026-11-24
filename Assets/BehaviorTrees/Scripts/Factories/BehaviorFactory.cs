@@ -92,7 +92,7 @@ namespace Game.Cozyffee
         /// (null = the <see cref="OrderMood"/> defaults).
         /// </summary>
         public static OrderScope Order(string areaId, string itemId, Sprite bubble, float waitTime, Task eatTask = null, WanderParameters waitingWander = null,
-                                       float orderAnimationInterval = DefaultOrderAnimationInterval, OrderMood mood = null)
+                                    float orderAnimationInterval = DefaultOrderAnimationInterval, OrderMood mood = null)
         {
             mood ??= new OrderMood();
 
@@ -110,7 +110,7 @@ namespace Game.Cozyffee
         /// While every order spot is taken, the NPC wanders with <paramref name="waitingWander"/> (or stands still if null).
         /// </summary>
         public static OrderScope Order(string areaId, CafeMenu menu, float waitTime, bool eatForHunger = true, WanderParameters waitingWander = null,
-                                       float orderAnimationInterval = DefaultOrderAnimationInterval, OrderMood mood = null)
+                                    float orderAnimationInterval = DefaultOrderAnimationInterval, OrderMood mood = null)
         {
             mood ??= new OrderMood();
 
@@ -133,7 +133,7 @@ namespace Game.Cozyffee
         public const float DefaultOrderAnimationInterval = 8f;
 
         static void AddOrderSteps(Sequence sequence, string areaId, SharedString itemId, SharedString displayName, SharedSprite icon, float waitTime, Task eatTask, WanderParameters waitingWander,
-                                  float orderAnimationInterval, OrderMood mood)
+                                float orderAnimationInterval, OrderMood mood)
         {
             Sequence goToOrderArea = new Sequence() { Name = "Go to Order Area" };
             SharedVector3 orderDestination = new();
