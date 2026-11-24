@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Game.Cozyffee;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
@@ -29,8 +30,22 @@ public class IceCreamCone : MonoBehaviour
     [SerializeField] private AudioClip placeToppingClip;
 
     // Registro de ingredientes para validar pedidos
-    public List<string> AddedScoopFlavors { get; private set; } = new List<string>();
-    public List<string> AddedToppingNames { get; private set; } = new List<string>();
+    private readonly List<IceCreamFlavor> addedScoopFlavors = new List<IceCreamFlavor>();
+    private readonly List<IceCreamToppingType> addedToppings = new List<IceCreamToppingType>();
+
+    /// <summary>Sabores de abajo hacia arriba.</summary>
+    public IReadOnlyList<IceCreamFlavor> ScoopFlavors => addedScoopFlavors;
+
+    /// <summary>Toppings en el orden en que se pusieron.</summary>
+    public IReadOnlyList<IceCreamToppingType> Toppings => addedToppings;
+
+    /// <summary>ID de lo que hay en el cono (ver <see cref="IceCreamRecipe"/>); "" si está vacío.</summary>
+    public string RecipeId { get; private set; } = "";
+
+    // Los scoops y toppings se instancian dentro de este hijo. Si se clona un cono ya armado (Instantiate de un cono de la escena),
+    // el clon copia este hijo pero no la lista de ingredientes, así que se borra en Awake para que empiece vacío.
+    private const string ContentsName = "IceCreamContents";
+    private Transform contents;
 
     private readonly List<GameObject> stackedScoops = new List<GameObject>();
     private readonly List<GameObject> stackedToppings = new List<GameObject>();
@@ -43,6 +58,17 @@ public class IceCreamCone : MonoBehaviour
     {
         grabInteractable = GetComponent<XRGrabInteractable>();
         isUnlockedForScoops = !requireGrabFirst;
+
+        // Sin un Item el NPC no acepta el cono; se agrega por si no se puso en el Inspector.
+        if (!TryGetComponent(out IceCreamItem _))
+            gameObject.AddComponent<IceCreamItem>();
+
+        Transform copiedContents = transform.Find(ContentsName);
+        if (copiedContents != null)
+            Destroy(copiedContents.gameObject);
+
+        contents = new GameObject(ContentsName).transform;
+        contents.SetParent(transform, false);
     }
 
     private void OnEnable()
@@ -62,18 +88,19 @@ public class IceCreamCone : MonoBehaviour
         isUnlockedForScoops = true;
     }
 
-    public bool TryAddScoop(GameObject scoopPrefab, string flavorName = "Default")
+    public bool TryAddScoop(GameObject scoopPrefab, IceCreamFlavor flavor)
     {
         if (!isUnlockedForScoops || stackedScoops.Count >= maxScoops || scoopPrefab == null)
             return false;
 
         Vector3 spawnPos = firstScoopPoint.position + (firstScoopPoint.up * (scoopStackHeight * stackedScoops.Count));
-        GameObject newScoop = Instantiate(scoopPrefab, spawnPos, firstScoopPoint.rotation, transform);
+        GameObject newScoop = Instantiate(scoopPrefab, spawnPos, firstScoopPoint.rotation, contents);
 
         DisablePhysics(newScoop);
 
         stackedScoops.Add(newScoop);
-        AddedScoopFlavors.Add(flavorName);
+        addedScoopFlavors.Add(flavor);
+        UpdateRecipeId();
 
         // Si ya había toppings puestos en el 1er scoop y se agrega un 2do scoop, los subimos al nuevo tope
         RepositionAllToppings();
@@ -84,7 +111,7 @@ public class IceCreamCone : MonoBehaviour
         return true;
     }
 
-    public bool TryAddTopping(GameObject toppingPrefab, string toppingName)
+    public bool TryAddTopping(GameObject toppingPrefab, IceCreamToppingType topping)
     {
         // Solo acepta toppings si el cono ya tiene al menos 1 scoop y no supera los 2 toppings
         if (!HasAtLeastOneScoop || stackedToppings.Count >= maxToppings || toppingPrefab == null)
@@ -92,17 +119,23 @@ public class IceCreamCone : MonoBehaviour
 
         int index = stackedToppings.Count;
         Vector3 spawnPos = GetToppingPosition(index);
-        GameObject newTopping = Instantiate(toppingPrefab, spawnPos, firstScoopPoint.rotation, transform);
+        GameObject newTopping = Instantiate(toppingPrefab, spawnPos, firstScoopPoint.rotation, contents);
 
         DisablePhysics(newTopping);
 
         stackedToppings.Add(newTopping);
-        AddedToppingNames.Add(toppingName);
+        addedToppings.Add(topping);
+        UpdateRecipeId();
 
         if (audioSource != null && placeToppingClip != null)
             audioSource.PlayOneShot(placeToppingClip);
 
         return true;
+    }
+
+    private void UpdateRecipeId()
+    {
+        RecipeId = IceCreamRecipe.BuildId(addedScoopFlavors, addedToppings);
     }
 
     private Vector3 GetToppingPosition(int toppingIndex)

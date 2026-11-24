@@ -3,8 +3,9 @@ using UnityEngine;
 namespace Game.Cozyffee.TaskSystem
 {
     /// <summary>
-    /// Picks a random item from <see cref="Menu"/> and writes its details into the shared variables,
-    /// so the tasks that follow (bubble, receive, eat) use whatever this NPC decided to order this time.
+    /// Picks a random item from <see cref="Menu"/>, creates this NPC's order from it (see <see cref="CafeMenuItem.CreateOrder"/>)
+    /// and writes its details into the shared variables, so the tasks that follow (bubble, receive, eat) use whatever
+    /// this NPC decided to order this time.
     /// Fails if the menu is missing or has nothing available.
     /// </summary>
     public class PickOrder : NPCAction
@@ -33,7 +34,7 @@ namespace Game.Cozyffee.TaskSystem
 
         protected override TaskStatus OnUpdate()
         {
-            if (Menu == null || !Menu.TryPickRandom(out CafeMenuItem order))
+            if (Menu == null || !Menu.TryPickRandom(out CafeMenuItem item))
             {
                 if (!hasWarned)
                 {
@@ -44,6 +45,8 @@ namespace Game.Cozyffee.TaskSystem
 
                 return TaskStatus.Failure;
             }
+
+            CafeOrder order = item.CreateOrder();
 
             if (ItemId != null) ItemId.Value = order.Id;
             if (DisplayName != null) DisplayName.Value = order.DisplayName;

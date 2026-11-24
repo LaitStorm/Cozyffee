@@ -1,16 +1,22 @@
+using Game.Cozyffee;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class IceCreamTopping : MonoBehaviour
 {
     [Header("Configuración del Topping")]
-    [Tooltip("Nombre del topping (ej: Frutilla, Cereza, Blueberry, Kiwi)")]
-    [SerializeField] private string toppingName = "Cereza";
+    [Tooltip("Tipo de topping (ej: Frutilla, Cereza, Blueberry, Kiwi)")]
+    [SerializeField] private IceCreamToppingType topping = IceCreamToppingType.Cherry;
 
     [Tooltip("Arrastra aquí el Prefab limpio de esta misma fruta desde la ventana Project.")]
     [SerializeField] private GameObject toppingVisualPrefab;
 
+    // Nombre de texto antiguo (ej: "Cherry"). Se convierte a 'topping' al abrir la escena; borrar cuando todas las escenas estén guardadas.
+    [SerializeField, HideInInspector] private string toppingName = "";
+
     private bool isConsumed = false;
+
+    public IceCreamToppingType Topping => topping;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -21,7 +27,7 @@ public class IceCreamTopping : MonoBehaviour
         {
             GameObject prefabToUse = toppingVisualPrefab != null ? toppingVisualPrefab : gameObject;
 
-            if (cone.TryAddTopping(prefabToUse, toppingName))
+            if (cone.TryAddTopping(prefabToUse, topping))
             {
                 isConsumed = true;
 
@@ -35,4 +41,26 @@ public class IceCreamTopping : MonoBehaviour
             }
         }
     }
+
+#if UNITY_EDITOR
+    private void OnValidate()
+    {
+        if (string.IsNullOrEmpty(toppingName))
+        {
+            return;
+        }
+
+        if (IceCreamLegacyNames.TryParseTopping(toppingName, out IceCreamToppingType parsed))
+        {
+            topping = parsed;
+        }
+        else
+        {
+            Debug.LogWarning($"{nameof(IceCreamTopping)} '{name}': unknown old topping name '{toppingName}'. Set its Topping by hand.", this);
+        }
+
+        toppingName = "";
+        UnityEditor.EditorUtility.SetDirty(this);
+    }
+#endif
 }

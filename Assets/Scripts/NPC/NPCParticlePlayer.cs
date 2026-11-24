@@ -10,6 +10,12 @@ namespace Game.Cozyffee
         [SerializeField]
         ParticleSystem sleepParticles;
 
+        [SerializeField, Tooltip("Played once when the NPC takes the item it ordered (NPC.AcceptFood).")]
+        ParticleSystem acceptParticles;
+
+        [SerializeField, Tooltip("Played once when the NPC is handed the wrong item (NPC.RejectFood).")]
+        ParticleSystem rejectParticles;
+
         public override void SetNPC(NPC npc)
         {
             if (this.npc != null)
@@ -25,6 +31,8 @@ namespace Game.Cozyffee
                 npc.OrderEnded += StopOrderParticles;
                 npc.FallAsleep += PlaySleepParticles;
                 npc.WakeUp += StopSleepParticles;
+                npc.AcceptFood += PlayAcceptParticles;
+                npc.RejectFood += PlayRejectParticles;
             }
         }
 
@@ -42,6 +50,8 @@ namespace Game.Cozyffee
             npc.OrderEnded -= StopOrderParticles;
             npc.FallAsleep -= PlaySleepParticles;
             npc.WakeUp -= StopSleepParticles;
+            npc.AcceptFood -= PlayAcceptParticles;
+            npc.RejectFood -= PlayRejectParticles;
         }
 
         public void PlayOrderParticles() => Play(orderParticles);
@@ -49,6 +59,9 @@ namespace Game.Cozyffee
 
         public void PlaySleepParticles() => Play(sleepParticles);
         public void StopSleepParticles() => Stop(sleepParticles);
+
+        public void PlayAcceptParticles() => Play(acceptParticles);
+        public void PlayRejectParticles() => Play(rejectParticles);
 
         static void Play(ParticleSystem particles)
         {

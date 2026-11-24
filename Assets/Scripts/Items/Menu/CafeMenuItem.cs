@@ -13,7 +13,7 @@ namespace Game.Cozyffee
     public class CafeMenuItem : CafeMenuOption
     {
         [Tooltip("Unique ID. Leave empty to use the asset name (\"CakeBlackForest\" -> \"cake_black_forest\"). " +
-                 "Items whose Item component uses this ID (or references this asset) count as this order.")]
+                "Items whose Item component uses this ID (or references this asset) count as this order.")]
         [SerializeField]
         string id = "";
 
@@ -28,6 +28,12 @@ namespace Game.Cozyffee
         public string Id => string.IsNullOrWhiteSpace(id) ? IdFromName(name) : id.Trim();
         public Sprite Icon => icon;
         public float HungerFill => hungerFill;
+
+        /// <summary>What an NPC asks for when it orders this. Override to vary parts of the order each time.</summary>
+        public virtual CafeOrder CreateOrder()
+        {
+            return new CafeOrder(this, Id, DisplayName, Icon, HungerFill);
+        }
 
         internal override bool IsOrderable(HashSet<CafeMenu> visiting)
         {

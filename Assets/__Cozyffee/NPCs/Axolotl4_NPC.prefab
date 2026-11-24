@@ -388,6 +388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.NPCAnimator
   animator: {fileID: 1738445728542434768}
   sleepAnimationSpeed: 0.75
+  playOnceTransition: 0.2
 --- !u!114 &336041356155570741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,6 +420,8 @@ MonoBehaviour:
   minBlinkInterval: 2.5
   maxBlinkInterval: 5
   blinkDuration: 0.15
+  rejectFoodEmotion: 2
+  rejectFoodEmotionDuration: 2
 --- !u!1 &1636373901244853157
 GameObject:
   m_ObjectHideFlags: 0
@@ -1711,6 +1714,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3224781871632860334, guid: e7a1c0de5b1d4c6f9a2b3c4d5e6f7081, type: 3}
+      propertyPath: purrClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7de33178684b24b6aa831793faebcef7, type: 3}
+    - target: {fileID: 3224781871632860334, guid: e7a1c0de5b1d4c6f9a2b3c4d5e6f7081, type: 3}
+      propertyPath: heyListenClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a87f6fce5e6534213b66fd47f56c3bf8, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

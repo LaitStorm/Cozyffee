@@ -17,13 +17,17 @@ MonoBehaviour:
   entries:
   - Option: {fileID: 11400000, guid: 7deac4d45ed25aaf724c23947f22af19, type: 2}
     Weight: 2
-    Chance: 28.6%
+    Chance: 18.2%
     initialized: 1
   - Option: {fileID: 11400000, guid: eb5fa5b290cb4388e97c4dd82ff5c0f8, type: 2}
     Weight: 3
-    Chance: 42.9%
+    Chance: 27.3%
     initialized: 1
   - Option: {fileID: 11400000, guid: 555941cc4d6610c781b23a25e3341442, type: 2}
     Weight: 2
-    Chance: 28.6%
+    Chance: 18.2%
+    initialized: 1
+  - Option: {fileID: 11400000, guid: c538a704de7e3434d97f0dcb149b8b14, type: 2}
+    Weight: 4
+    Chance: 36.4%
     initialized: 1
