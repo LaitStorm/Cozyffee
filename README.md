@@ -61,12 +61,25 @@
 
 > - **Modelo:** Gemini 3.6 Flash
 > - **Plataforma:** Gemini web
-> - **Cómo se usó:** Generación de script para hacer respawn de postres, consulta de errores durante desarrollo y desarrollo de UI.
+> - **Cómo se usó:** Generación de script para hacer respawn de postres y consulta de errores durante desarrollo.
+
+> - **Modelo:** Gemini 4.0 Hydrogen
+> - **Plataforma:** Gemini web
+> - **Cómo se usó:** Generación de scripts para helados, bolitas de sabores, posiciones toppings, lógica para UI de Menu, configuraciones y tutorial con pasos. Además consulta de errores durante el dedsarrollo
 
 > - **Modelo:** Claude Sonnet 5.5 Extra
 > - **Plataforma:** Claude.ai web
 > - **Cómo se usó:** Ayuda con scripts para generar órden de clientes, destroy de instancias y consulta de errores
 
-> - **Modelo:** Claude Opus 5.5 High
-> - **Plataforma:** Claude VSCode Extension
-> - **Cómo se usó:** Ayuda para adaptar el tutorial a las necesidades del proyecto, revisión automática de PRs.
+> - **Modelo:** Claude Opus 5.5
+> - **Plataforma:** Claude Code (extensión de VS Code)
+> - **Cómo se usó:** Agente de programación con acceso al repositorio. Escribió sugerencias e instrucciones de modificación a los scripts, prefabs, materiales y configuración del proyecto:
+>   - Adaptación del tutorial de navegación de NPCs a las necesidades del proyecto.
+>   - Basurero (destruir al soltar cerca, efecto y sonido) y lavado de cuchara (burbujas y sonido).
+>   - Conversión de materiales a URP (pack de postres y efectos de partículas).
+>   - Emociones de los clientes según el tiempo de espera de su pedido.
+>   - Mezclador de audio, música de fondo y sliders de volumen.
+>   - Menús y tutorial siempre visibles sobre la escena (render features de URP).
+>   - Cantidad máxima de NPCs configurable y reparto entre generadores.
+>   - Ajustes de UI de Configuración y Tutorial, corrección de textos y bugs.
+>   - Revisión de la escena y de PRs, y resolución de conflictos de merge.
