@@ -449,6 +449,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7058557015207103005, guid: d692379a7428b4e48becaf5fa11d6408, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1847571052}
+    - targetCorrespondingSourceObject: {fileID: 7058557015207103005, guid: d692379a7428b4e48becaf5fa11d6408, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1847571058}
   m_SourcePrefab: {fileID: 100100000, guid: d692379a7428b4e48becaf5fa11d6408, type: 3}
 --- !u!1 &16708311 stripped
 GameObject:
@@ -539,6 +542,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8844322943973060470, guid: ad54cac7e4b1b4c169152a8105f6414f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 349584628}
+    - targetCorrespondingSourceObject: {fileID: 8844322943973060470, guid: ad54cac7e4b1b4c169152a8105f6414f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 349584634}
   m_SourcePrefab: {fileID: 100100000, guid: ad54cac7e4b1b4c169152a8105f6414f, type: 3}
 --- !u!4 &23762342 stripped
 Transform:
@@ -942,6 +948,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FoodRespawn
   foodPrefab: {fileID: 72123586}
   respawnDelay: 3
+--- !u!114 &72123600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72123586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 178f379eea9bb4dc6b0382892f566fb8, type: 2}
+  id: 
 --- !u!1001 &77747731
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1230,8 +1250,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cbef6633b4a3d439958f62c4383aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamTopping
-  toppingName: Blueberry
+  topping: 1
   toppingVisualPrefab: {fileID: 543911453486027751, guid: a15116c785d7648358b14a3ce05f910c, type: 3}
+  toppingName: 
 --- !u!1 &91423277 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1691816836836472, guid: 8b6c44dc7c0ee401e8326e32b669a93c, type: 3}
@@ -1416,6 +1437,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!4 &91423281 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4541597687775168, guid: 8b6c44dc7c0ee401e8326e32b669a93c, type: 3}
+  m_PrefabInstance: {fileID: 834056586}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &91423282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 91423277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 17f82b8febb9743519e1b36426a94ffd, type: 2}
+  id: 
 --- !u!1 &92366163 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6899962092626316088, guid: e455ecda1e3254754902411704c667c4, type: 3}
@@ -1546,8 +1586,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f025c024b5d2674e90713055c727d10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamCassata
-  flavorName: Mint
+  flavor: 1
   scoopPrefab: {fileID: 3348315557592196350, guid: 6414b075fa9fa407099ecbe00d5b1a4b, type: 3}
+  flavorName: 
 --- !u!1001 &98841181
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1629,6 +1670,54 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 357128109503674887, guid: caacc0cb7cb75455bbfa1d28aeb896da, type: 3}
   m_PrefabInstance: {fileID: 985228092}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &112061830
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 112061831}
+  - component: {fileID: 112061832}
+  m_Layer: 0
+  m_Name: OrderArea (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &112061831
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112061830}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.29258, y: 0, z: -1.2872901}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1414366973}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &112061832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112061830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58cf0ab92e41142f280159d893b18fd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Area
+  Id: OrderArea
+  Radius: 0.5
+  SampleDistance: 2
+  Capacity: 1
 --- !u!1001 &116044060
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1701,6 +1790,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6899962092626316088, guid: e455ecda1e3254754902411704c667c4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2101462338}
+    - targetCorrespondingSourceObject: {fileID: 6899962092626316088, guid: e455ecda1e3254754902411704c667c4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2101462343}
   m_SourcePrefab: {fileID: 100100000, guid: e455ecda1e3254754902411704c667c4, type: 3}
 --- !u!1001 &119756651
 PrefabInstance:
@@ -1774,6 +1866,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6899962092626316088, guid: e455ecda1e3254754902411704c667c4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1006890523}
+    - targetCorrespondingSourceObject: {fileID: 6899962092626316088, guid: e455ecda1e3254754902411704c667c4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1006890528}
   m_SourcePrefab: {fileID: 100100000, guid: e455ecda1e3254754902411704c667c4, type: 3}
 --- !u!1001 &131048678
 PrefabInstance:
@@ -1781,19 +1876,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 868304052}
     m_Modifications:
     - target: {fileID: 5156746507243800127, guid: 710adcdc52b434d2a9c2ecbd5a6b5bd9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.661001
+      value: -0.00035095215
       objectReference: {fileID: 0}
     - target: {fileID: 5156746507243800127, guid: 710adcdc52b434d2a9c2ecbd5a6b5bd9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.062999964
+      value: -0.001879964
       objectReference: {fileID: 0}
     - target: {fileID: 5156746507243800127, guid: 710adcdc52b434d2a9c2ecbd5a6b5bd9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.8459997
+      value: 0.0012602806
       objectReference: {fileID: 0}
     - target: {fileID: 5156746507243800127, guid: 710adcdc52b434d2a9c2ecbd5a6b5bd9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1868,8 +1963,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cbef6633b4a3d439958f62c4383aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamTopping
-  toppingName: Kiwi
+  topping: 2
   toppingVisualPrefab: {fileID: 131048679}
+  toppingName: 
 --- !u!65 &131048681
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2062,6 +2158,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!4 &131048685 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5156746507243800127, guid: 710adcdc52b434d2a9c2ecbd5a6b5bd9, type: 3}
+  m_PrefabInstance: {fileID: 131048678}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &135322610
 GameObject:
   m_ObjectHideFlags: 0
@@ -2086,15 +2187,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 135322610}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.551221, y: 0, z: 4.266}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 8.109429, y: 0.06112, z: 8.11326}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 424182598}
   - {fileID: 476221964}
   - {fileID: 1695428011}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 208331936}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &139333435
 GameObject:
@@ -2308,6 +2409,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 0dde3021ca18047cf8bf8aad877283d2, type: 3}
   m_PrefabInstance: {fileID: 976814292}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &151164179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151164160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 54c542e5b313e4b12a2d35e049b27ef1, type: 2}
+  id: 
 --- !u!1 &151206496
 GameObject:
   m_ObjectHideFlags: 0
@@ -2807,6 +2922,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 716eb86c5f9a24921a13fd6bcaa16cb1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2034614491}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: 716eb86c5f9a24921a13fd6bcaa16cb1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2034614495}
   m_SourcePrefab: {fileID: 100100000, guid: 716eb86c5f9a24921a13fd6bcaa16cb1, type: 3}
 --- !u!1001 &192850901
 PrefabInstance:
@@ -2904,6 +3022,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9f365cf844c03449bc8973eead2c3c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &208331935
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 208331936}
+  m_Layer: 0
+  m_Name: Room
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &208331936
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208331935}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.66065, y: -0.06112, z: -3.84726}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 236250741}
+  - {fileID: 1925975771}
+  - {fileID: 135322611}
+  - {fileID: 688719552}
+  - {fileID: 675552229}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &208715872
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3194,8 +3348,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cbef6633b4a3d439958f62c4383aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamTopping
-  toppingName: Cherry
+  topping: 3
   toppingVisualPrefab: {fileID: 1761245928029686151, guid: b74402ab94bdf49acbdb4498758befba, type: 3}
+  toppingName: 
 --- !u!4 &210442014 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3102752843539250933, guid: 4ff7c76a59c724bdeb9f8cd655a4ef46, type: 3}
@@ -3210,6 +3365,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 84290856406402722, guid: aa7ad93ac951043a6a6743586279f3e2, type: 3}
   m_PrefabInstance: {fileID: 2068861227}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &236250741 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400008, guid: 90c9369496bdb4fd285bc323d418f542, type: 3}
+  m_PrefabInstance: {fileID: 295724240}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &239633216
 GameObject:
@@ -3393,6 +3553,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6899962092626316088, guid: e455ecda1e3254754902411704c667c4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1880529737}
+    - targetCorrespondingSourceObject: {fileID: 6899962092626316088, guid: e455ecda1e3254754902411704c667c4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1880529742}
   m_SourcePrefab: {fileID: 100100000, guid: e455ecda1e3254754902411704c667c4, type: 3}
 --- !u!1001 &248738303
 PrefabInstance:
@@ -3523,6 +3686,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 78649977252932413, guid: 4195e9d40f9d84140a086bd129febc60, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1601971957}
+    - targetCorrespondingSourceObject: {fileID: 78649977252932413, guid: 4195e9d40f9d84140a086bd129febc60, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1601971962}
   m_SourcePrefab: {fileID: 100100000, guid: 4195e9d40f9d84140a086bd129febc60, type: 3}
 --- !u!4 &258028580 stripped
 Transform:
@@ -3722,6 +3888,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &258028589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103777045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: e639a7075a22f45bea50445bc4347e32, type: 2}
+  id: 
 --- !u!1 &259304649 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 747780859215125528, guid: aa7ad93ac951043a6a6743586279f3e2, type: 3}
@@ -3760,7 +3940,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 208331936}
     m_Modifications:
     - target: {fileID: 456426182010894641, guid: de13c850f8a7c456c873573c794b96af, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3892,15 +4072,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6653574892485257811, guid: de13c850f8a7c456c873573c794b96af, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.348
+      value: 9.312651
       objectReference: {fileID: 0}
     - target: {fileID: 6653574892485257811, guid: de13c850f8a7c456c873573c794b96af, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.06112
       objectReference: {fileID: 0}
     - target: {fileID: 6653574892485257811, guid: de13c850f8a7c456c873573c794b96af, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.12
+      value: 2.72726
       objectReference: {fileID: 0}
     - target: {fileID: 6653574892485257811, guid: de13c850f8a7c456c873573c794b96af, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3908,7 +4088,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6653574892485257811, guid: de13c850f8a7c456c873573c794b96af, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6653574892485257811, guid: de13c850f8a7c456c873573c794b96af, type: 3}
       propertyPath: m_LocalRotation.y
@@ -3916,7 +4096,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6653574892485257811, guid: de13c850f8a7c456c873573c794b96af, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6653574892485257811, guid: de13c850f8a7c456c873573c794b96af, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4083,6 +4263,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6377833800213193542, guid: de13c850f8a7c456c873573c794b96af, type: 3}
       insertIndex: -1
       addedObject: {fileID: 593518081}
+    - targetCorrespondingSourceObject: {fileID: 6377833800213193542, guid: de13c850f8a7c456c873573c794b96af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 593518083}
     - targetCorrespondingSourceObject: {fileID: 5846074135207452912, guid: de13c850f8a7c456c873573c794b96af, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1175958709}
@@ -4171,6 +4354,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 747780859215125528, guid: aa7ad93ac951043a6a6743586279f3e2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1025435014}
+    - targetCorrespondingSourceObject: {fileID: 747780859215125528, guid: aa7ad93ac951043a6a6743586279f3e2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1025435019}
   m_SourcePrefab: {fileID: 100100000, guid: aa7ad93ac951043a6a6743586279f3e2, type: 3}
 --- !u!4 &267440261 stripped
 Transform:
@@ -4452,6 +4638,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7806807516443783733, guid: eaf06755c181f4e41a33a901c99f4df1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1358301974}
+    - targetCorrespondingSourceObject: {fileID: 7806807516443783733, guid: eaf06755c181f4e41a33a901c99f4df1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1358301978}
   m_SourcePrefab: {fileID: 100100000, guid: eaf06755c181f4e41a33a901c99f4df1, type: 3}
 --- !u!1001 &289743182
 PrefabInstance:
@@ -4525,6 +4714,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 357128109503674887, guid: caacc0cb7cb75455bbfa1d28aeb896da, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1822500376}
+    - targetCorrespondingSourceObject: {fileID: 357128109503674887, guid: caacc0cb7cb75455bbfa1d28aeb896da, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1822500381}
   m_SourcePrefab: {fileID: 100100000, guid: caacc0cb7cb75455bbfa1d28aeb896da, type: 3}
 --- !u!1 &293418273
 GameObject:
@@ -4600,7 +4792,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 208331936}
     m_Modifications:
     - target: {fileID: 100008, guid: 90c9369496bdb4fd285bc323d418f542, type: 3}
       propertyPath: m_Name
@@ -4608,15 +4800,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: 90c9369496bdb4fd285bc323d418f542, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6
+      value: 5.6606503
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: 90c9369496bdb4fd285bc323d418f542, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.000000012338177
+      value: 0.06112001
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: 90c9369496bdb4fd285bc323d418f542, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.57
+      value: 9.41726
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: 90c9369496bdb4fd285bc323d418f542, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4624,7 +4816,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: 90c9369496bdb4fd285bc323d418f542, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: 90c9369496bdb4fd285bc323d418f542, type: 3}
       propertyPath: m_LocalRotation.y
@@ -4694,8 +4886,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cbef6633b4a3d439958f62c4383aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamTopping
-  toppingName: Raspberry
+  topping: 4
   toppingVisualPrefab: {fileID: 4090043516532804302, guid: 8ace96a9e49be40d780c606066d25ebe, type: 3}
+  toppingName: 
 --- !u!114 &304226978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5020,6 +5213,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6899962092626316088, guid: e455ecda1e3254754902411704c667c4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1460173079}
+    - targetCorrespondingSourceObject: {fileID: 6899962092626316088, guid: e455ecda1e3254754902411704c667c4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1460173084}
   m_SourcePrefab: {fileID: 100100000, guid: e455ecda1e3254754902411704c667c4, type: 3}
 --- !u!4 &321918880 stripped
 Transform:
@@ -5544,6 +5740,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8211901015791351244, guid: ad54cac7e4b1b4c169152a8105f6414f, type: 3}
   m_PrefabInstance: {fileID: 22756976}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &349584634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349584618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 5c625f2a000514b1cb7239727d585fe0, type: 2}
+  id: 
 --- !u!4 &351106625 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d528015dc5b7bae47a7771faf9d63516, type: 3}
@@ -5592,8 +5802,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cbef6633b4a3d439958f62c4383aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamTopping
-  toppingName: Raspberry
+  topping: 4
   toppingVisualPrefab: {fileID: 4090043516532804302, guid: 8ace96a9e49be40d780c606066d25ebe, type: 3}
+  toppingName: 
 --- !u!114 &355387162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5995,6 +6206,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4691079686382280569, guid: 9e6a70fa43ab6468893cb5089b902186, type: 3}
+--- !u!114 &380035048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380035039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 0ac292c2e9da84f5bac3806a6cfd936f, type: 2}
+  id: 
 --- !u!1001 &382738544
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6079,6 +6304,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1477181755914098764, guid: 94cf0d41ff2464224b44b1ddb68273d7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 874938114}
+    - targetCorrespondingSourceObject: {fileID: 1477181755914098764, guid: 94cf0d41ff2464224b44b1ddb68273d7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 874938117}
   m_SourcePrefab: {fileID: 100100000, guid: 94cf0d41ff2464224b44b1ddb68273d7, type: 3}
 --- !u!1001 &395056013
 PrefabInstance:
@@ -6164,6 +6392,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1165974790612320823, guid: 9396f390b3f2047ab9afbb694f07cddf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 451414166}
+    - targetCorrespondingSourceObject: {fileID: 1165974790612320823, guid: 9396f390b3f2047ab9afbb694f07cddf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 451414169}
   m_SourcePrefab: {fileID: 100100000, guid: 9396f390b3f2047ab9afbb694f07cddf, type: 3}
 --- !u!1001 &397375903
 PrefabInstance:
@@ -6237,6 +6468,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 357128109503674887, guid: caacc0cb7cb75455bbfa1d28aeb896da, type: 3}
       insertIndex: -1
       addedObject: {fileID: 398086952}
+    - targetCorrespondingSourceObject: {fileID: 357128109503674887, guid: caacc0cb7cb75455bbfa1d28aeb896da, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 398086957}
   m_SourcePrefab: {fileID: 100100000, guid: caacc0cb7cb75455bbfa1d28aeb896da, type: 3}
 --- !u!4 &398086948 stripped
 Transform:
@@ -6436,6 +6670,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &398086957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166922935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: e639a7075a22f45bea50445bc4347e32, type: 2}
+  id: 
 --- !u!1001 &399792278
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6508,6 +6756,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 357128109503674887, guid: caacc0cb7cb75455bbfa1d28aeb896da, type: 3}
       insertIndex: -1
       addedObject: {fileID: 951250998}
+    - targetCorrespondingSourceObject: {fileID: 357128109503674887, guid: caacc0cb7cb75455bbfa1d28aeb896da, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 951251003}
   m_SourcePrefab: {fileID: 100100000, guid: caacc0cb7cb75455bbfa1d28aeb896da, type: 3}
 --- !u!1 &402291720 stripped
 GameObject:
@@ -6723,8 +6974,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cbef6633b4a3d439958f62c4383aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamTopping
-  toppingName: Blueberry
+  topping: 1
   toppingVisualPrefab: {fileID: 543911453486027751, guid: a15116c785d7648358b14a3ce05f910c, type: 3}
+  toppingName: 
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -7043,6 +7295,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6899962092626316088, guid: e455ecda1e3254754902411704c667c4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1892884197}
+    - targetCorrespondingSourceObject: {fileID: 6899962092626316088, guid: e455ecda1e3254754902411704c667c4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1892884202}
   m_SourcePrefab: {fileID: 100100000, guid: e455ecda1e3254754902411704c667c4, type: 3}
 --- !u!4 &423186205 stripped
 Transform:
@@ -7193,6 +7448,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 357128109503674887, guid: caacc0cb7cb75455bbfa1d28aeb896da, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1605982734}
+    - targetCorrespondingSourceObject: {fileID: 357128109503674887, guid: caacc0cb7cb75455bbfa1d28aeb896da, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1605982739}
   m_SourcePrefab: {fileID: 100100000, guid: caacc0cb7cb75455bbfa1d28aeb896da, type: 3}
 --- !u!1 &448501659
 GameObject:
@@ -7431,6 +7689,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FoodRespawn
   foodPrefab: {fileID: 451414157}
   respawnDelay: 5
+--- !u!114 &451414169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451414157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 522a1c5c23df4491596bb81d56aedc40, type: 2}
+  id: 
 --- !u!1 &452240516 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 78649977252932413, guid: 4195e9d40f9d84140a086bd129febc60, type: 3}
@@ -7508,6 +7780,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 357128109503674887, guid: caacc0cb7cb75455bbfa1d28aeb896da, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2144102040}
+    - targetCorrespondingSourceObject: {fileID: 357128109503674887, guid: caacc0cb7cb75455bbfa1d28aeb896da, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2144102045}
   m_SourcePrefab: {fileID: 100100000, guid: caacc0cb7cb75455bbfa1d28aeb896da, type: 3}
 --- !u!1001 &456047992
 PrefabInstance:
@@ -7581,6 +7856,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7806807516443783733, guid: eaf06755c181f4e41a33a901c99f4df1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1717698829}
+    - targetCorrespondingSourceObject: {fileID: 7806807516443783733, guid: eaf06755c181f4e41a33a901c99f4df1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1717698834}
   m_SourcePrefab: {fileID: 100100000, guid: eaf06755c181f4e41a33a901c99f4df1, type: 3}
 --- !u!1001 &476221963
 PrefabInstance:
@@ -7858,8 +8136,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cbef6633b4a3d439958f62c4383aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamTopping
-  toppingName: Blueberry
+  topping: 1
   toppingVisualPrefab: {fileID: 543911453486027751, guid: a15116c785d7648358b14a3ce05f910c, type: 3}
+  toppingName: 
 --- !u!1 &485174077
 GameObject:
   m_ObjectHideFlags: 0
@@ -8056,6 +8335,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7765270977862942026, guid: f1abbb773793042eeacb9c3f0c14a77c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1042053703}
+    - targetCorrespondingSourceObject: {fileID: 7765270977862942026, guid: f1abbb773793042eeacb9c3f0c14a77c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1042053706}
   m_SourcePrefab: {fileID: 100100000, guid: f1abbb773793042eeacb9c3f0c14a77c, type: 3}
 --- !u!1001 &502290104
 PrefabInstance:
@@ -8129,6 +8411,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6899962092626316088, guid: e455ecda1e3254754902411704c667c4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1496134812}
+    - targetCorrespondingSourceObject: {fileID: 6899962092626316088, guid: e455ecda1e3254754902411704c667c4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1496134817}
   m_SourcePrefab: {fileID: 100100000, guid: e455ecda1e3254754902411704c667c4, type: 3}
 --- !u!1 &507935058 stripped
 GameObject:
@@ -8234,6 +8519,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6899962092626316088, guid: e455ecda1e3254754902411704c667c4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1504481195}
+    - targetCorrespondingSourceObject: {fileID: 6899962092626316088, guid: e455ecda1e3254754902411704c667c4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1504481200}
   m_SourcePrefab: {fileID: 100100000, guid: e455ecda1e3254754902411704c667c4, type: 3}
 --- !u!4 &532407329 stripped
 Transform:
@@ -8433,6 +8721,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4691079686382280569, guid: 9e6a70fa43ab6468893cb5089b902186, type: 3}
+--- !u!114 &532407338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452240516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 0ac292c2e9da84f5bac3806a6cfd936f, type: 2}
+  id: 
 --- !u!4 &535634742 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6091758805515194754, guid: e455ecda1e3254754902411704c667c4, type: 3}
@@ -8538,6 +8840,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7806807516443783733, guid: eaf06755c181f4e41a33a901c99f4df1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1592320601}
+    - targetCorrespondingSourceObject: {fileID: 7806807516443783733, guid: eaf06755c181f4e41a33a901c99f4df1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1592320604}
   m_SourcePrefab: {fileID: 100100000, guid: eaf06755c181f4e41a33a901c99f4df1, type: 3}
 --- !u!1001 &552055527
 PrefabInstance:
@@ -8825,8 +9130,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cbef6633b4a3d439958f62c4383aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamTopping
-  toppingName: Blueberry
+  topping: 1
   toppingVisualPrefab: {fileID: 543911453486027751, guid: a15116c785d7648358b14a3ce05f910c, type: 3}
+  toppingName: 
 --- !u!1 &553336172 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8188113464909557334, guid: c8b037fad8cead745996ead601977a7b, type: 3}
@@ -9085,6 +9391,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 747780859215125528, guid: aa7ad93ac951043a6a6743586279f3e2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 780239191}
+    - targetCorrespondingSourceObject: {fileID: 747780859215125528, guid: aa7ad93ac951043a6a6743586279f3e2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 780239196}
   m_SourcePrefab: {fileID: 100100000, guid: aa7ad93ac951043a6a6743586279f3e2, type: 3}
 --- !u!1001 &570274620
 PrefabInstance:
@@ -9092,7 +9401,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 868304052}
     m_Modifications:
     - target: {fileID: 292770883247205321, guid: 65da085078114c244ba9d8b391ed9854, type: 3}
       propertyPath: m_IsTrigger
@@ -9112,15 +9421,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7416179352865403759, guid: 65da085078114c244ba9d8b391ed9854, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.664712
+      value: -0.004061699
       objectReference: {fileID: 0}
     - target: {fileID: 7416179352865403759, guid: 65da085078114c244ba9d8b391ed9854, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0000000067223596
+      value: 0.061120007
       objectReference: {fileID: 0}
     - target: {fileID: 7416179352865403759, guid: 65da085078114c244ba9d8b391ed9854, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.6109133
+      value: -0.7636533
       objectReference: {fileID: 0}
     - target: {fileID: 7416179352865403759, guid: 65da085078114c244ba9d8b391ed9854, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9128,7 +9437,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7416179352865403759, guid: 65da085078114c244ba9d8b391ed9854, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7416179352865403759, guid: 65da085078114c244ba9d8b391ed9854, type: 3}
       propertyPath: m_LocalRotation.y
@@ -9168,6 +9477,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7899418718437943765, guid: 65da085078114c244ba9d8b391ed9854, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1050035359}
+    - targetCorrespondingSourceObject: {fileID: 7899418718437943765, guid: 65da085078114c244ba9d8b391ed9854, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1050035365}
   m_SourcePrefab: {fileID: 100100000, guid: 65da085078114c244ba9d8b391ed9854, type: 3}
 --- !u!1001 &570482071
 PrefabInstance:
@@ -9350,6 +9662,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6555459046254951100, guid: 5b9766036885746a482ffae30cc5d772, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1058738701}
+    - targetCorrespondingSourceObject: {fileID: 6555459046254951100, guid: 5b9766036885746a482ffae30cc5d772, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1058738704}
   m_SourcePrefab: {fileID: 100100000, guid: 5b9766036885746a482ffae30cc5d772, type: 3}
 --- !u!1001 &587430704
 PrefabInstance:
@@ -9423,6 +9738,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 747780859215125528, guid: aa7ad93ac951043a6a6743586279f3e2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1807910027}
+    - targetCorrespondingSourceObject: {fileID: 747780859215125528, guid: aa7ad93ac951043a6a6743586279f3e2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1807910032}
   m_SourcePrefab: {fileID: 100100000, guid: aa7ad93ac951043a6a6743586279f3e2, type: 3}
 --- !u!1 &588870646 stripped
 GameObject:
@@ -9446,8 +9764,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cbef6633b4a3d439958f62c4383aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamTopping
-  toppingName: Kiwi
+  topping: 2
   toppingVisualPrefab: {fileID: 8134828223633541557, guid: 710adcdc52b434d2a9c2ecbd5a6b5bd9, type: 3}
+  toppingName: 
 --- !u!65 &588870649
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9728,6 +10047,26 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 6802812156481094822, guid: e44398b8debef4010a789dd58c1ae19a, type: 3}
+--- !u!114 &593518083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593518077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 1
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &612672515 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 747780859215125528, guid: aa7ad93ac951043a6a6743586279f3e2, type: 3}
@@ -9739,7 +10078,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 868304052}
     m_Modifications:
     - target: {fileID: 8188113464909557334, guid: c8b037fad8cead745996ead601977a7b, type: 3}
       propertyPath: m_Name
@@ -9763,15 +10102,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8856844874011817196, guid: c8b037fad8cead745996ead601977a7b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.999
+      value: 2.6616507
       objectReference: {fileID: 0}
     - target: {fileID: 8856844874011817196, guid: c8b037fad8cead745996ead601977a7b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.88068634
+      value: 0.9418063
       objectReference: {fileID: 0}
     - target: {fileID: 8856844874011817196, guid: c8b037fad8cead745996ead601977a7b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.414
+      value: 2.43326
       objectReference: {fileID: 0}
     - target: {fileID: 8856844874011817196, guid: c8b037fad8cead745996ead601977a7b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9876,8 +10215,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cbef6633b4a3d439958f62c4383aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamTopping
-  toppingName: Kiwi
+  topping: 2
   toppingVisualPrefab: {fileID: 8134828223633541557, guid: 710adcdc52b434d2a9c2ecbd5a6b5bd9, type: 3}
+  toppingName: 
 --- !u!65 &653605245
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10426,6 +10766,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FoodRespawn
   foodPrefab: {fileID: 666453198}
   respawnDelay: 5
+--- !u!114 &666453210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666453198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: b48a20a2e72754dd793a802564a81b10, type: 2}
+  id: 
 --- !u!1001 &667085849
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10489,6 +10843,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7806807516443783733, guid: eaf06755c181f4e41a33a901c99f4df1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1233542670}
+    - targetCorrespondingSourceObject: {fileID: 7806807516443783733, guid: eaf06755c181f4e41a33a901c99f4df1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1233542673}
   m_SourcePrefab: {fileID: 100100000, guid: eaf06755c181f4e41a33a901c99f4df1, type: 3}
 --- !u!1 &670020706 stripped
 GameObject:
@@ -10538,8 +10895,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cbef6633b4a3d439958f62c4383aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamTopping
-  toppingName: Raspberry
+  topping: 4
   toppingVisualPrefab: {fileID: 4090043516532804302, guid: 8ace96a9e49be40d780c606066d25ebe, type: 3}
+  toppingName: 
 --- !u!114 &672047153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10815,6 +11173,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6899962092626316088, guid: e455ecda1e3254754902411704c667c4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1376027344}
+    - targetCorrespondingSourceObject: {fileID: 6899962092626316088, guid: e455ecda1e3254754902411704c667c4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1376027349}
   m_SourcePrefab: {fileID: 100100000, guid: e455ecda1e3254754902411704c667c4, type: 3}
 --- !u!1 &674403283
 GameObject:
@@ -10862,7 +11223,7 @@ GameObject:
   - component: {fileID: 675552226}
   - component: {fileID: 675552225}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: KitchenObstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10970,12 +11331,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 675552224}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.86272, y: 0, z: -1.1394901}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.7979302, y: 0.06112, z: 2.7077699}
   m_LocalScale: {x: 3, y: 3, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 208331936}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &684628945 stripped
 Transform:
@@ -11196,8 +11557,138 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cbef6633b4a3d439958f62c4383aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamTopping
-  toppingName: Blueberry
+  topping: 1
   toppingVisualPrefab: {fileID: 543911453486027751, guid: a15116c785d7648358b14a3ce05f910c, type: 3}
+  toppingName: 
+--- !u!1 &688719551
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 688719552}
+  - component: {fileID: 688719556}
+  - component: {fileID: 688719555}
+  - component: {fileID: 688719554}
+  - component: {fileID: 688719553}
+  m_Layer: 0
+  m_Name: WallObstacle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &688719552
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688719551}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.5, y: 1.5, z: 2.25}
+  m_LocalScale: {x: 1, y: 3, z: 16}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 208331936}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!208 &688719553
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688719551}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
+--- !u!65 &688719554
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688719551}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &688719555
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688719551}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &688719556
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688719551}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &692126743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11471,6 +11962,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4214905657249789363, guid: 58dbfa1a40c8046839f0ea336421a211, type: 3}
   m_PrefabInstance: {fileID: 1937126863}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &701230738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701230722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 5b2bdbd3cd4984c8eb178703b3d3cf1a, type: 2}
+  id: 
 --- !u!4 &702633190 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1134650589191708861, guid: caacc0cb7cb75455bbfa1d28aeb896da, type: 3}
@@ -11553,6 +12058,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 78649977252932413, guid: 4195e9d40f9d84140a086bd129febc60, type: 3}
       insertIndex: -1
       addedObject: {fileID: 532407333}
+    - targetCorrespondingSourceObject: {fileID: 78649977252932413, guid: 4195e9d40f9d84140a086bd129febc60, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 532407338}
   m_SourcePrefab: {fileID: 100100000, guid: 4195e9d40f9d84140a086bd129febc60, type: 3}
 --- !u!1001 &720606082
 PrefabInstance:
@@ -11662,8 +12170,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cbef6633b4a3d439958f62c4383aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamTopping
-  toppingName: Kiwi
+  topping: 2
   toppingVisualPrefab: {fileID: 8134828223633541557, guid: 710adcdc52b434d2a9c2ecbd5a6b5bd9, type: 3}
+  toppingName: 
 --- !u!65 &749252617
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12085,7 +12594,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 868304052}
     m_Modifications:
     - target: {fileID: 543911453486027751, guid: a15116c785d7648358b14a3ce05f910c, type: 3}
       propertyPath: m_Name
@@ -12097,15 +12606,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2688998296743119813, guid: a15116c785d7648358b14a3ce05f910c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.429
+      value: 0.23165035
       objectReference: {fileID: 0}
     - target: {fileID: 2688998296743119813, guid: a15116c785d7648358b14a3ce05f910c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.068
+      value: -0.006880004
       objectReference: {fileID: 0}
     - target: {fileID: 2688998296743119813, guid: a15116c785d7648358b14a3ce05f910c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.133
+      value: -0.2857399
       objectReference: {fileID: 0}
     - target: {fileID: 2688998296743119813, guid: a15116c785d7648358b14a3ce05f910c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12172,8 +12681,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cbef6633b4a3d439958f62c4383aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamTopping
-  toppingName: Blueberry
+  topping: 1
   toppingVisualPrefab: {fileID: 758283332}
+  toppingName: 
 --- !u!135 &758283334
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -12366,6 +12876,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FoodRespawn
   foodPrefab: {fileID: 758283332}
   respawnDelay: 3
+--- !u!4 &758283338 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2688998296743119813, guid: a15116c785d7648358b14a3ce05f910c, type: 3}
+  m_PrefabInstance: {fileID: 758283331}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &760069208
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12438,6 +12953,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 78649977252932413, guid: 4195e9d40f9d84140a086bd129febc60, type: 3}
       insertIndex: -1
       addedObject: {fileID: 380035043}
+    - targetCorrespondingSourceObject: {fileID: 78649977252932413, guid: 4195e9d40f9d84140a086bd129febc60, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 380035048}
   m_SourcePrefab: {fileID: 100100000, guid: 4195e9d40f9d84140a086bd129febc60, type: 3}
 --- !u!1001 &766102076
 PrefabInstance:
@@ -12803,8 +13321,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cbef6633b4a3d439958f62c4383aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamTopping
-  toppingName: Cherry
+  topping: 3
   toppingVisualPrefab: {fileID: 1761245928029686151, guid: b74402ab94bdf49acbdb4498758befba, type: 3}
+  toppingName: 
 --- !u!4 &780239187 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 84290856406402722, guid: aa7ad93ac951043a6a6743586279f3e2, type: 3}
@@ -13003,6 +13522,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2323973600376320981, guid: 86fc0c09dcfd94faabcc38496fac7212, type: 3}
+--- !u!114 &780239196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670020706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 9979962b3d8a1449993c6c0e84c00d43, type: 2}
+  id: 
 --- !u!1 &789815358
 GameObject:
   m_ObjectHideFlags: 0
@@ -13084,7 +13617,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 3b279f118f5ed4a43a63bca3fa703e3b, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 933e0840e992148d898972fbe2ac2329, type: 2}
   m_BuildHeightMesh: 1
 --- !u!4 &794382979
 Transform:
@@ -13173,6 +13706,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 357128109503674887, guid: caacc0cb7cb75455bbfa1d28aeb896da, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1917746814}
+    - targetCorrespondingSourceObject: {fileID: 357128109503674887, guid: caacc0cb7cb75455bbfa1d28aeb896da, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1917746819}
   m_SourcePrefab: {fileID: 100100000, guid: caacc0cb7cb75455bbfa1d28aeb896da, type: 3}
 --- !u!1001 &806367434
 PrefabInstance:
@@ -13246,6 +13782,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 747780859215125528, guid: aa7ad93ac951043a6a6743586279f3e2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2109025043}
+    - targetCorrespondingSourceObject: {fileID: 747780859215125528, guid: aa7ad93ac951043a6a6743586279f3e2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2109025048}
   m_SourcePrefab: {fileID: 100100000, guid: aa7ad93ac951043a6a6743586279f3e2, type: 3}
 --- !u!1001 &818503644
 PrefabInstance:
@@ -13376,7 +13915,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 868304052}
     m_Modifications:
     - target: {fileID: 1691816836836472, guid: 8b6c44dc7c0ee401e8326e32b669a93c, type: 3}
       propertyPath: m_Name
@@ -13400,15 +13939,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4541597687775168, guid: 8b6c44dc7c0ee401e8326e32b669a93c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.834062
+      value: -0.17341137
       objectReference: {fileID: 0}
     - target: {fileID: 4541597687775168, guid: 8b6c44dc7c0ee401e8326e32b669a93c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.000000014573001
+      value: 0.061119985
       objectReference: {fileID: 0}
     - target: {fileID: 4541597687775168, guid: 8b6c44dc7c0ee401e8326e32b669a93c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.336679
+      value: -0.48941898
       objectReference: {fileID: 0}
     - target: {fileID: 4541597687775168, guid: 8b6c44dc7c0ee401e8326e32b669a93c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -13416,15 +13955,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4541597687775168, guid: 8b6c44dc7c0ee401e8326e32b669a93c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4541597687775168, guid: 8b6c44dc7c0ee401e8326e32b669a93c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4541597687775168, guid: 8b6c44dc7c0ee401e8326e32b669a93c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4541597687775168, guid: 8b6c44dc7c0ee401e8326e32b669a93c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -13467,6 +14006,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1691816836836472, guid: 8b6c44dc7c0ee401e8326e32b669a93c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 91423278}
+    - targetCorrespondingSourceObject: {fileID: 1691816836836472, guid: 8b6c44dc7c0ee401e8326e32b669a93c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 91423282}
   m_SourcePrefab: {fileID: 100100000, guid: 8b6c44dc7c0ee401e8326e32b669a93c, type: 3}
 --- !u!1 &839327849 stripped
 GameObject:
@@ -13682,8 +14224,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cbef6633b4a3d439958f62c4383aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamTopping
-  toppingName: Blueberry
+  topping: 1
   toppingVisualPrefab: {fileID: 543911453486027751, guid: a15116c785d7648358b14a3ce05f910c, type: 3}
+  toppingName: 
 --- !u!4 &846314380 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2683102967682448964, guid: 6414b075fa9fa407099ecbe00d5b1a4b, type: 3}
@@ -13793,6 +14336,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 357128109503674887, guid: caacc0cb7cb75455bbfa1d28aeb896da, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1406967030}
+    - targetCorrespondingSourceObject: {fileID: 357128109503674887, guid: caacc0cb7cb75455bbfa1d28aeb896da, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1406967035}
   m_SourcePrefab: {fileID: 100100000, guid: caacc0cb7cb75455bbfa1d28aeb896da, type: 3}
 --- !u!1 &858651578 stripped
 GameObject:
@@ -13998,6 +14544,67 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FoodRespawn
   foodPrefab: {fileID: 858651578}
   respawnDelay: 5
+--- !u!114 &858651590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858651578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 43ab623429c5542c68124eb118ba271a, type: 2}
+  id: 
+--- !u!1 &860111882
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 860111884}
+  - component: {fileID: 860111883}
+  m_Layer: 0
+  m_Name: NoiseSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &860111883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860111882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4611e25310d08461f8e92cdbf5725f5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.NoiseSystem
+  CharacterLayers:
+    serializedVersion: 2
+    m_Bits: 128
+--- !u!4 &860111884
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860111882}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &863511610
 GameObject:
   m_ObjectHideFlags: 0
@@ -14040,6 +14647,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3843661639161752421, guid: dfb55619937d34805a079ac258aeab8b, type: 3}
   m_PrefabInstance: {fileID: 1414722609}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &868304051
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 868304052}
+  m_Layer: 0
+  m_Name: Food
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &868304052
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868304051}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.66065, y: -0.06112, z: -3.84726}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 541082859}
+  - {fileID: 1358122359}
+  - {fileID: 553336178}
+  - {fileID: 1050035361}
+  - {fileID: 1194872670}
+  - {fileID: 131048685}
+  - {fileID: 1817912672}
+  - {fileID: 758283338}
+  - {fileID: 1427722915}
+  - {fileID: 1160108894}
+  - {fileID: 1570751362}
+  - {fileID: 1417820323}
+  - {fileID: 91423281}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &869658055
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14320,6 +14971,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FoodSpawner
   foodPrefab: {fileID: 874938105}
   respawnDelay: 5
+--- !u!114 &874938117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874938105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 0ce22c215551d4ae4b7f31bdacd72a02, type: 2}
+  id: 
 --- !u!4 &876606243 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 446988767687159793, guid: dcdc0a3e1218b4a3487a27a7730df9e7, type: 3}
@@ -14421,8 +15086,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cbef6633b4a3d439958f62c4383aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamTopping
-  toppingName: Kiwi
+  topping: 2
   toppingVisualPrefab: {fileID: 8134828223633541557, guid: 710adcdc52b434d2a9c2ecbd5a6b5bd9, type: 3}
+  toppingName: 
 --- !u!65 &897983201
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14905,8 +15571,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cbef6633b4a3d439958f62c4383aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamTopping
-  toppingName: Cherry
+  topping: 3
   toppingVisualPrefab: {fileID: 1761245928029686151, guid: b74402ab94bdf49acbdb4498758befba, type: 3}
+  toppingName: 
 --- !u!1001 &911226155
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14991,6 +15658,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1017950162390541213, guid: d843a313de5524219adee858320dd7f2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1069271474}
+    - targetCorrespondingSourceObject: {fileID: 1017950162390541213, guid: d843a313de5524219adee858320dd7f2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1069271477}
   m_SourcePrefab: {fileID: 100100000, guid: d843a313de5524219adee858320dd7f2, type: 3}
 --- !u!1001 &917796094
 PrefabInstance:
@@ -15497,6 +16167,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &951251003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 951250994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: e639a7075a22f45bea50445bc4347e32, type: 2}
+  id: 
 --- !u!4 &957201757 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5886903906622365702, guid: 5b9766036885746a482ffae30cc5d772, type: 3}
@@ -15701,6 +16385,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 0dde3021ca18047cf8bf8aad877283d2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 151164171}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: 0dde3021ca18047cf8bf8aad877283d2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 151164179}
   m_SourcePrefab: {fileID: 100100000, guid: 0dde3021ca18047cf8bf8aad877283d2, type: 3}
 --- !u!4 &977549934 stripped
 Transform:
@@ -15779,6 +16466,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 747780859215125528, guid: aa7ad93ac951043a6a6743586279f3e2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 999523504}
+    - targetCorrespondingSourceObject: {fileID: 747780859215125528, guid: aa7ad93ac951043a6a6743586279f3e2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 999523509}
   m_SourcePrefab: {fileID: 100100000, guid: aa7ad93ac951043a6a6743586279f3e2, type: 3}
 --- !u!1 &980850893 stripped
 GameObject:
@@ -15994,8 +16684,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cbef6633b4a3d439958f62c4383aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamTopping
-  toppingName: Blueberry
+  topping: 1
   toppingVisualPrefab: {fileID: 543911453486027751, guid: a15116c785d7648358b14a3ce05f910c, type: 3}
+  toppingName: 
 --- !u!1001 &985228092
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16068,7 +16759,58 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 357128109503674887, guid: caacc0cb7cb75455bbfa1d28aeb896da, type: 3}
       insertIndex: -1
       addedObject: {fileID: 258028584}
+    - targetCorrespondingSourceObject: {fileID: 357128109503674887, guid: caacc0cb7cb75455bbfa1d28aeb896da, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 258028589}
   m_SourcePrefab: {fileID: 100100000, guid: caacc0cb7cb75455bbfa1d28aeb896da, type: 3}
+--- !u!1 &991364055
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 991364056}
+  - component: {fileID: 991364057}
+  m_Layer: 0
+  m_Name: OrderArea (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &991364056
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991364055}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.29258, y: 0, z: 0.7127099}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1414366973}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &991364057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991364055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58cf0ab92e41142f280159d893b18fd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Area
+  Id: OrderArea
+  Radius: 0.5
+  SampleDistance: 2
+  Capacity: 1
 --- !u!1 &999523500 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 747780859215125528, guid: aa7ad93ac951043a6a6743586279f3e2, type: 3}
@@ -16267,6 +17009,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2323973600376320981, guid: 86fc0c09dcfd94faabcc38496fac7212, type: 3}
+--- !u!114 &999523509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 999523500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 9979962b3d8a1449993c6c0e84c00d43, type: 2}
+  id: 
 --- !u!1001 &1002988822
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16526,6 +17282,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &1006890528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347496934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 84cdedf7d70394fae9323109c33cd50b, type: 2}
+  id: 
 --- !u!1001 &1015048463
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16611,6 +17381,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 5fbda09d5185a47febf22d3176f2aa76, type: 3}
       insertIndex: -1
       addedObject: {fileID: 72123596}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: 5fbda09d5185a47febf22d3176f2aa76, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 72123600}
   m_SourcePrefab: {fileID: 100100000, guid: 5fbda09d5185a47febf22d3176f2aa76, type: 3}
 --- !u!4 &1025435010 stripped
 Transform:
@@ -16810,6 +17583,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2323973600376320981, guid: 86fc0c09dcfd94faabcc38496fac7212, type: 3}
+--- !u!114 &1025435019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 612672515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 9979962b3d8a1449993c6c0e84c00d43, type: 2}
+  id: 
 --- !u!4 &1035989615 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6091758805515194754, guid: e455ecda1e3254754902411704c667c4, type: 3}
@@ -17008,6 +17795,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &1035989624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92366163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 84cdedf7d70394fae9323109c33cd50b, type: 2}
+  id: 
 --- !u!1 &1042053693 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7765270977862942026, guid: f1abbb773793042eeacb9c3f0c14a77c, type: 3}
@@ -17210,6 +18011,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FoodRespawn
   foodPrefab: {fileID: 1042053693}
   respawnDelay: 3
+--- !u!114 &1042053706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042053693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 3859cd52a16124b06bb9087f6e0f549f, type: 2}
+  id: 
 --- !u!1 &1042129192
 GameObject:
   m_ObjectHideFlags: 0
@@ -17249,6 +18064,54 @@ Transform:
   - {fileID: 653605243}
   m_Father: {fileID: 1194872670}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1047511551
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1047511552}
+  - component: {fileID: 1047511553}
+  m_Layer: 0
+  m_Name: OrderArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1047511552
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047511551}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.29258, y: 0, z: -0.2872901}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1414366973}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1047511553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047511551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58cf0ab92e41142f280159d893b18fd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Area
+  Id: OrderArea
+  Radius: 0.5
+  SampleDistance: 2
+  Capacity: 1
 --- !u!1 &1050035354 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7899418718437943765, guid: 65da085078114c244ba9d8b391ed9854, type: 3}
@@ -17411,6 +18274,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!4 &1050035361 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7416179352865403759, guid: 65da085078114c244ba9d8b391ed9854, type: 3}
+  m_PrefabInstance: {fileID: 570274620}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1050035365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050035354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 124d2529b046045f6a78f6400da25298, type: 2}
+  id: 
 --- !u!4 &1053293016 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 446988767687159793, guid: dcdc0a3e1218b4a3487a27a7730df9e7, type: 3}
@@ -17435,6 +18317,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FoodRespawn
   foodPrefab: {fileID: 1358301970}
   respawnDelay: 3
+--- !u!114 &1058696314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742363520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 4c8256cd4698d49a3842bd5b6dec694c, type: 2}
+  id: 
 --- !u!1 &1058738698 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6555459046254951100, guid: 5b9766036885746a482ffae30cc5d772, type: 3}
@@ -17454,6 +18350,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FoodRespawn
   foodPrefab: {fileID: 1058738698}
   respawnDelay: 3
+--- !u!114 &1058738704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058738698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: e466fd8b7151f4d5da4f88e4324b224c, type: 2}
+  id: 
 --- !u!1 &1060416165 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 59346222886097323, guid: 0d75f96e8937f4555aadd1a53804db23, type: 3}
@@ -17658,6 +18568,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 835707726520863505, guid: 0d75f96e8937f4555aadd1a53804db23, type: 3}
   m_PrefabInstance: {fileID: 1547297250}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1060416181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060416165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: a4ffa4c00b897475bbc4b2ba18de3ea5, type: 2}
+  id: 
 --- !u!1 &1069271467 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1017950162390541213, guid: d843a313de5524219adee858320dd7f2, type: 3}
@@ -17862,6 +18786,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FoodSpawner
   foodPrefab: {fileID: 1069271467}
   respawnDelay: 5
+--- !u!114 &1069271477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069271467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: d40e11c5f357249a7846e4698ae22c76, type: 2}
+  id: 
 --- !u!1 &1086209692 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7979847360384317419, guid: d5bf9e683ac3d426f82fe57b9f67d518, type: 3}
@@ -18076,8 +19014,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cbef6633b4a3d439958f62c4383aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamTopping
-  toppingName: Strawberry
+  topping: 0
   toppingVisualPrefab: {fileID: 7979847360384317419, guid: d5bf9e683ac3d426f82fe57b9f67d518, type: 3}
+  toppingName: 
 --- !u!1 &1088671294
 GameObject:
   m_ObjectHideFlags: 0
@@ -18268,6 +19207,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7806807516443783733, guid: eaf06755c181f4e41a33a901c99f4df1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1926999457}
+    - targetCorrespondingSourceObject: {fileID: 7806807516443783733, guid: eaf06755c181f4e41a33a901c99f4df1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1926999460}
   m_SourcePrefab: {fileID: 100100000, guid: eaf06755c181f4e41a33a901c99f4df1, type: 3}
 --- !u!4 &1113597449 stripped
 Transform:
@@ -18423,19 +19365,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 868304052}
     m_Modifications:
     - target: {fileID: 5170005934658357652, guid: d5bf9e683ac3d426f82fe57b9f67d518, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.413
+      value: 0.24765015
       objectReference: {fileID: 0}
     - target: {fileID: 5170005934658357652, guid: d5bf9e683ac3d426f82fe57b9f67d518, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.007
+      value: 0.05412
       objectReference: {fileID: 0}
     - target: {fileID: 5170005934658357652, guid: d5bf9e683ac3d426f82fe57b9f67d518, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.022
+      value: -0.17473984
       objectReference: {fileID: 0}
     - target: {fileID: 5170005934658357652, guid: d5bf9e683ac3d426f82fe57b9f67d518, type: 3}
       propertyPath: m_LocalRotation.w
@@ -18510,8 +19452,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cbef6633b4a3d439958f62c4383aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamTopping
-  toppingName: Strawberry
+  topping: 0
   toppingVisualPrefab: {fileID: 7979847360384317419, guid: d5bf9e683ac3d426f82fe57b9f67d518, type: 3}
+  toppingName: 
 --- !u!65 &1160108890
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18704,6 +19647,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!4 &1160108894 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5170005934658357652, guid: d5bf9e683ac3d426f82fe57b9f67d518, type: 3}
+  m_PrefabInstance: {fileID: 1160108887}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1162412643 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6899962092626316088, guid: e455ecda1e3254754902411704c667c4, type: 3}
@@ -18902,6 +19850,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &1162412652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162412643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 84cdedf7d70394fae9323109c33cd50b, type: 2}
+  id: 
 --- !u!1001 &1165009448
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18986,6 +19948,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FoodRespawn
   foodPrefab: {fileID: 1358301970}
   respawnDelay: 3
+--- !u!114 &1165657450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61174865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 4c8256cd4698d49a3842bd5b6dec694c, type: 2}
+  id: 
 --- !u!1 &1168723394
 GameObject:
   m_ObjectHideFlags: 0
@@ -19302,6 +20278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: d0b992b9ba692404ca0aa9e2bdcf3d19, type: 2}
   id: cinnamon_roll
 --- !u!1 &1183547177 stripped
 GameObject:
@@ -19325,8 +20302,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cbef6633b4a3d439958f62c4383aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamTopping
-  toppingName: Kiwi
+  topping: 2
   toppingVisualPrefab: {fileID: 8134828223633541557, guid: 710adcdc52b434d2a9c2ecbd5a6b5bd9, type: 3}
+  toppingName: 
 --- !u!65 &1183547180
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19589,8 +20567,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1194872669}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.243, y: 0.894, z: 1.4}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.4176502, y: 0.95511997, z: 5.24726}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -19606,7 +20584,7 @@ Transform:
   - {fileID: 863511611}
   - {fileID: 1177883527}
   - {fileID: 885069443}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 868304052}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1196661132
 GameObject:
@@ -19651,7 +20629,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 868304052}
     m_Modifications:
     - target: {fileID: 1748534877430354, guid: 05fa88b4fa377418eaac0976b320709e, type: 3}
       propertyPath: m_Name
@@ -19671,15 +20649,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4865186076211322, guid: 05fa88b4fa377418eaac0976b320709e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.933909
+      value: 6.7267413
       objectReference: {fileID: 0}
     - target: {fileID: 4865186076211322, guid: 05fa88b4fa377418eaac0976b320709e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.06112
       objectReference: {fileID: 0}
     - target: {fileID: 4865186076211322, guid: 05fa88b4fa377418eaac0976b320709e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.709
+      value: 1.1382599
       objectReference: {fileID: 0}
     - target: {fileID: 4865186076211322, guid: 05fa88b4fa377418eaac0976b320709e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -19687,7 +20665,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4865186076211322, guid: 05fa88b4fa377418eaac0976b320709e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4865186076211322, guid: 05fa88b4fa377418eaac0976b320709e, type: 3}
       propertyPath: m_LocalRotation.y
@@ -19695,7 +20673,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4865186076211322, guid: 05fa88b4fa377418eaac0976b320709e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4865186076211322, guid: 05fa88b4fa377418eaac0976b320709e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -19781,8 +20759,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cbef6633b4a3d439958f62c4383aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamTopping
-  toppingName: Raspberry
+  topping: 4
   toppingVisualPrefab: {fileID: 4090043516532804302, guid: 8ace96a9e49be40d780c606066d25ebe, type: 3}
+  toppingName: 
 --- !u!114 &1224477168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20136,6 +21115,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FoodRespawn
   foodPrefab: {fileID: 1358301970}
   respawnDelay: 3
+--- !u!114 &1233542673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269326164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 4c8256cd4698d49a3842bd5b6dec694c, type: 2}
+  id: 
 --- !u!1 &1238357421
 GameObject:
   m_ObjectHideFlags: 0
@@ -20367,6 +21360,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7806807516443783733, guid: eaf06755c181f4e41a33a901c99f4df1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1058696311}
+    - targetCorrespondingSourceObject: {fileID: 7806807516443783733, guid: eaf06755c181f4e41a33a901c99f4df1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1058696314}
   m_SourcePrefab: {fileID: 100100000, guid: eaf06755c181f4e41a33a901c99f4df1, type: 3}
 --- !u!1 &1240467623
 GameObject:
@@ -20738,8 +21734,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cbef6633b4a3d439958f62c4383aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamTopping
-  toppingName: Blueberry
+  topping: 1
   toppingVisualPrefab: {fileID: 543911453486027751, guid: a15116c785d7648358b14a3ce05f910c, type: 3}
+  toppingName: 
 --- !u!1 &1268360849
 GameObject:
   m_ObjectHideFlags: 0
@@ -20930,6 +21927,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 78649977252932413, guid: 4195e9d40f9d84140a086bd129febc60, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1524394458}
+    - targetCorrespondingSourceObject: {fileID: 78649977252932413, guid: 4195e9d40f9d84140a086bd129febc60, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1524394463}
   m_SourcePrefab: {fileID: 100100000, guid: 4195e9d40f9d84140a086bd129febc60, type: 3}
 --- !u!1001 &1281176198
 PrefabInstance:
@@ -21374,6 +22374,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4691079686382280569, guid: 9e6a70fa43ab6468893cb5089b902186, type: 3}
+--- !u!114 &1289142664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742659494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 0ac292c2e9da84f5bac3806a6cfd936f, type: 2}
+  id: 
 --- !u!1 &1289867501
 GameObject:
   m_ObjectHideFlags: 0
@@ -21723,8 +22737,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cbef6633b4a3d439958f62c4383aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamTopping
-  toppingName: Cherry
+  topping: 3
   toppingVisualPrefab: {fileID: 1761245928029686151, guid: b74402ab94bdf49acbdb4498758befba, type: 3}
+  toppingName: 
 --- !u!1001 &1310157331
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22249,6 +23264,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 78649977252932413, guid: 4195e9d40f9d84140a086bd129febc60, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2129905599}
+    - targetCorrespondingSourceObject: {fileID: 78649977252932413, guid: 4195e9d40f9d84140a086bd129febc60, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2129905604}
   m_SourcePrefab: {fileID: 100100000, guid: 4195e9d40f9d84140a086bd129febc60, type: 3}
 --- !u!4 &1321075398 stripped
 Transform:
@@ -22380,8 +23398,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f025c024b5d2674e90713055c727d10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamCassata
-  flavorName: Vanilla
+  flavor: 0
   scoopPrefab: {fileID: 2325231699317564495, guid: 4ff7c76a59c724bdeb9f8cd655a4ef46, type: 3}
+  flavorName: 
 --- !u!1 &1323674507 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 78649977252932413, guid: 4195e9d40f9d84140a086bd129febc60, type: 3}
@@ -22464,6 +23483,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 78649977252932413, guid: 4195e9d40f9d84140a086bd129febc60, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2140484228}
+    - targetCorrespondingSourceObject: {fileID: 78649977252932413, guid: 4195e9d40f9d84140a086bd129febc60, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2140484233}
   m_SourcePrefab: {fileID: 100100000, guid: 4195e9d40f9d84140a086bd129febc60, type: 3}
 --- !u!4 &1330131192 stripped
 Transform:
@@ -22476,7 +23498,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 868304052}
     m_Modifications:
     - target: {fileID: 1691816836836472, guid: 8b6c44dc7c0ee401e8326e32b669a93c, type: 3}
       propertyPath: m_Name
@@ -22504,15 +23526,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4541597687775168, guid: 8b6c44dc7c0ee401e8326e32b669a93c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.91403
+      value: 2.7466202
       objectReference: {fileID: 0}
     - target: {fileID: 4541597687775168, guid: 8b6c44dc7c0ee401e8326e32b669a93c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.88068634
+      value: 0.9418063
       objectReference: {fileID: 0}
     - target: {fileID: 4541597687775168, guid: 8b6c44dc7c0ee401e8326e32b669a93c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.1596627
+      value: 2.6875973
       objectReference: {fileID: 0}
     - target: {fileID: 4541597687775168, guid: 8b6c44dc7c0ee401e8326e32b669a93c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -22520,15 +23542,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4541597687775168, guid: 8b6c44dc7c0ee401e8326e32b669a93c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4541597687775168, guid: 8b6c44dc7c0ee401e8326e32b669a93c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4541597687775168, guid: 8b6c44dc7c0ee401e8326e32b669a93c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4541597687775168, guid: 8b6c44dc7c0ee401e8326e32b669a93c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -22859,8 +23881,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cbef6633b4a3d439958f62c4383aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamTopping
-  toppingName: Cherry
+  topping: 3
   toppingVisualPrefab: {fileID: 1761245928029686151, guid: b74402ab94bdf49acbdb4498758befba, type: 3}
+  toppingName: 
 --- !u!1 &1354339987 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7979847360384317419, guid: d5bf9e683ac3d426f82fe57b9f67d518, type: 3}
@@ -23075,8 +24098,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cbef6633b4a3d439958f62c4383aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamTopping
-  toppingName: Strawberry
+  topping: 0
   toppingVisualPrefab: {fileID: 7979847360384317419, guid: d5bf9e683ac3d426f82fe57b9f67d518, type: 3}
+  toppingName: 
 --- !u!1 &1355821020 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 357128109503674887, guid: caacc0cb7cb75455bbfa1d28aeb896da, type: 3}
@@ -23263,6 +24287,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &1358301978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358301970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 4c8256cd4698d49a3842bd5b6dec694c, type: 2}
+  id: 
 --- !u!1001 &1364282820
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23523,6 +24561,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &1376027349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488962916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 84cdedf7d70394fae9323109c33cd50b, type: 2}
+  id: 
 --- !u!1001 &1377912142
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23595,6 +24647,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 747780859215125528, guid: aa7ad93ac951043a6a6743586279f3e2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2098424374}
+    - targetCorrespondingSourceObject: {fileID: 747780859215125528, guid: aa7ad93ac951043a6a6743586279f3e2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2098424379}
   m_SourcePrefab: {fileID: 100100000, guid: aa7ad93ac951043a6a6743586279f3e2, type: 3}
 --- !u!4 &1389227560 stripped
 Transform:
@@ -23868,6 +24923,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &1406967035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406967026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: e639a7075a22f45bea50445bc4347e32, type: 2}
+  id: 
 --- !u!1001 &1410880928
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23940,7 +25009,100 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7806807516443783733, guid: eaf06755c181f4e41a33a901c99f4df1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1633275271}
+    - targetCorrespondingSourceObject: {fileID: 7806807516443783733, guid: eaf06755c181f4e41a33a901c99f4df1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1633275276}
   m_SourcePrefab: {fileID: 100100000, guid: eaf06755c181f4e41a33a901c99f4df1, type: 3}
+--- !u!1 &1414366970
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1414366973}
+  - component: {fileID: 1414366972}
+  - component: {fileID: 1414366971}
+  m_Layer: 0
+  m_Name: NPC Generator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1414366971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414366970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05cc921ba4b5e42c1b546062f21ea85c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.NavigationTutorial.NPCGenerator
+  NPCPrefabs:
+  - {fileID: 9187865227509600507, guid: 8e8490e0b6f7b492f9281ea70a54a2e9, type: 3}
+  - {fileID: 9187865227509600507, guid: cb3cca3544a6f4330a1e8bc581854f50, type: 3}
+  - {fileID: 9187865227509600507, guid: 7282130ed677459fbcb2122eb8db6aea, type: 3}
+  - {fileID: 9187865227509600507, guid: d39bacbe44774cc78cb3a9d18deca744, type: 3}
+  - {fileID: 9187865227509600507, guid: 3b07d712ccf24e4d8077725805090712, type: 3}
+  - {fileID: 9187865227509600507, guid: 72442b607094437b9490dfd826d75fe7, type: 3}
+  - {fileID: 9187865227509600507, guid: ae354bf605b648f58d91b29f4df04c32, type: 3}
+  - {fileID: 9187865227509600507, guid: abd954532909456191c0b12e2060aead, type: 3}
+  Area: {fileID: 1473496189}
+  Count: 5
+  MinStartingHunger: 20
+  MaxStartingHunger: 100
+  MinSpacing: 1
+  MaxPlacementAttempts: 20
+--- !u!114 &1414366972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414366970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05cc921ba4b5e42c1b546062f21ea85c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.NavigationTutorial.NPCGenerator
+  NPCPrefabs:
+  - {fileID: 5380478608286422756, guid: a9e1e6049fa9240d7954cc7ac9705c21, type: 3}
+  - {fileID: 6038568126641924108, guid: f101eeb31ff3d4ca0b6fbb9d56e33159, type: 3}
+  - {fileID: 5902122789184296028, guid: 520c12e11c1d145179a7ad4399687b05, type: 3}
+  - {fileID: 5002118737907529711, guid: c3203d573994a47cb9050b7d6763a2af, type: 3}
+  - {fileID: 5597173632941425586, guid: 35e90325750494c57b78d1459e989fbf, type: 3}
+  - {fileID: 5546073786106881116, guid: fd07d9b5508154839bf78eb075dbf283, type: 3}
+  - {fileID: 6220715460163939567, guid: c48c4baffdd7e4d66b0f985f9a906176, type: 3}
+  Area: {fileID: 1473496189}
+  Count: 10
+  MinStartingHunger: 20
+  MaxStartingHunger: 100
+  MinSpacing: 1
+  MaxPlacementAttempts: 20
+--- !u!4 &1414366973
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414366970}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.7074201, y: 0, z: -1.06271}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1047511552}
+  - {fileID: 112061831}
+  - {fileID: 991364056}
+  - {fileID: 1473496190}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1414722609
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24204,6 +25366,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FoodRespawn
   foodPrefab: {fileID: 1417820318}
   respawnDelay: 2
+--- !u!4 &1417820323 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4541597687775168, guid: 8b6c44dc7c0ee401e8326e32b669a93c, type: 3}
+  m_PrefabInstance: {fileID: 1345573965}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1418281171
 GameObject:
   m_ObjectHideFlags: 0
@@ -24437,13 +25604,27 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2323973600376320981, guid: 86fc0c09dcfd94faabcc38496fac7212, type: 3}
+--- !u!114 &1422347421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422347412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 9979962b3d8a1449993c6c0e84c00d43, type: 2}
+  id: 
 --- !u!1001 &1427722908
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 868304052}
     m_Modifications:
     - target: {fileID: 4090043516532804302, guid: 8ace96a9e49be40d780c606066d25ebe, type: 3}
       propertyPath: m_Name
@@ -24455,15 +25636,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5999435883636063883, guid: 8ace96a9e49be40d780c606066d25ebe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.174001
+      value: 0.4866495
       objectReference: {fileID: 0}
     - target: {fileID: 5999435883636063883, guid: 8ace96a9e49be40d780c606066d25ebe, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.05799997
+      value: 0.11911997
       objectReference: {fileID: 0}
     - target: {fileID: 5999435883636063883, guid: 8ace96a9e49be40d780c606066d25ebe, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.569
+      value: -0.72173977
       objectReference: {fileID: 0}
     - target: {fileID: 5999435883636063883, guid: 8ace96a9e49be40d780c606066d25ebe, type: 3}
       propertyPath: m_LocalRotation.w
@@ -24551,8 +25732,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cbef6633b4a3d439958f62c4383aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamTopping
-  toppingName: Raspberry
+  topping: 4
   toppingVisualPrefab: {fileID: 4090043516532804302, guid: 8ace96a9e49be40d780c606066d25ebe, type: 3}
+  toppingName: 
 --- !u!114 &1427722912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24724,6 +25906,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!4 &1427722915 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5999435883636063883, guid: 8ace96a9e49be40d780c606066d25ebe, type: 3}
+  m_PrefabInstance: {fileID: 1427722908}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1428911515 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3102752843539250933, guid: 4ff7c76a59c724bdeb9f8cd655a4ef46, type: 3}
@@ -25003,6 +26190,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2323973600376320981, guid: 86fc0c09dcfd94faabcc38496fac7212, type: 3}
+--- !u!114 &1440894652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440894643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 9979962b3d8a1449993c6c0e84c00d43, type: 2}
+  id: 
 --- !u!1001 &1441775497
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25075,6 +26276,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 78649977252932413, guid: 4195e9d40f9d84140a086bd129febc60, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1289142659}
+    - targetCorrespondingSourceObject: {fileID: 78649977252932413, guid: 4195e9d40f9d84140a086bd129febc60, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1289142664}
   m_SourcePrefab: {fileID: 100100000, guid: 4195e9d40f9d84140a086bd129febc60, type: 3}
 --- !u!1001 &1454924189
 PrefabInstance:
@@ -25160,54 +26364,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8733231578219411594, guid: 494322aa1a6ff4613b00c2a28c82c625, type: 3}
       insertIndex: -1
       addedObject: {fileID: 666453207}
+    - targetCorrespondingSourceObject: {fileID: 8733231578219411594, guid: 494322aa1a6ff4613b00c2a28c82c625, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 666453210}
   m_SourcePrefab: {fileID: 100100000, guid: 494322aa1a6ff4613b00c2a28c82c625, type: 3}
---- !u!1 &1455035794
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1455035796}
-  - component: {fileID: 1455035795}
-  m_Layer: 0
-  m_Name: OrderArea
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1455035795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1455035794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58cf0ab92e41142f280159d893b18fd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Area
-  Id: OrderArea
-  Radius: 0.8
-  SampleDistance: 2
---- !u!4 &1455035796
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1455035794}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.75, y: 0, z: -1.1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1460173075 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6899962092626316088, guid: e455ecda1e3254754902411704c667c4, type: 3}
@@ -25406,6 +26566,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &1460173084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460173075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 84cdedf7d70394fae9323109c33cd50b, type: 2}
+  id: 
 --- !u!1001 &1470960866
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25471,6 +26645,54 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfb55619937d34805a079ac258aeab8b, type: 3}
+--- !u!1 &1473496188
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1473496190}
+  - component: {fileID: 1473496189}
+  m_Layer: 0
+  m_Name: SpawnArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1473496189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473496188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58cf0ab92e41142f280159d893b18fd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Area
+  Id: Spawn
+  Radius: 8
+  SampleDistance: 2
+  Capacity: 1
+--- !u!4 &1473496190
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473496188}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1414366973}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1481036281
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25617,6 +26839,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 78649977252932413, guid: 4195e9d40f9d84140a086bd129febc60, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1904927166}
+    - targetCorrespondingSourceObject: {fileID: 78649977252932413, guid: 4195e9d40f9d84140a086bd129febc60, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1904927171}
   m_SourcePrefab: {fileID: 100100000, guid: 4195e9d40f9d84140a086bd129febc60, type: 3}
 --- !u!1001 &1486077708
 PrefabInstance:
@@ -25890,6 +27115,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &1496134817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496134808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 84cdedf7d70394fae9323109c33cd50b, type: 2}
+  id: 
 --- !u!1 &1502165681 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8606538742776408068, guid: 4520e95d1f34b4e878a06d99be1b5526, type: 3}
@@ -26094,6 +27333,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FoodRespawn
   foodPrefab: {fileID: 1502165681}
   respawnDelay: 5
+--- !u!114 &1502165693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502165681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: e55ff47a3d29e4dd5bad0bd6e95c2748, type: 2}
+  id: 
 --- !u!1 &1502173543 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 543911453486027751, guid: a15116c785d7648358b14a3ce05f910c, type: 3}
@@ -26308,8 +27561,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cbef6633b4a3d439958f62c4383aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamTopping
-  toppingName: Blueberry
+  topping: 1
   toppingVisualPrefab: {fileID: 543911453486027751, guid: a15116c785d7648358b14a3ce05f910c, type: 3}
+  toppingName: 
 --- !u!1 &1504481191 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6899962092626316088, guid: e455ecda1e3254754902411704c667c4, type: 3}
@@ -26508,6 +27762,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &1504481200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504481191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 84cdedf7d70394fae9323109c33cd50b, type: 2}
+  id: 
 --- !u!1 &1514813318
 GameObject:
   m_ObjectHideFlags: 0
@@ -26633,8 +27901,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f025c024b5d2674e90713055c727d10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamCassata
-  flavorName: Chocolate
+  flavor: 2
   scoopPrefab: {fileID: 8423491793331197708, guid: e152cb1f0c05b4c03bbe0d0d27ead057, type: 3}
+  flavorName: 
 --- !u!1001 &1518247354
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26707,6 +27976,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 747780859215125528, guid: aa7ad93ac951043a6a6743586279f3e2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1733067937}
+    - targetCorrespondingSourceObject: {fileID: 747780859215125528, guid: aa7ad93ac951043a6a6743586279f3e2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1733067942}
   m_SourcePrefab: {fileID: 100100000, guid: aa7ad93ac951043a6a6743586279f3e2, type: 3}
 --- !u!1001 &1522755716
 PrefabInstance:
@@ -26982,6 +28254,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4691079686382280569, guid: 9e6a70fa43ab6468893cb5089b902186, type: 3}
+--- !u!114 &1524394463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323674507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 0ac292c2e9da84f5bac3806a6cfd936f, type: 2}
+  id: 
 --- !u!1 &1529094982
 GameObject:
   m_ObjectHideFlags: 0
@@ -27322,6 +28608,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 59346222886097323, guid: 0d75f96e8937f4555aadd1a53804db23, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1060416175}
+    - targetCorrespondingSourceObject: {fileID: 59346222886097323, guid: 0d75f96e8937f4555aadd1a53804db23, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1060416181}
   m_SourcePrefab: {fileID: 100100000, guid: 0d75f96e8937f4555aadd1a53804db23, type: 3}
 --- !u!1001 &1553685843
 PrefabInstance:
@@ -27597,6 +28886,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4691079686382280569, guid: 9e6a70fa43ab6468893cb5089b902186, type: 3}
+--- !u!114 &1554563523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 305259199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 0ac292c2e9da84f5bac3806a6cfd936f, type: 2}
+  id: 
 --- !u!1 &1554986644 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7979847360384317419, guid: d5bf9e683ac3d426f82fe57b9f67d518, type: 3}
@@ -27811,15 +29114,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cbef6633b4a3d439958f62c4383aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamTopping
-  toppingName: Strawberry
+  topping: 0
   toppingVisualPrefab: {fileID: 7979847360384317419, guid: d5bf9e683ac3d426f82fe57b9f67d518, type: 3}
+  toppingName: 
 --- !u!1001 &1570751361
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 868304052}
     m_Modifications:
     - target: {fileID: 1691816836836472, guid: 8b6c44dc7c0ee401e8326e32b669a93c, type: 3}
       propertyPath: m_Name
@@ -27839,15 +29143,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4541597687775168, guid: 8b6c44dc7c0ee401e8326e32b669a93c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.845
+      value: 4.8156505
       objectReference: {fileID: 0}
     - target: {fileID: 4541597687775168, guid: 8b6c44dc7c0ee401e8326e32b669a93c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.88068646
+      value: 0.94180644
       objectReference: {fileID: 0}
     - target: {fileID: 4541597687775168, guid: 8b6c44dc7c0ee401e8326e32b669a93c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.412
+      value: 5.25926
       objectReference: {fileID: 0}
     - target: {fileID: 4541597687775168, guid: 8b6c44dc7c0ee401e8326e32b669a93c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -27855,15 +29159,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4541597687775168, guid: 8b6c44dc7c0ee401e8326e32b669a93c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4541597687775168, guid: 8b6c44dc7c0ee401e8326e32b669a93c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4541597687775168, guid: 8b6c44dc7c0ee401e8326e32b669a93c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4541597687775168, guid: 8b6c44dc7c0ee401e8326e32b669a93c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -28113,8 +29417,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cbef6633b4a3d439958f62c4383aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamTopping
-  toppingName: Strawberry
+  topping: 0
   toppingVisualPrefab: {fileID: 7979847360384317419, guid: d5bf9e683ac3d426f82fe57b9f67d518, type: 3}
+  toppingName: 
 --- !u!1 &1587638146
 GameObject:
   m_ObjectHideFlags: 0
@@ -33231,6 +34536,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FoodRespawn
   foodPrefab: {fileID: 1591690789}
   respawnDelay: 5
+--- !u!114 &1591690801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1591690789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: e5f3b7a7b0d0e42d89453c9dc68bcb14, type: 2}
+  id: 
 --- !u!4 &1592320598 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7429966035879159951, guid: eaf06755c181f4e41a33a901c99f4df1, type: 3}
@@ -33250,6 +34569,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FoodRespawn
   foodPrefab: {fileID: 1358301970}
   respawnDelay: 3
+--- !u!114 &1592320604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750620390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 4c8256cd4698d49a3842bd5b6dec694c, type: 2}
+  id: 
 --- !u!1 &1601971953 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 78649977252932413, guid: 4195e9d40f9d84140a086bd129febc60, type: 3}
@@ -33448,6 +34781,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4691079686382280569, guid: 9e6a70fa43ab6468893cb5089b902186, type: 3}
+--- !u!114 &1601971962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601971953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 0ac292c2e9da84f5bac3806a6cfd936f, type: 2}
+  id: 
 --- !u!1 &1605982730 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 357128109503674887, guid: caacc0cb7cb75455bbfa1d28aeb896da, type: 3}
@@ -33646,6 +34993,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &1605982739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605982730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: e639a7075a22f45bea50445bc4347e32, type: 2}
+  id: 
 --- !u!4 &1606210697 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6764411734402764389, guid: de13c850f8a7c456c873573c794b96af, type: 3}
@@ -33714,6 +35075,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7806807516443783733, guid: eaf06755c181f4e41a33a901c99f4df1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1165657447}
+    - targetCorrespondingSourceObject: {fileID: 7806807516443783733, guid: eaf06755c181f4e41a33a901c99f4df1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1165657450}
   m_SourcePrefab: {fileID: 100100000, guid: eaf06755c181f4e41a33a901c99f4df1, type: 3}
 --- !u!1001 &1611427543
 PrefabInstance:
@@ -33856,6 +35220,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 357128109503674887, guid: caacc0cb7cb75455bbfa1d28aeb896da, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2040067962}
+    - targetCorrespondingSourceObject: {fileID: 357128109503674887, guid: caacc0cb7cb75455bbfa1d28aeb896da, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2040067967}
   m_SourcePrefab: {fileID: 100100000, guid: caacc0cb7cb75455bbfa1d28aeb896da, type: 3}
 --- !u!1001 &1617706648
 PrefabInstance:
@@ -34074,6 +35441,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 357128109503674887, guid: caacc0cb7cb75455bbfa1d28aeb896da, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2007891422}
+    - targetCorrespondingSourceObject: {fileID: 357128109503674887, guid: caacc0cb7cb75455bbfa1d28aeb896da, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2007891427}
   m_SourcePrefab: {fileID: 100100000, guid: caacc0cb7cb75455bbfa1d28aeb896da, type: 3}
 --- !u!1 &1628225440 stripped
 GameObject:
@@ -34256,6 +35626,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FoodRespawn
   foodPrefab: {fileID: 1628225440}
   respawnDelay: 3
+--- !u!114 &1628225454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1628225440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: ac843912e22b245eeb39fc51068e4cec, type: 2}
+  id: 
 --- !u!4 &1629177554 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2115231420134357087, guid: 31bfd99a2b157410e9821563a9477158, type: 3}
@@ -34333,6 +35717,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7806807516443783733, guid: eaf06755c181f4e41a33a901c99f4df1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1718651029}
+    - targetCorrespondingSourceObject: {fileID: 7806807516443783733, guid: eaf06755c181f4e41a33a901c99f4df1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1718651034}
   m_SourcePrefab: {fileID: 100100000, guid: eaf06755c181f4e41a33a901c99f4df1, type: 3}
 --- !u!1 &1633275267 stripped
 GameObject:
@@ -34532,6 +35919,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3573164126493425978, guid: d7d363a03bec64ff7bd96e1f3d16df05, type: 3}
+--- !u!114 &1633275276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1633275267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 4c8256cd4698d49a3842bd5b6dec694c, type: 2}
+  id: 
 --- !u!1 &1644755399 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4090043516532804302, guid: 8ace96a9e49be40d780c606066d25ebe, type: 3}
@@ -34575,8 +35976,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cbef6633b4a3d439958f62c4383aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamTopping
-  toppingName: Raspberry
+  topping: 4
   toppingVisualPrefab: {fileID: 4090043516532804302, guid: 8ace96a9e49be40d780c606066d25ebe, type: 3}
+  toppingName: 
 --- !u!114 &1644755403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34996,6 +36398,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FoodRespawn
   foodPrefab: {fileID: 1659933831}
   respawnDelay: 5
+--- !u!114 &1659933843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659933831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 95183f21ac45d46a992bb4bddd9760ff, type: 2}
+  id: 
 --- !u!1 &1664207449 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2211543003307744350, guid: de13c850f8a7c456c873573c794b96af, type: 3}
@@ -35102,6 +36518,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 747780859215125528, guid: aa7ad93ac951043a6a6743586279f3e2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1440894647}
+    - targetCorrespondingSourceObject: {fileID: 747780859215125528, guid: aa7ad93ac951043a6a6743586279f3e2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1440894652}
   m_SourcePrefab: {fileID: 100100000, guid: aa7ad93ac951043a6a6743586279f3e2, type: 3}
 --- !u!1001 &1669773728
 PrefabInstance:
@@ -35175,6 +36594,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 747780859215125528, guid: aa7ad93ac951043a6a6743586279f3e2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1422347416}
+    - targetCorrespondingSourceObject: {fileID: 747780859215125528, guid: aa7ad93ac951043a6a6743586279f3e2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1422347421}
   m_SourcePrefab: {fileID: 100100000, guid: aa7ad93ac951043a6a6743586279f3e2, type: 3}
 --- !u!1001 &1670226231
 PrefabInstance:
@@ -35466,8 +36888,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cbef6633b4a3d439958f62c4383aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamTopping
-  toppingName: Blueberry
+  topping: 1
   toppingVisualPrefab: {fileID: 543911453486027751, guid: a15116c785d7648358b14a3ce05f910c, type: 3}
+  toppingName: 
 --- !u!1001 &1690656192
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35721,6 +37144,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5274432981281547057, guid: 14b79fe42cc1c40d58945e940efa919a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1591690798}
+    - targetCorrespondingSourceObject: {fileID: 5274432981281547057, guid: 14b79fe42cc1c40d58945e940efa919a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1591690801}
   m_SourcePrefab: {fileID: 100100000, guid: 14b79fe42cc1c40d58945e940efa919a, type: 3}
 --- !u!1 &1700340703 stripped
 GameObject:
@@ -35936,8 +37362,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cbef6633b4a3d439958f62c4383aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamTopping
-  toppingName: Strawberry
+  topping: 0
   toppingVisualPrefab: {fileID: 7979847360384317419, guid: d5bf9e683ac3d426f82fe57b9f67d518, type: 3}
+  toppingName: 
 --- !u!1 &1709360013 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8134828223633541557, guid: 710adcdc52b434d2a9c2ecbd5a6b5bd9, type: 3}
@@ -35960,8 +37387,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cbef6633b4a3d439958f62c4383aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamTopping
-  toppingName: Kiwi
+  topping: 2
   toppingVisualPrefab: {fileID: 8134828223633541557, guid: 710adcdc52b434d2a9c2ecbd5a6b5bd9, type: 3}
+  toppingName: 
 --- !u!65 &1709360016
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -36263,6 +37691,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 78649977252932413, guid: 4195e9d40f9d84140a086bd129febc60, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1554563518}
+    - targetCorrespondingSourceObject: {fileID: 78649977252932413, guid: 4195e9d40f9d84140a086bd129febc60, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1554563523}
   m_SourcePrefab: {fileID: 100100000, guid: 4195e9d40f9d84140a086bd129febc60, type: 3}
 --- !u!1001 &1717279155
 PrefabInstance:
@@ -36538,6 +37969,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3573164126493425978, guid: d7d363a03bec64ff7bd96e1f3d16df05, type: 3}
+--- !u!114 &1717698834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537008207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 4c8256cd4698d49a3842bd5b6dec694c, type: 2}
+  id: 
 --- !u!1 &1718651025 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7806807516443783733, guid: eaf06755c181f4e41a33a901c99f4df1, type: 3}
@@ -36736,6 +38181,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3573164126493425978, guid: d7d363a03bec64ff7bd96e1f3d16df05, type: 3}
+--- !u!114 &1718651034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718651025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 4c8256cd4698d49a3842bd5b6dec694c, type: 2}
+  id: 
 --- !u!4 &1719974008 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7429966035879159951, guid: eaf06755c181f4e41a33a901c99f4df1, type: 3}
@@ -37015,6 +38474,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2323973600376320981, guid: 86fc0c09dcfd94faabcc38496fac7212, type: 3}
+--- !u!114 &1733067942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733067933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 9979962b3d8a1449993c6c0e84c00d43, type: 2}
+  id: 
 --- !u!1 &1745898297 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8134828223633541557, guid: 710adcdc52b434d2a9c2ecbd5a6b5bd9, type: 3}
@@ -37037,8 +38510,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cbef6633b4a3d439958f62c4383aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamTopping
-  toppingName: Kiwi
+  topping: 2
   toppingVisualPrefab: {fileID: 8134828223633541557, guid: 710adcdc52b434d2a9c2ecbd5a6b5bd9, type: 3}
+  toppingName: 
 --- !u!65 &1745898300
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -37775,8 +39249,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f025c024b5d2674e90713055c727d10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamCassata
-  flavorName: Pineapple
+  flavor: 3
   scoopPrefab: {fileID: 5156711308084437318, guid: 6b02ae643071046249bb2b435c231f52, type: 3}
+  flavorName: 
 --- !u!4 &1794444725 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1484369717905255417, guid: de13c850f8a7c456c873573c794b96af, type: 3}
@@ -37876,6 +39351,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6899962092626316088, guid: e455ecda1e3254754902411704c667c4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1035989619}
+    - targetCorrespondingSourceObject: {fileID: 6899962092626316088, guid: e455ecda1e3254754902411704c667c4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1035989624}
   m_SourcePrefab: {fileID: 100100000, guid: e455ecda1e3254754902411704c667c4, type: 3}
 --- !u!1001 &1799121207
 PrefabInstance:
@@ -37949,6 +39427,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6899962092626316088, guid: e455ecda1e3254754902411704c667c4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1162412647}
+    - targetCorrespondingSourceObject: {fileID: 6899962092626316088, guid: e455ecda1e3254754902411704c667c4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1162412652}
   m_SourcePrefab: {fileID: 100100000, guid: e455ecda1e3254754902411704c667c4, type: 3}
 --- !u!4 &1807910023 stripped
 Transform:
@@ -38148,6 +39629,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2323973600376320981, guid: 86fc0c09dcfd94faabcc38496fac7212, type: 3}
+--- !u!114 &1807910032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259304649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 9979962b3d8a1449993c6c0e84c00d43, type: 2}
+  id: 
 --- !u!4 &1816979446 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3102752843539250933, guid: 4ff7c76a59c724bdeb9f8cd655a4ef46, type: 3}
@@ -38159,7 +39654,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 868304052}
     m_Modifications:
     - target: {fileID: 1761245928029686151, guid: b74402ab94bdf49acbdb4498758befba, type: 3}
       propertyPath: m_Name
@@ -38171,31 +39666,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8930250316297588426, guid: b74402ab94bdf49acbdb4498758befba, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.464002
+      value: 0.1966486
       objectReference: {fileID: 0}
     - target: {fileID: 8930250316297588426, guid: b74402ab94bdf49acbdb4498758befba, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.032999992
+      value: 0.028120007
       objectReference: {fileID: 0}
     - target: {fileID: 8930250316297588426, guid: b74402ab94bdf49acbdb4498758befba, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.814001
+      value: -0.9667411
       objectReference: {fileID: 0}
     - target: {fileID: 8930250316297588426, guid: b74402ab94bdf49acbdb4498758befba, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.95252526
+      value: 0.9525253
       objectReference: {fileID: 0}
     - target: {fileID: 8930250316297588426, guid: b74402ab94bdf49acbdb4498758befba, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.046727683
+      value: -0.046727687
       objectReference: {fileID: 0}
     - target: {fileID: 8930250316297588426, guid: b74402ab94bdf49acbdb4498758befba, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.23117787
+      value: 0.23117788
       objectReference: {fileID: 0}
     - target: {fileID: 8930250316297588426, guid: b74402ab94bdf49acbdb4498758befba, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.19253281
+      value: -0.19253282
       objectReference: {fileID: 0}
     - target: {fileID: 8930250316297588426, guid: b74402ab94bdf49acbdb4498758befba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -38246,8 +39741,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cbef6633b4a3d439958f62c4383aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamTopping
-  toppingName: Cherry
+  topping: 3
   toppingVisualPrefab: {fileID: 1761245928029686151, guid: b74402ab94bdf49acbdb4498758befba, type: 3}
+  toppingName: 
 --- !u!135 &1817912668
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -38440,6 +39936,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FoodRespawn
   foodPrefab: {fileID: 1817912666}
   respawnDelay: 3
+--- !u!4 &1817912672 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8930250316297588426, guid: b74402ab94bdf49acbdb4498758befba, type: 3}
+  m_PrefabInstance: {fileID: 1817912665}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1822500372 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1134650589191708861, guid: caacc0cb7cb75455bbfa1d28aeb896da, type: 3}
@@ -38638,6 +40139,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &1822500381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768509579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: e639a7075a22f45bea50445bc4347e32, type: 2}
+  id: 
 --- !u!4 &1825844742 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6091758805515194754, guid: e455ecda1e3254754902411704c667c4, type: 3}
@@ -38921,6 +40436,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7691823367467471015, guid: d692379a7428b4e48becaf5fa11d6408, type: 3}
   m_PrefabInstance: {fileID: 13395256}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1847571058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847571042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 32f4792572dcb43e79e7a1af0af82838, type: 2}
+  id: 
 --- !u!1001 &1851528445
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39256,6 +40785,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3573164126493425978, guid: d7d363a03bec64ff7bd96e1f3d16df05, type: 3}
+--- !u!114 &1858053588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858053579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 4c8256cd4698d49a3842bd5b6dec694c, type: 2}
+  id: 
 --- !u!1001 &1866548349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39560,6 +41103,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &1880529742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880529733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 84cdedf7d70394fae9323109c33cd50b, type: 2}
+  id: 
 --- !u!1001 &1880990279
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39644,6 +41201,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 485165309361244933, guid: 6a582e08196084181b94d86110f25e54, type: 3}
       insertIndex: -1
       addedObject: {fileID: 858651587}
+    - targetCorrespondingSourceObject: {fileID: 485165309361244933, guid: 6a582e08196084181b94d86110f25e54, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 858651590}
   m_SourcePrefab: {fileID: 100100000, guid: 6a582e08196084181b94d86110f25e54, type: 3}
 --- !u!4 &1892884193 stripped
 Transform:
@@ -39843,6 +41403,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &1892884202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1299752954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 84cdedf7d70394fae9323109c33cd50b, type: 2}
+  id: 
 --- !u!1 &1895805843
 GameObject:
   m_ObjectHideFlags: 0
@@ -40266,6 +41840,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4691079686382280569, guid: 9e6a70fa43ab6468893cb5089b902186, type: 3}
+--- !u!114 &1904927171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904927162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 0ac292c2e9da84f5bac3806a6cfd936f, type: 2}
+  id: 
 --- !u!4 &1917746810 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1134650589191708861, guid: caacc0cb7cb75455bbfa1d28aeb896da, type: 3}
@@ -40464,6 +42052,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &1917746819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355821020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: e639a7075a22f45bea50445bc4347e32, type: 2}
+  id: 
 --- !u!4 &1924583145 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3102752843539250933, guid: 4ff7c76a59c724bdeb9f8cd655a4ef46, type: 3}
@@ -40540,6 +42142,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5, y: 0.6, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1925975771 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6653574892485257811, guid: de13c850f8a7c456c873573c794b96af, type: 3}
+  m_PrefabInstance: {fileID: 260323590}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1926999454 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7806807516443783733, guid: eaf06755c181f4e41a33a901c99f4df1, type: 3}
@@ -40559,6 +42166,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FoodRespawn
   foodPrefab: {fileID: 1358301970}
   respawnDelay: 3
+--- !u!114 &1926999460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926999454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 4c8256cd4698d49a3842bd5b6dec694c, type: 2}
+  id: 
 --- !u!1001 &1928920615
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40643,6 +42264,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8606538742776408068, guid: 4520e95d1f34b4e878a06d99be1b5526, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1502165690}
+    - targetCorrespondingSourceObject: {fileID: 8606538742776408068, guid: 4520e95d1f34b4e878a06d99be1b5526, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1502165693}
   m_SourcePrefab: {fileID: 100100000, guid: 4520e95d1f34b4e878a06d99be1b5526, type: 3}
 --- !u!1 &1935987258
 GameObject:
@@ -40862,6 +42486,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3545893051540451081, guid: 58dbfa1a40c8046839f0ea336421a211, type: 3}
       insertIndex: -1
       addedObject: {fileID: 701230732}
+    - targetCorrespondingSourceObject: {fileID: 3545893051540451081, guid: 58dbfa1a40c8046839f0ea336421a211, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 701230738}
   m_SourcePrefab: {fileID: 100100000, guid: 58dbfa1a40c8046839f0ea336421a211, type: 3}
 --- !u!1001 &1940922711
 PrefabInstance:
@@ -41221,6 +42848,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 78649977252932413, guid: 4195e9d40f9d84140a086bd129febc60, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2068734065}
+    - targetCorrespondingSourceObject: {fileID: 78649977252932413, guid: 4195e9d40f9d84140a086bd129febc60, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2068734070}
   m_SourcePrefab: {fileID: 100100000, guid: 4195e9d40f9d84140a086bd129febc60, type: 3}
 --- !u!1001 &1997917740
 PrefabInstance:
@@ -41508,6 +43138,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &2007891427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440578621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: e639a7075a22f45bea50445bc4347e32, type: 2}
+  id: 
 --- !u!1 &2011706285 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8738785981315813082, guid: e0cd751eb70ae4bf8bdf7f8885891659, type: 3}
@@ -41665,6 +43309,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 314067793064021609, guid: 68e1d126070f74a3a90004a0acd61df9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2038944413}
+    - targetCorrespondingSourceObject: {fileID: 314067793064021609, guid: 68e1d126070f74a3a90004a0acd61df9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2038944419}
   m_SourcePrefab: {fileID: 100100000, guid: 68e1d126070f74a3a90004a0acd61df9, type: 3}
 --- !u!1001 &2023506844
 PrefabInstance:
@@ -41940,6 +43587,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2323973600376320981, guid: 86fc0c09dcfd94faabcc38496fac7212, type: 3}
+--- !u!114 &2028707779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028707770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 9979962b3d8a1449993c6c0e84c00d43, type: 2}
+  id: 
 --- !u!1 &2034614481 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 716eb86c5f9a24921a13fd6bcaa16cb1, type: 3}
@@ -42121,6 +43782,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FoodRespawn
   foodPrefab: {fileID: 2034614481}
   respawnDelay: 3
+--- !u!114 &2034614495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034614481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: ecf02e43e4a4b47efaf421c45faa16d1, type: 2}
+  id: 
 --- !u!1001 &2036636542
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42387,6 +44062,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1085396453750772947, guid: 68e1d126070f74a3a90004a0acd61df9, type: 3}
   m_PrefabInstance: {fileID: 2020701982}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2038944419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038944403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 87ef18df79ae94e928c662f144c70593, type: 2}
+  id: 
 --- !u!1 &2040067958 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 357128109503674887, guid: caacc0cb7cb75455bbfa1d28aeb896da, type: 3}
@@ -42585,6 +44274,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &2040067967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040067958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: e639a7075a22f45bea50445bc4347e32, type: 2}
+  id: 
 --- !u!1 &2051248071
 GameObject:
   m_ObjectHideFlags: 0
@@ -42786,6 +44489,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7806807516443783733, guid: eaf06755c181f4e41a33a901c99f4df1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1858053583}
+    - targetCorrespondingSourceObject: {fileID: 7806807516443783733, guid: eaf06755c181f4e41a33a901c99f4df1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1858053588}
   m_SourcePrefab: {fileID: 100100000, guid: eaf06755c181f4e41a33a901c99f4df1, type: 3}
 --- !u!1 &2068734061 stripped
 GameObject:
@@ -42985,6 +44691,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4691079686382280569, guid: 9e6a70fa43ab6468893cb5089b902186, type: 3}
+--- !u!114 &2068734070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068734061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 0ac292c2e9da84f5bac3806a6cfd936f, type: 2}
+  id: 
 --- !u!1001 &2068861227
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43057,6 +44777,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 747780859215125528, guid: aa7ad93ac951043a6a6743586279f3e2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2028707774}
+    - targetCorrespondingSourceObject: {fileID: 747780859215125528, guid: aa7ad93ac951043a6a6743586279f3e2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2028707779}
   m_SourcePrefab: {fileID: 100100000, guid: aa7ad93ac951043a6a6743586279f3e2, type: 3}
 --- !u!1001 &2069296052
 PrefabInstance:
@@ -43143,6 +44866,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: dc74e53f7f0b5495b9e760dd4803accb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1628225450}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: dc74e53f7f0b5495b9e760dd4803accb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1628225454}
   m_SourcePrefab: {fileID: 100100000, guid: dc74e53f7f0b5495b9e760dd4803accb, type: 3}
 --- !u!1001 &2077444937
 PrefabInstance:
@@ -43480,6 +45206,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2323973600376320981, guid: 86fc0c09dcfd94faabcc38496fac7212, type: 3}
+--- !u!114 &2098424379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16708311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 9979962b3d8a1449993c6c0e84c00d43, type: 2}
+  id: 
 --- !u!1 &2101462334 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6899962092626316088, guid: e455ecda1e3254754902411704c667c4, type: 3}
@@ -43678,6 +45418,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &2101462343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101462334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 84cdedf7d70394fae9323109c33cd50b, type: 2}
+  id: 
 --- !u!1 &2109025039 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 747780859215125528, guid: aa7ad93ac951043a6a6743586279f3e2, type: 3}
@@ -43876,6 +45630,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2323973600376320981, guid: 86fc0c09dcfd94faabcc38496fac7212, type: 3}
+--- !u!114 &2109025048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109025039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 9979962b3d8a1449993c6c0e84c00d43, type: 2}
+  id: 
 --- !u!4 &2115987138 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1134650589191708861, guid: caacc0cb7cb75455bbfa1d28aeb896da, type: 3}
@@ -44095,8 +45863,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cbef6633b4a3d439958f62c4383aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceCreamTopping
-  toppingName: Blueberry
+  topping: 1
   toppingVisualPrefab: {fileID: 543911453486027751, guid: a15116c785d7648358b14a3ce05f910c, type: 3}
+  toppingName: 
 --- !u!1 &2118442783 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 36951204143704064, guid: de13c850f8a7c456c873573c794b96af, type: 3}
@@ -44329,13 +46098,27 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4691079686382280569, guid: 9e6a70fa43ab6468893cb5089b902186, type: 3}
+--- !u!114 &2129905604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366723694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 0ac292c2e9da84f5bac3806a6cfd936f, type: 2}
+  id: 
 --- !u!1001 &2133823862
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 868304052}
     m_Modifications:
     - target: {fileID: 1748534877430354, guid: 05fa88b4fa377418eaac0976b320709e, type: 3}
       propertyPath: m_Name
@@ -44355,15 +46138,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4865186076211322, guid: 05fa88b4fa377418eaac0976b320709e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.933909
+      value: 6.7267413
       objectReference: {fileID: 0}
     - target: {fileID: 4865186076211322, guid: 05fa88b4fa377418eaac0976b320709e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.06112
       objectReference: {fileID: 0}
     - target: {fileID: 4865186076211322, guid: 05fa88b4fa377418eaac0976b320709e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.502
+      value: 4.34926
       objectReference: {fileID: 0}
     - target: {fileID: 4865186076211322, guid: 05fa88b4fa377418eaac0976b320709e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -44371,7 +46154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4865186076211322, guid: 05fa88b4fa377418eaac0976b320709e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4865186076211322, guid: 05fa88b4fa377418eaac0976b320709e, type: 3}
       propertyPath: m_LocalRotation.y
@@ -44379,7 +46162,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4865186076211322, guid: 05fa88b4fa377418eaac0976b320709e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4865186076211322, guid: 05fa88b4fa377418eaac0976b320709e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -44613,6 +46396,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4691079686382280569, guid: 9e6a70fa43ab6468893cb5089b902186, type: 3}
+--- !u!114 &2140484233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2139374310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: 0ac292c2e9da84f5bac3806a6cfd936f, type: 2}
+  id: 
 --- !u!1001 &2141677930
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44697,6 +46494,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6876099952666234949, guid: 9e2b3dfbd719847eca153b033c759ef8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1659933840}
+    - targetCorrespondingSourceObject: {fileID: 6876099952666234949, guid: 9e2b3dfbd719847eca153b033c759ef8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1659933843}
   m_SourcePrefab: {fileID: 100100000, guid: 9e2b3dfbd719847eca153b033c759ef8, type: 3}
 --- !u!1 &2144102036 stripped
 GameObject:
@@ -44896,37 +46696,37 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &2144102045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144102036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09feb890607304ce3a2e864bf0896ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.Item
+  definition: {fileID: 11400000, guid: e639a7075a22f45bea50445bc4347e32, type: 2}
+  id: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 860111884}
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 1227706031}
   - {fileID: 1193053786}
-  - {fileID: 295724240}
-  - {fileID: 2133823862}
-  - {fileID: 1210166640}
-  - {fileID: 260323590}
-  - {fileID: 624726616}
-  - {fileID: 135322611}
-  - {fileID: 675552229}
-  - {fileID: 1455035796}
-  - {fileID: 794382979}
-  - {fileID: 570274620}
-  - {fileID: 1194872670}
+  - {fileID: 208331936}
+  - {fileID: 868304052}
   - {fileID: 416512376}
-  - {fileID: 131048678}
-  - {fileID: 1817912665}
-  - {fileID: 758283331}
-  - {fileID: 1427722908}
-  - {fileID: 1160108887}
-  - {fileID: 1570751361}
+  - {fileID: 1414366973}
   - {fileID: 1289867503}
   - {fileID: 1653859858}
   - {fileID: 61961446}
   - {fileID: 789815359}
   - {fileID: 1418281172}
-  - {fileID: 1345573965}
-  - {fileID: 834056586}
+  - {fileID: 794382979}
   - {fileID: 190440201}
