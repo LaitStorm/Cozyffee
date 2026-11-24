@@ -1,4 +1,4 @@
-# Hito 2: Prototipo Lo-Fi🚧
+# Hito 3: Prototipo HI-Fi🚧
 
 📝 **Desarrolladoras:** Andry Guevara y Josefina Ulloa E.
 
@@ -21,7 +21,7 @@
 - AI Navigation
 
 **Plugins:**
-- XR Devise Simulator, para probar experiencia VR en PC sin casco
+- XR DeviCe Simulator, para probar experiencia VR en PC sin casco
 
 **Hardware Objetivo:** Meta Quest 3
 
@@ -61,8 +61,12 @@
 
 > - **Modelo:** Gemini 3.6 Flash
 > - **Plataforma:** Gemini web
-> - **Cómo se usó:** Generación de script para hacer respawn de postres y consulta de errores durante desarrollo
+> - **Cómo se usó:** Generación de script para hacer respawn de postres, consulta de errores durante desarrollo y desarrollo de UI.
 
 > - **Modelo:** Claude Sonnet 5.5 Extra
 > - **Plataforma:** Claude.ai web
-> - **Cómo se usó:** Ayuda con scripts para generar órden de clientes, destroy de instanciasy consulta de errores
+> - **Cómo se usó:** Ayuda con scripts para generar órden de clientes, destroy de instancias y consulta de errores
+
+> - **Modelo:** Claude Opus 5.5 High
+> - **Plataforma:** Claude VSCode Extension
+> - **Cómo se usó:** Ayuda para adaptar el tutorial a las necesidades del proyecto, revisión automática de PRs.
