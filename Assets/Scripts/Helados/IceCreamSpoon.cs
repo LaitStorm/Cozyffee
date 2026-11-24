@@ -1,3 +1,4 @@
+using Game.Cozyffee;
 using UnityEngine;
 
 public class IceCreamSpoon : MonoBehaviour
@@ -15,7 +16,7 @@ public class IceCreamSpoon : MonoBehaviour
 
     private GameObject currentScoopInstance;
     private GameObject currentScoopPrefab;
-    private string currentScoopFlavor;
+    private IceCreamFlavor currentScoopFlavor = IceCreamFlavor.None;
     private Vector3 lastPosition;
     private float accumulatedScrapeDistance;
 
@@ -49,7 +50,7 @@ public class IceCreamSpoon : MonoBehaviour
         Destroy(currentScoopInstance);
         currentScoopInstance = null;
         currentScoopPrefab = null;
-        currentScoopFlavor = string.Empty;
+        currentScoopFlavor = IceCreamFlavor.None;
         accumulatedScrapeDistance = 0f;
         return true;
     }
@@ -67,12 +68,12 @@ public class IceCreamSpoon : MonoBehaviour
 
             if (accumulatedScrapeDistance >= scrapeDistanceRequired)
             {
-                SpawnScoopOnSpoon(cassata.scoopPrefab, cassata.flavorName);
+                SpawnScoopOnSpoon(cassata.scoopPrefab, cassata.flavor);
             }
         }
     }
 
-    private void SpawnScoopOnSpoon(GameObject prefab, string flavor)
+    private void SpawnScoopOnSpoon(GameObject prefab, IceCreamFlavor flavor)
     {
         currentScoopPrefab = prefab;
         currentScoopFlavor = flavor;

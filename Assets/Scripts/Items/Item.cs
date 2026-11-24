@@ -14,6 +14,6 @@ namespace Game.Cozyffee
 
         public CafeMenuItem Definition => definition;
 
-        public string Id => definition != null ? definition.Id : id;
+        public virtual string Id => definition != null ? definition.Id : id;
     }
 }

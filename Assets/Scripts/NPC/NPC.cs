@@ -64,7 +64,8 @@ namespace Game.Cozyffee
         public UnityAction OrderEnded;
 
         /// <summary>What this NPC is currently waiting for, or null when it isn't ordering. Set by the PickOrder task.</summary>
-        public CafeMenuItem CurrentOrder;
+        [System.NonSerialized]
+        public CafeOrder CurrentOrder;
 
         #endregion
 
@@ -114,6 +115,9 @@ namespace Game.Cozyffee
         #region Other Unity Actions
         public UnityAction<string> Say;
         public UnityAction<Sprite, float> SayImage;
+
+        /// <summary>Like <see cref="SayImage"/>, with more sprites drawn on top of the first (e.g. an ice cream's toppings).</summary>
+        public UnityAction<Sprite, IReadOnlyList<Sprite>, float> SayLayeredImage;
         #endregion
 
         #region UnityCallbacks

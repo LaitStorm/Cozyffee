@@ -318,6 +318,7 @@ namespace Game.Cozyffee
             if (!entry.Option.Available) return "never (unavailable)";
             if (entry.Weight <= 0f) return "never (weight 0)";
             if (entry.Option is CafeMenu) return "never (nothing orderable inside)";
+            if (entry.Option is IceCreamMenuItem iceCream && iceCream.Scoops.Count == 0) return "never (no scoops)";
             return "never (no ID)";
         }
 

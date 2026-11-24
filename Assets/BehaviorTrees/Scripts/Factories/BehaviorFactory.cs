@@ -167,8 +167,10 @@ namespace Game.Cozyffee
                 waitForItem.AddTask(orderAnimation);
             }
 
-            // Show the item's icon. Until an icon exists, fall back to saying its name so the order still works.
+            // Show the order's icon with its overlays (ice cream toppings). Orders that didn't come from a menu have no
+            // CurrentOrder, so they show the plain icon. Until an icon exists, fall back to saying its name so the order still works.
             Selector showOrder = new Selector(
+                new SayOrder(waitTime),
                 new SayImage(icon, waitTime),
                 new Say(displayName)
             ) { Name = "Show Order" };

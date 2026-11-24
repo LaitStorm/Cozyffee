@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24d56fa2e61b745368e9ba5c5120a20d, type: 3}
+  m_Name: DoubleIceCreams
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.CafeMenu
+  displayName: Double Ice Creams
+  available: 1
+  entries:
+  - Option: {fileID: 11400000, guid: a9f5a968d32a54fecad010ff075ab451, type: 2}
+    Weight: 2
+    Chance: 10%
+    initialized: 1
+  - Option: {fileID: 11400000, guid: f8686a47b8b1743478f30898a07dbf34, type: 2}
+    Weight: 1
+    Chance: 5%
+    initialized: 1
+  - Option: {fileID: 11400000, guid: ffbd5795ac05d45f89cfeddbe63aa5a8, type: 2}
+    Weight: 1
+    Chance: 5%
+    initialized: 1
+  - Option: {fileID: 11400000, guid: 5934dd52e9fc745e1be6b0cfab1c2e8e, type: 2}
+    Weight: 1
+    Chance: 5%
+    initialized: 1
+  - Option: {fileID: 11400000, guid: 3d033d1ee26b044eb941e5c4a95172b2, type: 2}
+    Weight: 1
+    Chance: 5%
+    initialized: 1
+  - Option: {fileID: 11400000, guid: 3b6c0e010243646d0b618e3bfb8f7625, type: 2}
+    Weight: 2
+    Chance: 10%
+    initialized: 1
+  - Option: {fileID: 11400000, guid: c5395cb46c9e2491b8fa86813c9452b3, type: 2}
+    Weight: 1
+    Chance: 5%
+    initialized: 1
+  - Option: {fileID: 11400000, guid: 28345308649594458a204c2f64933254, type: 2}
+    Weight: 1
+    Chance: 5%
+    initialized: 1
+  - Option: {fileID: 11400000, guid: 9386c3c4803ae47b6b09a67b49b2a346, type: 2}
+    Weight: 1
+    Chance: 5%
+    initialized: 1
+  - Option: {fileID: 11400000, guid: bc6bfdbd6034843ec8a48137b45adbd3, type: 2}
+    Weight: 1
+    Chance: 5%
+    initialized: 1
+  - Option: {fileID: 11400000, guid: ebfac9e2b43034df48b5d681dda319e3, type: 2}
+    Weight: 2
+    Chance: 10%
+    initialized: 1
+  - Option: {fileID: 11400000, guid: 92dd7223b7a9141cbaaeafe61c45838f, type: 2}
+    Weight: 1
+    Chance: 5%
+    initialized: 1
+  - Option: {fileID: 11400000, guid: edc7bb72e8dba4731804f8365c0b6f77, type: 2}
+    Weight: 1
+    Chance: 5%
+    initialized: 1
+  - Option: {fileID: 11400000, guid: 2e0868f4d29f14d8eb83dbb36b8cf498, type: 2}
+    Weight: 1
+    Chance: 5%
+    initialized: 1
+  - Option: {fileID: 11400000, guid: 35a6b2a2e5d7b4ad28b5f64513eaeea3, type: 2}
+    Weight: 1
+    Chance: 5%
+    initialized: 1
+  - Option: {fileID: 11400000, guid: 50ea9569cc7f34151af034247a3b16d8, type: 2}
+    Weight: 2
+    Chance: 10%
+    initialized: 1

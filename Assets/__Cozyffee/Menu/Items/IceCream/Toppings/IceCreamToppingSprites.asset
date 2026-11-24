@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99886deaac3624a57bb74bc7537e92b0, type: 3}
+  m_Name: IceCreamToppingSprites
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.IceCreamToppingSprites
+  entries:
+  - Topping: 0
+    Left: {fileID: 21300000, guid: b323a583cc62046bf955264492f581b6, type: 3}
+    Right: {fileID: 21300000, guid: b48947bdb87234916acf20db10210ba9, type: 3}
+    DoubleLeft: {fileID: 21300000, guid: e3766f6b7294d40f991b2c0990cc36f1, type: 3}
+    DoubleRight: {fileID: 21300000, guid: 392ba4bdd7ec144a9ba5c6d9bf110814, type: 3}
+  - Topping: 1
+    Left: {fileID: 21300000, guid: 56ae66a3cec4645d6bba0f3bef7d2704, type: 3}
+    Right: {fileID: 21300000, guid: cd6f33d5b2ea24a9fbc895da70645227, type: 3}
+    DoubleLeft: {fileID: 21300000, guid: b29be94e7f24148cab63e37942486f97, type: 3}
+    DoubleRight: {fileID: 21300000, guid: aa2aa202ec6764a609051ddb536c9601, type: 3}
+  - Topping: 2
+    Left: {fileID: 21300000, guid: c69d2714d8ab04ff083ea0c1ab927121, type: 3}
+    Right: {fileID: 21300000, guid: 6f9d26dc7536d45e7997767d7c2ce8cd, type: 3}
+    DoubleLeft: {fileID: 21300000, guid: 8c49d43a1ed594baa8d57299830b6c8f, type: 3}
+    DoubleRight: {fileID: 21300000, guid: f19f26ca2213948a99cdf815cf89f1fa, type: 3}
+  - Topping: 3
+    Left: {fileID: 21300000, guid: 8982f612ea77a418f9631673b513fbb6, type: 3}
+    Right: {fileID: 21300000, guid: c308589c11ef3441886234cb7260030e, type: 3}
+    DoubleLeft: {fileID: 21300000, guid: c112d53ce0cea4f639fea439d5158b60, type: 3}
+    DoubleRight: {fileID: 21300000, guid: 3875ed3375dae43a6b6b19cb11af70f7, type: 3}
+  - Topping: 4
+    Left: {fileID: 21300000, guid: f1ff111da1df743b3ba229329e5fc907, type: 3}
+    Right: {fileID: 21300000, guid: d7810b6e40791448797cbf72112548f9, type: 3}
+    DoubleLeft: {fileID: 21300000, guid: d4c21d7969b4344ffbb2adf348d6e7af, type: 3}
+    DoubleRight: {fileID: 21300000, guid: d6e36e51a0e014818bd0c3d6e74d580b, type: 3}
