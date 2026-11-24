@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ee4b6f7616ae88547a9ed572e0e56395
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 242131
+  packageName: Cute Axolotl
+  packageVersion: 1.0
+  assetPath: Assets/CuteAxolotl/Demo Scenes/Materials/bg.mat
+  uploadId: 550541

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 5e7304fde4328bd4aa93eb3b5a599631
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 242131
+  packageName: Cute Axolotl
+  packageVersion: 1.0
+  assetPath: Assets/CuteAxolotl/Animations/BlendShape/Collision.anim
+  uploadId: 550541

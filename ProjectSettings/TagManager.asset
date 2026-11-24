@@ -4,34 +4,10 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - QDSUISection
-  - QDSUIAccentColor
-  - QDSUISecondaryButton
-  - QDSUIPrimaryButton
-  - QDSUITextSecondaryInvertedColor
-  - QDSUITextInvertedColor
-  - QDSUIToggleButton
-  - QDSUIIcon
-  - QDSUITextSecondaryColor
-  - QDSUIDestructiveButton
-  - QDSUISharedThemeColor
-  - QDSUIBorderlessButton
-  - QDSUIToggleBorderlessButton
-  - QDSUIBackplateGradient
-  - QDSUITooltip
-  - QDSUIBackplate
-  - QDSUIToggleSwitch
-  - PassThroughButton
-  - PassThrough
-  - Locomotion
-  - LocoButton
-  - LocoText
-  - QDSUILineDrawing
-  - QDSUITextInputField
-  - SamplesInfoPanel
-  - QDSUIToggleCheckboxRadio
-  - QDSUIToggleThumbnail
+  - EmptyCup
   - Fluid
+  - Food
+  - EmptyGlass1
   layers:
   - Default
   - TransparentFX
@@ -40,6 +16,7 @@ TagManager:
   - Water
   - UI
   - 
+  - CharacterController
   - 
   - 
   - 
@@ -61,8 +38,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - XRVisuals
   - 
   - 
   m_SortingLayers:

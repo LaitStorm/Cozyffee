@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 18d842ed2b108ca4a9e1fe827433b03b
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 242131
+  packageName: Cute Axolotl
+  packageVersion: 1.0
+  assetPath: Assets/CuteAxolotl/Demo Scenes/Animations/AxoRotate.anim
+  uploadId: 550541

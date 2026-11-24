@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: cbe017ed78dfbc84cb73cd213bc038f9
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 242131
+  packageName: Cute Axolotl
+  packageVersion: 1.0
+  assetPath: Assets/CuteAxolotl/Animations/Separate/Swim Medium.anim
+  uploadId: 550541

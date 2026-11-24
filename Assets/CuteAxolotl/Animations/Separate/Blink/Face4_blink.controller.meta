@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 1d30db507700a56459770f06524d4d8f
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 242131
+  packageName: Cute Axolotl
+  packageVersion: 1.0
+  assetPath: Assets/CuteAxolotl/Animations/Separate/Blink/Face4_blink.controller
+  uploadId: 550541

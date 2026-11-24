@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 
 namespace Game.Cozyffee
 {
@@ -13,10 +15,18 @@ namespace Game.Cozyffee
         float lookTimer = 0f;
 
         Vector3 targetPosition = Vector3.zero;
+
         float animatorTurnParameter = 0f;
 
         [Header("Animator Settings"), SerializeField]
         float animatorTurnSmoothing = 5f;
+
+        [Header("Rigs")]
+        [SerializeField]
+        Rig SpineRig;
+
+        [SerializeField]
+        Transform AimTarget;
 
         public override void SetNPC(NPC npc)
         {
@@ -30,12 +40,58 @@ namespace Game.Cozyffee
             npc.IsLookingAt += OnLookingAt;
         }
 
+        #region Rig Manipulation Methods
+
+        void SetSpineRigWeight(float weight)
+		{
+			if (SpineRig == null) return;
+
+			float smoothing = 5f;
+
+			SpineRig.weight = Mathf.Lerp(SpineRig.weight, weight, smoothing * Time.deltaTime);
+		}
+
+        #endregion
+
         #region Delegates
         void OnLookAt(Vector3 position)
         {
             lookTimer = ExpireTime;
             targetPosition = position;
+
+            SetSpineRigWeight(1.0f);
+
+            if (AimTarget == null) return;
+
+            AimTarget.position = position;
+            ClampAimTargetAngle();
         }
+
+        void ClampAimTargetAngle()
+		{
+			float HorizontalAngleLimit = 15f;
+
+			Vector3 forward = npc.transform.forward;
+			Vector3 direction = (AimTarget.position - npc.SensorPosition).normalized;
+
+
+			Vector3 horizontalDirection = direction;
+			horizontalDirection.y = 0f;
+			horizontalDirection.Normalize();
+
+
+			float angle = Vector3.Angle(forward, horizontalDirection);
+
+			if (angle > HorizontalAngleLimit)
+			{
+				Vector3 clampedDirection = Vector3.RotateTowards(forward, horizontalDirection, Mathf.Deg2Rad * HorizontalAngleLimit, 0f);
+
+				clampedDirection.y = direction.y;
+				clampedDirection.Normalize();
+
+				AimTarget.position = npc.SensorPosition + clampedDirection * Vector3.Distance(npc.SensorPosition, AimTarget.position);
+			}
+		}
 
         bool OnLookingAt(Vector3 position)
         {
@@ -64,6 +120,8 @@ namespace Game.Cozyffee
                 //NPCLookForward();
 
                 animatorTurnParameter = Mathf.Lerp(animatorTurnParameter, 0f, animatorTurnSmoothing * Time.deltaTime);
+
+                SetSpineRigWeight(0f);
             }
             else
             {
@@ -71,7 +129,12 @@ namespace Game.Cozyffee
                 NPCLookAtPosition(targetPosition);
             }
 
-            npc.Animator.SetFloat("Turn", animatorTurnParameter);
+            Animator animator = npc.GetAnimator();
+
+			if (animator != null)
+			{
+				animator.SetFloat("Turn", animatorTurnParameter);
+			}
         }
 
         #endregion
@@ -82,6 +145,7 @@ namespace Game.Cozyffee
             directionToTarget.y = 0f;
 
             Quaternion targetRotation = Quaternion.LookRotation(directionToTarget);
+
             npc.transform.rotation = Quaternion.RotateTowards(
                 npc.transform.rotation,
                 targetRotation,
@@ -98,6 +162,8 @@ namespace Game.Cozyffee
             normalizedDirection.Normalize();
 
             Vector3 forward = npc.transform.forward;
+            forward.y = 0f;
+			forward.Normalize();
 
             float angle = Vector3.SignedAngle(forward, normalizedDirection, Vector3.up);
 

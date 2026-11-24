@@ -59,18 +59,13 @@ namespace Game.Cozyffee.TaskSystem
         {
             if (externalBehaviorTree != null)
             {
-                Root = externalBehaviorTree.CreateBehaviorTree();
-                externalBehaviorTree.CreateData(Data);
+                Root = externalBehaviorTree.CreateBehaviorTree(this);
             }
         }
 
         private void AwakenRootTask()
         {
-            if (externalBehaviorTree != null)
-            {
-                Root = externalBehaviorTree.CreateBehaviorTree();
-                externalBehaviorTree.CreateData(Data);
-            }
+            CreateBehaviorTreeInternal();
 
             if (Root == null)
             {
@@ -79,6 +74,8 @@ namespace Game.Cozyffee.TaskSystem
             }
 
             Root.SetOwner(gameObject);
+            Root.SetBehaviorTree(this);
+
             Task.Awaken(Root);
             Task.Start(Root);
         }

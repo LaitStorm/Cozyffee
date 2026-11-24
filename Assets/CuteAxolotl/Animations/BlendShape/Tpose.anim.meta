@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 739d15ceec3b8c94c946b2e5c0418dd2
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 242131
+  packageName: Cute Axolotl
+  packageVersion: 1.0
+  assetPath: Assets/CuteAxolotl/Animations/BlendShape/Tpose.anim
+  uploadId: 550541

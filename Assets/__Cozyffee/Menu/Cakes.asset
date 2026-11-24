@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24d56fa2e61b745368e9ba5c5120a20d, type: 3}
+  m_Name: Cakes
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.CafeMenu
+  displayName: Cakes
+  available: 1
+  entries:
+  - Option: {fileID: 11400000, guid: 4c8256cd4698d49a3842bd5b6dec694c, type: 2}
+    Weight: 1
+    Chance: 16.7%
+    initialized: 1
+  - Option: {fileID: 11400000, guid: 84cdedf7d70394fae9323109c33cd50b, type: 2}
+    Weight: 1
+    Chance: 16.7%
+    initialized: 1
+  - Option: {fileID: 11400000, guid: 0ac292c2e9da84f5bac3806a6cfd936f, type: 2}
+    Weight: 1
+    Chance: 16.7%
+    initialized: 1
+  - Option: {fileID: 11400000, guid: e466fd8b7151f4d5da4f88e4324b224c, type: 2}
+    Weight: 1
+    Chance: 16.7%
+    initialized: 1
+  - Option: {fileID: 11400000, guid: e639a7075a22f45bea50445bc4347e32, type: 2}
+    Weight: 1
+    Chance: 16.7%
+    initialized: 1
+  - Option: {fileID: 11400000, guid: 9979962b3d8a1449993c6c0e84c00d43, type: 2}
+    Weight: 1
+    Chance: 16.7%
+    initialized: 1

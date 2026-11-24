@@ -50,6 +50,24 @@ namespace Game.Cozyffee
             }
         }
 
+        public int HostilesCount
+        {
+            get
+            {
+                int count = 0;
+
+                foreach (var entry in list)
+                {
+                    if (entry.Hostile)
+                    {
+                        count++;
+                    }
+                }
+
+                return count;
+            }
+        }
+
         public int VisibleNPCsCount
         {
             get

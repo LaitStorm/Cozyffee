@@ -6,6 +6,10 @@ namespace Game.Cozyffee.TaskSystem
 {
 	public class ParallelSelector : Parallel
 	{
+		public ParallelSelector() {}
+
+		public ParallelSelector(params Task[] tasks) : base(tasks) {}
+
 		protected override TaskStatus OnUpdate()
 		{
 			if (tasks.Count <= 0)
@@ -32,6 +36,11 @@ namespace Game.Cozyffee.TaskSystem
 					return TaskStatus.Success;
 				}
 			}
+
+			if (AllChildrenFinished())
+            {
+                return TaskStatus.Failure;
+            }
 
 			return TaskStatus.Running;
 		}
