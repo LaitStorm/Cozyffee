@@ -1,40 +1,40 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
-using UnityEngine.XR.Interaction.Toolkit.Interactors; // Requerido en XRIT 3.x para XRSocketInteractor
+using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 public class CoffeeSocketRefill : MonoBehaviour
 {
-    [Header("Configuración del Socket y Objetos")]
-    [Tooltip("Tag que identifica a la taza vacía.")]
-    [SerializeField] private string emptyCupTag = "EmptyCup";
+    [Serializable]
+    public class RefillRecipe
+    {
+        [Tooltip("Tag del envase vacío (ej: EmptyCup, EmptyGlass1, EmptyGlass2).")]
+        public string emptyTag;
 
-    [Tooltip("Prefab de la taza llena de café que reemplazará a la vacía.")]
-    [SerializeField] private GameObject fullCupPrefab;
+        [Tooltip("Prefab del envase lleno que reemplazará al vacío.")]
+        public GameObject fullPrefab;
+    }
+
+    [Header("Configuración del Socket y Objetos")]
+    [Tooltip("Lista de pares (Tag vacío -> Prefab lleno) que acepta esta máquina.")]
+    [SerializeField] private List<RefillRecipe> refillRecipes = new List<RefillRecipe>();
 
     [Header("Efectos y Audio")]
-    [Tooltip("Sistema de partículas que se activará al terminar el refill.")]
     [SerializeField] private ParticleSystem finishParticles;
-
-    [Tooltip("AudioSource para los sonidos.")]
     [SerializeField] private AudioSource audioSource;
-
-    [Tooltip("Clip de sonido que se reproduce durante el llenado.")]
     [SerializeField] private AudioClip refillSound;
-
-    [Tooltip("Clip opcional al completar el llenado (ej. un 'ding' o vapor).")]
     [SerializeField] private AudioClip completeSound;
 
     [Header("Tiempo")]
-    [Tooltip("Duración en segundos del proceso de llenado.")]
-    [SerializeField] private float refillDuration = 2.5f;
-
-    [Tooltip("Margen vertical para evitar que el collider choque con la bandeja al nacer.")]
+    [SerializeField] private float refillDuration = 2f;
     [SerializeField] private float verticalSpawnOffset = 0.01f;
 
     private XRSocketInteractor socketInteractor;
-    private bool isRefilling = false;
+    private Coroutine activeRefillCoroutine;
+    private IXRSelectInteractable currentEmptyInteractable;
 
     private void Awake()
     {
@@ -43,79 +43,118 @@ public class CoffeeSocketRefill : MonoBehaviour
 
     private void OnEnable()
     {
-        // Escuchamos cuando un objeto encaja en el socket
-        socketInteractor.selectEntered.AddListener(OnItemInserted);
+        if (socketInteractor != null)
+        {
+            socketInteractor.selectEntered.AddListener(OnObjectPlacedInSocket);
+            socketInteractor.selectExited.AddListener(OnObjectRemovedFromSocket);
+        }
     }
 
     private void OnDisable()
     {
-        socketInteractor.selectEntered.RemoveListener(OnItemInserted);
-    }
-
-    private void OnItemInserted(SelectEnterEventArgs args)
-    {
-        // Obtenemos el objeto que acaba de encajar
-        GameObject insertedObject = args.interactableObject.transform.gameObject;
-
-        if (insertedObject.CompareTag(emptyCupTag) && !isRefilling)
+        if (socketInteractor != null)
         {
-            StartCoroutine(RefillProcessRoutine(insertedObject));
+            socketInteractor.selectEntered.RemoveListener(OnObjectPlacedInSocket);
+            socketInteractor.selectExited.RemoveListener(OnObjectRemovedFromSocket);
         }
     }
 
-    private IEnumerator RefillProcessRoutine(GameObject emptyCup)
+    private void OnObjectPlacedInSocket(SelectEnterEventArgs args)
     {
-        isRefilling = true;
+        Transform placedTransform = args.interactableObject.transform;
+        GameObject matchingFullPrefab = GetMatchingPrefab(placedTransform);
 
-        // 1. Reproducir sonido de vertido
+        // Si el objeto colocado no coincide con ningún Tag de la lista (o ya está lleno), no hacemos nada
+        if (matchingFullPrefab == null)
+            return;
+
+        currentEmptyInteractable = args.interactableObject;
+
+        if (activeRefillCoroutine != null)
+            StopCoroutine(activeRefillCoroutine);
+
+        activeRefillCoroutine = StartCoroutine(RefillRoutine(placedTransform.gameObject, matchingFullPrefab));
+    }
+
+    private void OnObjectRemovedFromSocket(SelectExitEventArgs args)
+    {
+        // Si el jugador retira el envase antes de que termine de llenarse, cancelamos el proceso y el audio
+        if (currentEmptyInteractable == args.interactableObject && activeRefillCoroutine != null)
+        {
+            StopCoroutine(activeRefillCoroutine);
+            activeRefillCoroutine = null;
+            currentEmptyInteractable = null;
+
+            if (audioSource != null && audioSource.isPlaying)
+            {
+                audioSource.Stop();
+            }
+        }
+    }
+
+    private GameObject GetMatchingPrefab(Transform obj)
+    {
+        foreach (RefillRecipe recipe in refillRecipes)
+        {
+            if (!string.IsNullOrEmpty(recipe.emptyTag) && recipe.fullPrefab != null)
+            {
+                if (obj.CompareTag(recipe.emptyTag))
+                {
+                    return recipe.fullPrefab;
+                }
+            }
+        }
+        return null;
+    }
+
+    private IEnumerator RefillRoutine(GameObject emptyObject, GameObject fullPrefab)
+    {
+        // 1. Reproducir sonido de llenado
         if (audioSource != null && refillSound != null)
         {
             audioSource.clip = refillSound;
             audioSource.Play();
         }
 
-        // 2. Esperar el tiempo de llenado
+        // 2. Esperar la duración del llenado
         yield return new WaitForSeconds(refillDuration);
 
-        // Detener sonido de vertido si sigue sonando
-        if (audioSource != null && audioSource.isPlaying)
+        // Verificar que el envase vacío siga existiendo antes de reemplazarlo
+        if (emptyObject == null)
+            yield break;
+
+        // Guardar posición y rotación exacta donde encajó en el socket
+        Transform attachPoint = socketInteractor.attachTransform != null ? socketInteractor.attachTransform : transform;
+        Vector3 spawnPos = attachPoint.position + (Vector3.up * verticalSpawnOffset);
+        Quaternion spawnRot = attachPoint.rotation;
+
+        // 3. Eliminar el envase vacío e instanciar el lleno
+        currentEmptyInteractable = null;
+        Destroy(emptyObject);
+
+        GameObject fullInstance = Instantiate(fullPrefab, spawnPos, spawnRot);
+
+        // Hacer que el socket agarre automáticamente el nuevo envase lleno si es un XRBaseInteractable
+        if (fullInstance.TryGetComponent(out IXRSelectInteractable newInteractable) && socketInteractor.interactionManager != null)
         {
-            audioSource.Stop();
+            socketInteractor.interactionManager.SelectEnter(socketInteractor, newInteractable);
         }
 
-        // 3. Obtener posición, rotación y parent exactos antes de reemplazar
-        Vector3 spawnPos = emptyCup.transform.position;
-        Quaternion spawnRot = emptyCup.transform.rotation;
-
-        // 4. Destruir la taza vacía
-        Destroy(emptyCup);
-
-        // 5. Instanciar la taza llena
-        if (fullCupPrefab != null)
-        {
-            Vector3 safeSpawnPos = spawnPos + Vector3.up * verticalSpawnOffset;
-            GameObject newCup = Instantiate(fullCupPrefab, safeSpawnPos, spawnRot, null);
-
-            Rigidbody newRb = newCup.GetComponent<Rigidbody>();
-            if (newRb != null)
-            {
-                newRb.linearVelocity = Vector3.zero; 
-                newRb.angularVelocity = Vector3.zero;
-            }
-        }
-
-        // 6. Activar el efecto de partículas de finalización
+        // 4. Efectos finales (partículas y sonido de listo)
         if (finishParticles != null)
         {
             finishParticles.Play();
         }
 
-        // 7. Reproducir sonido de finalización (opcional)
-        if (audioSource != null && completeSound != null)
+        if (audioSource != null)
         {
-            audioSource.PlayOneShot(completeSound);
+            audioSource.Stop();
+            if (completeSound != null)
+            {
+                audioSource.PlayOneShot(completeSound);
+            }
         }
 
-        isRefilling = false;
+        activeRefillCoroutine = null;
     }
 }
