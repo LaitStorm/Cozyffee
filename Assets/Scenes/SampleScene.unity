@@ -2807,6 +2807,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VRMenuToggle
   menuObject: {fileID: 1238357421}
   tutorialObject: {fileID: 751502643}
+  configObject: {fileID: 1529094982}
   playerCamera: {fileID: 1937083304}
   toggleMenuAction:
     m_UseReference: 1
@@ -25439,6 +25440,7 @@ GameObject:
   - component: {fileID: 1414366973}
   - component: {fileID: 1414366972}
   - component: {fileID: 1414366971}
+  - component: {fileID: 262140949363162712}
   m_Layer: 0
   m_Name: NPC Generator
   m_TagString: Untagged
@@ -28799,7 +28801,7 @@ MonoBehaviour:
   sfxMixerParam: SFXVol
   ambientAudioSource: {fileID: 0}
   sfxAudioSources: []
-  npcPool: []
+  npcPopulation: {fileID: 262140949363162712}
   snapTurnProvider: {fileID: 196416982}
   continuousTurnProvider: {fileID: 196416981}
 --- !u!114 &1529094985
@@ -47762,6 +47764,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &262140949363162712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414366970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43920a81d2a42cf93b3335f88fc42f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cozyffee.NPCPopulation
+  animalGenerator: {fileID: 1414366972}
+  axolotlGenerator: {fileID: 1414366971}
+  spawnEffect: {fileID: 100002, guid: 2d288027e08504c838748f30f56e1b9e, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

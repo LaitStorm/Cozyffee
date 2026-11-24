@@ -22,8 +22,8 @@ public class ConfigMenuUI : MonoBehaviour
     [SerializeField] private List<AudioSource> sfxAudioSources = new List<AudioSource>();
 
     [Header("Control de NPCs")]
-    [Tooltip("Arrastra todos los GameObjects de NPCs (o puntos de spawn) que quieras activar/desactivar según el slider.")]
-    [SerializeField] private List<GameObject> npcPool = new List<GameObject>();
+    [Tooltip("Reparte el máximo de clientes entre los generadores. Los NPCs se agregan o quitan al cerrar este panel.")]
+    [SerializeField] private Game.Cozyffee.NPCPopulation npcPopulation;
 
     [Header("Locomoción (Giro)")]
     [SerializeField] private SnapTurnProvider snapTurnProvider;
@@ -67,7 +67,7 @@ public class ConfigMenuUI : MonoBehaviour
         // Al iniciar el juego estos volúmenes los aplica AudioVolumeSettings (objeto Music), porque este panel empieza desactivado.
         float savedAmbient = AudioVolumeSettings.SavedAmbient;
         float savedSfx = AudioVolumeSettings.SavedSfx;
-        int savedNpcs = PlayerPrefs.GetInt("Config_NPCs", npcPool.Count);
+        int savedNpcs = npcPopulation != null ? npcPopulation.MaxCount : 0;
         bool savedSnapTurn = PlayerPrefs.GetInt("Config_SnapTurn", 0) == 1;
 
         if (sliderAmbiente != null)
@@ -84,8 +84,8 @@ public class ConfigMenuUI : MonoBehaviour
 
         if (sliderNpcs != null)
         {
-            sliderNpcs.highValue = Mathf.Max(1, npcPool.Count);
-            sliderNpcs.SetValueWithoutNotify(Mathf.Clamp(savedNpcs, 0, npcPool.Count));
+            // Rango 0 a 20 (definido en COnfiguracion.uxml)
+            sliderNpcs.SetValueWithoutNotify(Mathf.Clamp(savedNpcs, sliderNpcs.lowValue, sliderNpcs.highValue));
             sliderNpcs.RegisterValueChangedCallback(OnNpcsChanged);
             UpdateNpcLabel(sliderNpcs.value);
         }
@@ -104,7 +104,6 @@ public class ConfigMenuUI : MonoBehaviour
         // Aplicar los valores iniciales al abrir
         ApplyAmbientVolume(savedAmbient);
         ApplySfxVolume(savedSfx);
-        ApplyNpcCount(savedNpcs);
         ApplyTurnMode(savedSnapTurn);
     }
 
@@ -117,6 +116,10 @@ public class ConfigMenuUI : MonoBehaviour
         if (btnVolver != null) btnVolver.clicked -= OnVolverClicked;
 
         PlayerPrefs.Save();
+
+        // Panel cerrado (botón Volver o botón de menú del control): ahora sí se agregan o quitan NPCs
+        if (npcPopulation != null)
+            npcPopulation.ApplyPendingChanges();
     }
 
     private void OnAmbientChanged(ChangeEvent<float> evt)
@@ -133,9 +136,11 @@ public class ConfigMenuUI : MonoBehaviour
 
     private void OnNpcsChanged(ChangeEvent<int> evt)
     {
-        ApplyNpcCount(evt.newValue);
+        // Solo se guarda: los NPCs se agregan o quitan al cerrar el panel (OnDisable)
+        if (npcPopulation != null)
+            npcPopulation.SetMaxCount(evt.newValue);
+
         UpdateNpcLabel(evt.newValue);
-        PlayerPrefs.SetInt("Config_NPCs", evt.newValue);
     }
 
     private void OnSnapTurnChanged(ChangeEvent<bool> evt)
@@ -167,17 +172,6 @@ public class ConfigMenuUI : MonoBehaviour
             foreach (AudioSource src in sfxAudioSources)
             {
                 if (src != null) src.volume = value;
-            }
-        }
-    }
-
-    private void ApplyNpcCount(int count)
-    {
-        for (int i = 0; i < npcPool.Count; i++)
-        {
-            if (npcPool[i] != null)
-            {
-                npcPool[i].SetActive(i < count);
             }
         }
     }

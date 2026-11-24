@@ -10,6 +10,9 @@ public class VRMenuToggle : MonoBehaviour
     [Tooltip("Opcional: el GameObject del Tutorial por si el jugador abre el menú mientras estaba en el tutorial.")]
     [SerializeField] private GameObject tutorialObject;
 
+    [Tooltip("Opcional: el GameObject de Configuración. Si está abierto, el botón lo cierra (y se aplican los cambios, ej: cantidad de clientes).")]
+    [SerializeField] private GameObject configObject;
+
     [Tooltip("La Main Camera dentro de XR Origin > Camera Offset.")]
     [SerializeField] private Transform playerCamera;
 
@@ -52,6 +55,13 @@ public class VRMenuToggle : MonoBehaviour
     private void OnToggleMenuPerformed(InputAction.CallbackContext context)
     {
         if (menuObject == null) return;
+
+        // Con Configuración abierta, el botón la cierra en vez de abrir el menú encima
+        if (configObject != null && configObject.activeSelf)
+        {
+            configObject.SetActive(false);
+            return;
+        }
 
         bool willOpen = !menuObject.activeSelf;
 

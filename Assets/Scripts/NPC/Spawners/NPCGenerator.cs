@@ -12,6 +12,7 @@ namespace Game.Cozyffee.NavigationTutorial
 		[SerializeField]
 		Area Area;
 
+		[Tooltip("How many NPCs this generator keeps alive. NPCPopulation sets it from the settings menu.")]
 		[SerializeField]
 		int Count = 15;
 
@@ -32,17 +33,112 @@ namespace Game.Cozyffee.NavigationTutorial
 		[SerializeField]
 		int MaxPlacementAttempts = 30;
 
-		readonly List<Vector3> NPCPositions = new List<Vector3>();
+		// Height above an NPC's feet where the spawn/despawn effect plays
+		const float EffectHeight = 0.4f;
 
-		private void Start()
+		readonly List<NPC> spawned = new List<NPC>();
+
+		/// <summary>How many NPCs this generator keeps alive. Changing it doesn't spawn or remove anyone; see <see cref="ApplyCount"/>.</summary>
+		public int TargetCount
 		{
-			for (int i = 0; i < Count; i++)
+			get => Count;
+			set => Count = Mathf.Max(0, value);
+		}
+
+		/// <summary>NPCs this generator spawned that still exist.</summary>
+		public int AliveCount
+		{
+			get
 			{
-				Spawn();
+				spawned.RemoveAll(npc => npc == null);
+				return spawned.Count;
 			}
 		}
 
-		public NPC Spawn()
+		private void Start()
+		{
+			SpawnMissing(null);
+		}
+
+		/// <summary>
+		/// Removes NPCs above <see cref="TargetCount"/> (idle ones first, those with an order last) and spawns new ones
+		/// until there are <see cref="TargetCount"/>. <paramref name="effect"/> plays where each NPC appears or disappears.
+		/// </summary>
+		public void ApplyCount(GameObject effect)
+		{
+			RemoveExtra(effect);
+			SpawnMissing(effect);
+		}
+
+		void SpawnMissing(GameObject effect)
+		{
+			int missing = Count - AliveCount;
+
+			if (missing <= 0)
+			{
+				return;
+			}
+
+			// Keep new NPCs away from everyone already in the scene, not just this generator's NPCs
+			List<Vector3> occupied = new List<Vector3>();
+			foreach (NPC npc in FindObjectsByType<NPC>())
+			{
+				occupied.Add(npc.Position);
+			}
+
+			for (int i = 0; i < missing; i++)
+			{
+				NPC npc = Spawn(occupied);
+
+				if (npc == null)
+				{
+					// No free spot or no prefab: trying again right away would fail the same way
+					break;
+				}
+
+				OneShotEffect.Play(effect, npc.Position + Vector3.up * EffectHeight);
+			}
+		}
+
+		void RemoveExtra(GameObject effect)
+		{
+			int extra = AliveCount - Count;
+
+			if (extra <= 0)
+			{
+				return;
+			}
+
+			// Random order, then NPCs without an order first: someone waiting at the counter only leaves if there's no one else
+			List<NPC> candidates = new List<NPC>(spawned);
+
+			for (int i = candidates.Count - 1; i > 0; i--)
+			{
+				int j = Random.Range(0, i + 1);
+				(candidates[i], candidates[j]) = (candidates[j], candidates[i]);
+			}
+
+			candidates.Sort((a, b) => IsOrdering(a).CompareTo(IsOrdering(b)));
+
+			for (int i = 0; i < extra; i++)
+			{
+				Despawn(candidates[i], effect);
+			}
+		}
+
+		static bool IsOrdering(NPC npc) => npc.CurrentOrder != null;
+
+		void Despawn(NPC npc, GameObject effect)
+		{
+			spawned.Remove(npc);
+
+			// Destroying the NPC doesn't end its order task, so free the order spot it reserved ourselves
+			Area.ReleaseAll(npc);
+			OneShotEffect.Play(effect, npc.Position + Vector3.up * EffectHeight);
+			Destroy(npc.gameObject);
+		}
+
+		NPC Spawn(List<Vector3> occupied)
 		{
 			NPC prefab = GetRandomPrefab();
 
@@ -52,23 +148,24 @@ namespace Game.Cozyffee.NavigationTutorial
 				return null;
 			}
 
-			if (!TryGetFreePosition(out Vector3 position))
+			if (!TryGetFreePosition(occupied, out Vector3 position))
 			{
 				Debug.LogWarning($"NPCGenerator '{name}' couldn't find a free spot to spawn an NPC; the area may be too crowded or off the NavMesh.", this);
 				return null;
 			}
 
-			NPCPositions.Add(position);
+			occupied.Add(position);
 			Quaternion rotation = Quaternion.Euler(0f, Random.Range(0f, 360f), 0f);
 
 			NPC npc = Instantiate(prefab, position, rotation);
 
 			RandomizeHunger(npc);
+			spawned.Add(npc);
 
 			return npc;
 		}
 
-		bool TryGetFreePosition(out Vector3 position)
+		bool TryGetFreePosition(List<Vector3> occupied, out Vector3 position)
 		{
 			float minSqr = MinSpacing * MinSpacing;
 
@@ -80,7 +177,7 @@ namespace Game.Cozyffee.NavigationTutorial
 				}
 
 				bool free = true;
-				foreach (Vector3 other in NPCPositions)
+				foreach (Vector3 other in occupied)
 				{
 					Vector3 delta = position - other;
 					delta.y = 0f;
