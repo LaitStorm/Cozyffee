@@ -52,6 +52,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.OrderSoundPlayer
   audioSource: {fileID: 7487711528681033322}
   heyListenClip: {fileID: 8300000, guid: 3c31c8f6bd8ef4f11b23f7067d98b881, type: 3}
+  rejectClip: {fileID: 8300000, guid: 136bfb3b21b534e07bf8af02a66d0f52, type: 3}
   sleepAudioSource: {fileID: 7487711528681033323}
   purrClip: {fileID: 8300000, guid: b6b041786b826443988799cef8c6a08c, type: 3}
   purrFadeOutDuration: 0.5

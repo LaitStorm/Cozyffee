@@ -99,6 +99,18 @@ This scene has no ice cream station yet. The NPCs here will order ice creams as 
 
 ---
 
+## 5. Prefabs: wrong-item reaction (RejectFood)
+
+When an ordering NPC is handed the wrong item (the player lets go of it in the NPC's hand), the item is destroyed and the NPC fires `RejectFood`. The crying face works as-is: every NPC prefab already has a Crying material. Two slots are empty because there's no particle or sound for it in the project yet:
+
+- [ ] `NPC Modules/ParticleSystem.prefab` → **NPC Particle Player > Reject Particles**: add a child Particle System, e.g. a puff or tears, with *Play On Awake* off, and assign it.
+- [ ] `NPC Modules/NPCSoundPlayer.prefab` → **NPC Sound Player > Reject Clip**: assign a sound. It plays on the existing one-shot Audio Source.
+- [ ] Optional: tune **NPC Emotion > Reject Food Emotion / Reject Food Emotion Duration** on the NPC prefabs (defaults: Crying, 2 s). To preview the face, right-click the NPC Emotion component > **Test Reject Food Reaction**.
+
+Test: while an NPC is ordering, let go of a wrong item (or a wrong ice cream) in its hand. It should disappear, and the NPC should play the particle and sound and cry for ~2 s, then keep waiting for its real order. Letting go of a wrong item when the NPC *isn't* ordering does nothing, the same as before.
+
+---
+
 ## Heads-up: other scenes
 
 `Rama Andry` (and any scene with an `NPCGenerator`) uses the same customer NPCs, so its NPCs will also order ice cream once the menu includes it. They can't be served there without a station. Either copy the station into that scene too, as in section 2, or accept that those orders will time out.

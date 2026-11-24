@@ -63,6 +63,12 @@ namespace Game.Cozyffee
         /// <summary>Fired by OrderScope whenever an order ends: served, timed out or interrupted.</summary>
         public UnityAction OrderEnded;
 
+        /// <summary>
+        /// Fired by <see cref="NPCItemReceiver"/> when, while ordering, the player lets go of the wrong item in the NPC's hand.
+        /// The item has already been destroyed; listeners play the reaction (particles, sound, crying face).
+        /// </summary>
+        public UnityAction RejectFood;
+
         /// <summary>What this NPC is currently waiting for, or null when it isn't ordering. Set by the PickOrder task.</summary>
         [System.NonSerialized]
         public CafeOrder CurrentOrder;
