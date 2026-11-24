@@ -107,6 +107,19 @@ When an ordering NPC is handed the wrong item (the player lets go of it in the N
 - [ ] `NPC Modules/NPCSoundPlayer.prefab` → **NPC Sound Player > Reject Clip**: assign a sound. It plays on the existing one-shot Audio Source.
 - [ ] Optional: tune **NPC Emotion > Reject Food Emotion / Reject Food Emotion Duration** on the NPC prefabs (defaults: Crying, 2 s). To preview the face, right-click the NPC Emotion component > **Test Reject Food Reaction**.
 
+### Right item (AcceptFood)
+When the NPC takes the item it ordered:
+1. The item is destroyed and `AcceptFood` fires (particle and sound).
+2. The NPC plays its **Eating** animation once.
+3. It becomes **Happy for 30 s**.
+4. Its hunger is restored.
+
+All NPC Animator Controllers already have an `Eating` state. Two empty slots to fill:
+
+- [ ] `NPC Modules/ParticleSystem.prefab` → **NPC Particle Player > Accept Particles**. If you reuse a pack effect, check its Start Lifetime and Texture Sheet *Cycles* (see the Reject fix): long-lived single-particle effects look like they loop.
+- [ ] `NPC Modules/NPCSoundPlayer.prefab` → **NPC Sound Player > Accept Clip**.
+- [ ] Optional: the 30 s is `BehaviorFactory.HappyAfterEatingDuration`.
+
 Test: while an NPC is ordering, let go of a wrong item (or a wrong ice cream) in its hand. It should disappear, and the NPC should play the particle and sound and cry for ~2 s, then keep waiting for its real order. Letting go of a wrong item when the NPC *isn't* ordering does nothing, the same as before.
 
 ---

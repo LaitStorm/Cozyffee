@@ -64,6 +64,12 @@ namespace Game.Cozyffee
         public UnityAction OrderEnded;
 
         /// <summary>
+        /// Fired by <see cref="NPCItemReceiver"/> when the NPC takes the item it ordered (the item has just been destroyed).
+        /// Listeners play the reaction (particles, sound). The order then plays the Eating animation and cheers the NPC up.
+        /// </summary>
+        public UnityAction AcceptFood;
+
+        /// <summary>
         /// Fired by <see cref="NPCItemReceiver"/> when, while ordering, the player lets go of the wrong item in the NPC's hand.
         /// The item has already been destroyed; listeners play the reaction (particles, sound, crying face).
         /// </summary>
@@ -90,6 +96,9 @@ namespace Game.Cozyffee
         /// <summary>Plays an Animator state once (e.g. "Ordering"), then goes back to the usual state.</summary>
         public UnityAction<string> PlayAnimation;
 
+        /// <summary>True while an animation started with <see cref="PlayAnimation"/> is still playing its single cycle.</summary>
+        public System.Func<bool> IsPlayingAnimation;
+
         #endregion
 
         #region Animator Booleans
@@ -114,6 +123,9 @@ namespace Game.Cozyffee
         #region Emotion Delegates
 
         public UnityAction<Emotion> SetEmotion;
+
+        /// <summary>Sets the emotion for some seconds, then goes back to the one the NPC had before.</summary>
+        public UnityAction<Emotion, float> SetEmotionFor;
         public System.Func<Emotion> GetEmotion;
 
         #endregion

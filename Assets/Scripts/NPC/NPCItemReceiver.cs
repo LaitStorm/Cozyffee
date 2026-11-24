@@ -39,16 +39,24 @@ namespace Game.Cozyffee
             Accepting = false;
         }
 
-        public void Consume()
+        /// <summary>Destroys the held item and fires <see cref="NPC.AcceptFood"/>. Returns false if there was nothing to take.</summary>
+        public bool Consume()
         {
             if (HeldItem == null)
             {
-                return;
+                return false;
             }
 
             Item item = HeldItem;
             HeldItem = null;
             Destroy(item.gameObject);
+
+            if (npc != null)
+            {
+                npc.AcceptFood?.Invoke();
+            }
+
+            return true;
         }
 
         private void OnEnable()

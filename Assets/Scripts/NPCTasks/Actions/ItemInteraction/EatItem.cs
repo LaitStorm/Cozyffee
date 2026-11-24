@@ -3,8 +3,9 @@ using UnityEngine;
 namespace Game.Cozyffee.TaskSystem
 {
     /// <summary>
-    /// Eats the item the NPC is holding and restores <see cref="FillAmount"/> Hunger Points (clamped to MaxPoints).
-    /// Fails if the NPC isn't holding anything, so a timed-out order doesn't feed the NPC for free.
+    /// Restores <see cref="FillAmount"/> Hunger Points (clamped to MaxPoints) and fires <see cref="NPC.Eat"/>.
+    /// If the NPC is still holding the item, it's consumed first. In an order this runs last, after
+    /// <see cref="ConsumeItem"/> took the item, so a timed-out order (nothing to take) never feeds the NPC.
     /// </summary>
     public class EatItem : ItemReceiverAction
     {
@@ -21,12 +22,15 @@ namespace Game.Cozyffee.TaskSystem
 
         protected override TaskStatus OnUpdate()
         {
-            if (!TryGetReceiver(out NPCItemReceiver receiver) || receiver.HeldItem == null)
+            if (npc == null)
             {
                 return TaskStatus.Failure;
             }
 
-            receiver.Consume();
+            if (TryGetReceiver(out NPCItemReceiver receiver) && receiver.HeldItem != null)
+            {
+                receiver.Consume();
+            }
 
             if (npc.Hunger != null && FillAmount != null)
             {

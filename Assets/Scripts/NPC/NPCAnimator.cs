@@ -36,6 +36,7 @@ namespace Game.Cozyffee
 
             npc.GetAnimator = () => animator;
             npc.PlayAnimation += PlayOnce;
+            npc.IsPlayingAnimation = () => playOnceState != null;
 
             if (animator == null)
             {

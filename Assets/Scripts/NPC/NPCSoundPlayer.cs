@@ -12,6 +12,9 @@ namespace Game.Cozyffee
         [SerializeField]
         AudioClip heyListenClip;
 
+        [SerializeField, Tooltip("Played on the one-shot source when the NPC takes the item it ordered (NPC.AcceptFood).")]
+        AudioClip acceptClip;
+
         [SerializeField, Tooltip("Played on the one-shot source when the NPC is handed the wrong item (NPC.RejectFood).")]
         AudioClip rejectClip;
 
@@ -51,6 +54,7 @@ namespace Game.Cozyffee
             if (npc != null)
             {
                 npc.Order += PlayOrderSound;
+                npc.AcceptFood += PlayAcceptSound;
                 npc.RejectFood += PlayRejectSound;
                 npc.FallAsleep += PlayPurr;
                 npc.WakeUp += StopPurr;
@@ -68,6 +72,7 @@ namespace Game.Cozyffee
         void Unsubscribe(NPC npc)
         {
             npc.Order -= PlayOrderSound;
+            npc.AcceptFood -= PlayAcceptSound;
             npc.RejectFood -= PlayRejectSound;
             npc.FallAsleep -= PlayPurr;
             npc.WakeUp -= StopPurr;
@@ -78,6 +83,14 @@ namespace Game.Cozyffee
             if (audioSource != null && heyListenClip != null)
             {
                 audioSource.PlayOneShot(heyListenClip);
+            }
+        }
+
+        public void PlayAcceptSound()
+        {
+            if (audioSource != null && acceptClip != null)
+            {
+                audioSource.PlayOneShot(acceptClip);
             }
         }
 

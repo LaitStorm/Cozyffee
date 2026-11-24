@@ -63,6 +63,11 @@ namespace Game.Cozyffee
         Emotion? reaction;
         float reactionEndTime;
 
+        // Set by SetEmotionFor: go back to emotionAfterTimer once the timer runs out
+        bool hasEmotionTimer;
+        Emotion emotionAfterTimer;
+        float emotionTimerEnd;
+
         EmotionMaterial current;
         bool isBlinking;
         float nextBlinkChange;
@@ -79,6 +84,7 @@ namespace Game.Cozyffee
 
             base.SetNPC(npc);
             npc.SetEmotion = SetEmotion;
+            npc.SetEmotionFor = SetEmotionFor;
             npc.GetEmotion = () => Current;
             npc.FallAsleep += OnFallAsleep;
             npc.WakeUp += OnWakeUp;
@@ -96,7 +102,35 @@ namespace Game.Cozyffee
             }
         }
 
+        /// <summary>Sets the emotion until something changes it. Cancels a pending <see cref="SetEmotionFor"/>.</summary>
         public void SetEmotion(Emotion emotion)
+        {
+            hasEmotionTimer = false;
+            ApplyEmotion(emotion);
+        }
+
+        /// <summary>
+        /// Sets the emotion for <paramref name="duration"/> seconds, then goes back to the one before. Calling it again
+        /// while one is pending restarts the timer but still goes back to the original emotion; SetEmotion cancels it.
+        /// </summary>
+        public void SetEmotionFor(Emotion emotion, float duration)
+        {
+            if (duration <= 0f)
+            {
+                SetEmotion(emotion);
+                return;
+            }
+
+            Emotion previous = hasEmotionTimer ? emotionAfterTimer : Current;
+
+            ApplyEmotion(emotion);
+
+            hasEmotionTimer = true;
+            emotionAfterTimer = previous;
+            emotionTimerEnd = Time.time + duration;
+        }
+
+        void ApplyEmotion(Emotion emotion)
         {
             Current = emotion;
 
@@ -152,6 +186,12 @@ namespace Game.Cozyffee
 
         void Update()
         {
+            if (hasEmotionTimer && Time.time >= emotionTimerEnd)
+            {
+                hasEmotionTimer = false;
+                ApplyEmotion(emotionAfterTimer);
+            }
+
             if (reaction.HasValue && Time.time >= reactionEndTime)
             {
                 reaction = null;
