@@ -141,7 +141,7 @@ namespace Game.Cozyffee
         private void OnHoveringItemReleased(SelectExitEventArgs args)
         {
             // Not the player letting go: the socket itself releasing, or the selection being cancelled (object destroyed...).
-            if (args.isCanceled || ReferenceEquals(args.interactorObject, socket))
+            if (args.isCanceled || args.interactorObject is XRSocketInteractor)
             {
                 return;
             }
