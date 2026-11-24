@@ -11920,8 +11920,8 @@ MonoBehaviour:
   - stepTitle: Controles
     stepDescription: "Puedes moverte por el ambiente usando el joystick izquiero
       o caminando por el lugar (cuidado con tus alrededores!) Haciendo Grip puede
-      tomar y soltar objetos. Para activar el men\xFA apreta el bot\xF3n X en tu
-      control"
+      tomar y soltar objetos. Para activar el men\xFA en juego apreta el bot\xF3n
+      primario (X)"
     worldAnchor: {fileID: 41578412}
   - stepTitle: Clientes tristes
     stepDescription: "Si te demoras mucho tiempo en completar una \xF3rden, el cliente
