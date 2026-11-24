@@ -8,6 +8,8 @@ namespace Game.Cozyffee.ExternalBehaviorTrees
     /// - Idle (default): wanders outside the order area while hunger slowly ticks down.
     ///   Every so often, if well fed, it rolls a chance to get sleepy.
     /// - Order: when hunger drops below <see cref="HungryThreshold"/>, walks to the order area and orders.
+    ///   Its emotion follows <see cref="Mood"/>. If nobody serves it, it goes back to Idle and doesn't order again
+    ///   for <see cref="OrderRetryDelay"/> seconds.
     /// - Sleeping: when well fed (above <see cref="SleepyThreshold"/>) and the sleep roll passed,
     ///   walks somewhere outside the order area and sleeps, losing hunger more slowly, then goes back to Idle.
     /// </summary>
@@ -32,6 +34,13 @@ namespace Game.Cozyffee.ExternalBehaviorTrees
         [Tooltip("Seconds between 'Ordering' animations while waiting for the item. The first one plays as soon as the order starts. 0 = play it only once.")]
         [Min(0f)]
         public float OrderAnimationInterval = BehaviorFactory.DefaultOrderAnimationInterval;
+
+        [Tooltip("How the NPC's emotion changes while it waits for its order, once it's served, and when it gives up.")]
+        public OrderMood Mood = new OrderMood();
+
+        [Tooltip("After giving up on an order nobody served, seconds the NPC wanders before it can order again.")]
+        [Min(0f)]
+        public float OrderRetryDelay = 60f;
 
         [Header("Single Item (used only when Menu is empty)")]
         public Sprite OrderBubble;
@@ -75,9 +84,10 @@ namespace Game.Cozyffee.ExternalBehaviorTrees
         {
             // Per-NPC state: this ScriptableObject is shared by every NPC that uses it.
             SharedBool wantsToSleep = false;
+            SharedFloat canOrderAt = 0f;
 
             UtilitySelector root = new UtilitySelector { Name = "Customer" };
-            root.AddTask(CreateOrderBranch());
+            root.AddTask(CreateOrderBranch(canOrderAt));
             root.AddTask(CreateSleepingBranch(wantsToSleep));
             root.AddTask(CreateIdleBranch(wantsToSleep));
 
@@ -123,23 +133,26 @@ namespace Game.Cozyffee.ExternalBehaviorTrees
             return branch;
         }
 
-        Task CreateOrderBranch()
+        Task CreateOrderBranch(SharedFloat canOrderAt)
         {
             Sequence branch = new Sequence
             {
                 Name = "Order Branch",
-                UtilityOverride = task => UtilityIfConditionsMet(task, OrderUtility),
+                // Right after an unserved order it's still upset: Idle (wandering) wins until canOrderAt.
+                UtilityOverride = task => Time.time < canOrderAt.Value ? 0f : UtilityIfConditionsMet(task, OrderUtility),
             };
 
             // Picked while Points <= HungryThreshold. Hunger only rises when EatItem runs as the last step,
             // so the condition holds for the whole order.
             branch.AddCondition(new IsHungry(HungryThreshold));
 
-            Task order = Menu != null
+            OrderScope order = Menu != null
                 ? BehaviorFactory.Order(AreaId, Menu, OrderWaitTime, eatForHunger: true, waitingWander: wanderParameters,
-                                        orderAnimationInterval: OrderAnimationInterval)
+                                        orderAnimationInterval: OrderAnimationInterval, mood: Mood)
                 : BehaviorFactory.Order(AreaId, ItemId, OrderBubble, OrderWaitTime, new EatItem(FillAmount), wanderParameters,
-                                        OrderAnimationInterval);
+                                        OrderAnimationInterval, Mood);
+
+            order.Unserved += () => canOrderAt.Value = Time.time + OrderRetryDelay;
 
             branch.AddTask(order);
 

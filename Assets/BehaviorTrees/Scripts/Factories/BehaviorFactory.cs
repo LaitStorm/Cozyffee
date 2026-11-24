@@ -88,15 +88,18 @@ namespace Game.Cozyffee
         /// Walks to a random point in the Area with <paramref name="areaId"/>, shows the order bubble and
         /// waits for the item (or until <paramref name="waitTime"/> runs out). Once served, the NPC takes and eats it
         /// (see <see cref="AddOrderSteps"/>) and finally runs <paramref name="eatTask"/>, if any (e.g. <see cref="EatItem"/>
-        /// to restore hunger).
+        /// to restore hunger). <paramref name="mood"/> sets how its emotion changes while waiting and afterwards
+        /// (null = the <see cref="OrderMood"/> defaults).
         /// </summary>
-        public static Task Order(string areaId, string itemId, Sprite bubble, float waitTime, Task eatTask = null, WanderParameters waitingWander = null,
-                                 float orderAnimationInterval = DefaultOrderAnimationInterval)
+        public static OrderScope Order(string areaId, string itemId, Sprite bubble, float waitTime, Task eatTask = null, WanderParameters waitingWander = null,
+                                       float orderAnimationInterval = DefaultOrderAnimationInterval, OrderMood mood = null)
         {
-            Sequence sequence = new Sequence() { Name = "Order" };
-            AddOrderSteps(sequence, areaId, itemId, itemId, bubble, waitTime, eatTask, waitingWander, orderAnimationInterval);
+            mood ??= new OrderMood();
 
-            return new OrderScope(sequence) { Name = "Single Item Order" };
+            Sequence sequence = new Sequence() { Name = "Order" };
+            AddOrderSteps(sequence, areaId, itemId, itemId, bubble, waitTime, eatTask, waitingWander, orderAnimationInterval, mood);
+
+            return new OrderScope(sequence, mood) { Name = "Single Item Order" };
         }
 
         /// <summary>
@@ -106,9 +109,11 @@ namespace Game.Cozyffee
         /// <see cref="CafeMenuItem.HungerFill"/>.
         /// While every order spot is taken, the NPC wanders with <paramref name="waitingWander"/> (or stands still if null).
         /// </summary>
-        public static Task Order(string areaId, CafeMenu menu, float waitTime, bool eatForHunger = true, WanderParameters waitingWander = null,
-                                 float orderAnimationInterval = DefaultOrderAnimationInterval)
+        public static OrderScope Order(string areaId, CafeMenu menu, float waitTime, bool eatForHunger = true, WanderParameters waitingWander = null,
+                                       float orderAnimationInterval = DefaultOrderAnimationInterval, OrderMood mood = null)
         {
+            mood ??= new OrderMood();
+
             // One set of variables per order task, so each NPC's tree tracks its own order.
             SharedString itemId = new();
             SharedString displayName = new();
@@ -119,19 +124,16 @@ namespace Game.Cozyffee
             sequence.AddTask(new PickOrder(menu, itemId, displayName, icon, hungerFill) { Name = "Pick Order" });
 
             Task eatTask = eatForHunger ? new EatItem(hungerFill) : null;
-            AddOrderSteps(sequence, areaId, itemId, displayName, icon, waitTime, eatTask, waitingWander, orderAnimationInterval);
+            AddOrderSteps(sequence, areaId, itemId, displayName, icon, waitTime, eatTask, waitingWander, orderAnimationInterval, mood);
 
-            return new OrderScope(sequence) { Name = "Menu Order" };
+            return new OrderScope(sequence, mood) { Name = "Menu Order" };
         }
 
         /// <summary>Seconds between "Ordering" animations while an NPC waits for its item, when the caller doesn't say.</summary>
         public const float DefaultOrderAnimationInterval = 8f;
 
-        /// <summary>Seconds an NPC stays Happy after eating what it ordered.</summary>
-        public const float HappyAfterEatingDuration = 30f;
-
         static void AddOrderSteps(Sequence sequence, string areaId, SharedString itemId, SharedString displayName, SharedSprite icon, float waitTime, Task eatTask, WanderParameters waitingWander,
-                                  float orderAnimationInterval)
+                                  float orderAnimationInterval, OrderMood mood)
         {
             Sequence goToOrderArea = new Sequence() { Name = "Go to Order Area" };
             SharedVector3 orderDestination = new();
@@ -171,6 +173,16 @@ namespace Game.Cozyffee
                 waitForItem.AddTask(orderAnimation);
             }
 
+            // The longer it waits, the sadder it gets: Crying, then Angry. Never succeeds (Idle), since that would end the wait.
+            // Being served or giving up stops it; OrderScope then sets the emotion that follows.
+            Sequence patience = new Sequence() { Name = "Patience" };
+            patience.AddTask(new Wait(mood.CryingAfter) { Name = "Wait to Cry" });
+            patience.AddTask(new SetEmotion(Emotion.Crying) { Name = "Start Crying" });
+            patience.AddTask(new Wait(Mathf.Max(0f, mood.AngryAfter - mood.CryingAfter)) { Name = "Wait to Get Angry" });
+            patience.AddTask(new SetEmotion(Emotion.Angry) { Name = "Get Angry" });
+            patience.AddTask(new Idle());
+            waitForItem.AddTask(patience);
+
             // Show the order's icon with its overlays (ice cream toppings). Orders that didn't come from a menu have no
             // CurrentOrder, so they show the plain icon. Until an icon exists, fall back to saying its name so the order still works.
             Selector showOrder = new Selector(
@@ -185,12 +197,12 @@ namespace Game.Cozyffee
             sequence.AddTask(waitForItem);
             sequence.AddTask(new HideBubble());
 
-            // Served: take the item (destroys it; NPC.AcceptFood plays the particles and sound), play one cycle of the
-            // Eating animation, then stay Happy for a while without blocking the tree. If the order timed out there's
-            // nothing to take, ConsumeItem fails and none of this runs.
+            // Served: take the item (destroys it; NPC.AcceptFood plays the particles and sound, and OrderScope sets Neutral),
+            // play one cycle of the Eating animation, then stay Happy for a while without blocking the tree (it goes back to
+            // Neutral afterwards). If the order timed out there's nothing to take, ConsumeItem fails and none of this runs.
             sequence.AddTask(new ConsumeItem { Name = "Take Item" });
             sequence.AddTask(new PlayAnimation("Eating") { WaitUntilFinished = true, Name = "Eating Animation" });
-            sequence.AddTask(new SetEmotion(Emotion.Happy) { Duration = HappyAfterEatingDuration, Name = "Happy After Eating" });
+            sequence.AddTask(new SetEmotion(Emotion.Happy) { Duration = mood.HappyDuration, Name = "Happy After Eating" });
 
             // Last on purpose: restoring hunger can end the branch that started this order (Customer only orders while
             // hungry), which would cut short anything after it.
