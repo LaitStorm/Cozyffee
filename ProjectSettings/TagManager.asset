@@ -7,6 +7,7 @@ TagManager:
   - EmptyCup
   - Fluid
   - Food
+  - EmptyGlass1
   layers:
   - Default
   - TransparentFX
