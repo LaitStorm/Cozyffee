@@ -12730,49 +12730,31 @@ MonoBehaviour:
   menuDocument: {fileID: 1238357424}
   steps:
   - stepTitle: Objetivo
-    stepDescription: "La meta del juego es que completes los pedidos de los clientes
-      hambrientos! Cuando pidan algo, encima de ellos aparecer\xE1 un \xEDcono que
-      corresponde a lo que quieren. Tu tarea es encontrar/preparar la \xF3rden y
-      d\xE1rlesa! "
+    stepDescription: "La meta del juego es que completes los pedidos de los clientes hambrientos! Cuando pidan algo, encima de ellos aparecer\xE1 un \xEDcono que corresponde a lo que quieren. Tu tarea es encontrar/preparar la orden y d\xE1rsela! "
     worldAnchor: {fileID: 41578412}
   - stepTitle: Controles
-    stepDescription: "Puedes moverte por el ambiente usando el joystick izquierdo
-      o caminando por el lugar (cuidado con tus alrededores!) Haciendo Grip puede
-      tomar y soltar objetos. Para activar el men\xFA en juego apreta el bot\xF3n
-      primario (X)"
+    stepDescription: "Puedes moverte por el ambiente usando el joystick izquierdo o caminando por el lugar (cuidado con tus alrededores!) Haciendo Grip puedes tomar y soltar objetos. Para activar el men\xFA en juego apreta el bot\xF3n primario (X)"
     worldAnchor: {fileID: 41578412}
   - stepTitle: Clientes tristes
-    stepDescription: "Si te demoras mucho tiempo en completar una \xF3rden, el cliente
-      se pondr\xE1 triste porque pensar\xE1 que lo olvidaste :c, trata de que no
-      pase para que siga siendo feliz "
+    stepDescription: "Si te demoras mucho en completar una orden, el cliente se pondr\xE1 triste porque pensar\xE1 que lo olvidaste :c y, si sigue esperando, \xA1se enojar\xE1! Si nadie lo atiende, se ir\xE1 llorando. Ati\xE9ndelo a tiempo para que siga feliz."
     worldAnchor: {fileID: 41578412}
   - stepTitle: Zona de postres
-    stepDescription: "Aqu\xED y en los refrigeradores de al frente podr\xE1s encontrar
-      pedazos de torta, cupcakes, macarrons, donuts, que les puedes servir a los
-      clientes"
+    stepDescription: "Aqu\xED y en los refrigeradores de al frente podr\xE1s encontrar pedazos de torta, cupcakes, macarons, donuts, que les puedes servir a los clientes"
     worldAnchor: {fileID: 485174078}
   - stepTitle: Cafetera
-    stepDescription: "Si te piden un caf\xE9 o jugo de naranja, puedes colocar una
-      taza o vaso vac\xEDo abajo de la cafetera, en segundos esta aparecer\xE1 con
-      el caf\xE9 o jugo servido, listo para entregar!"
+    stepDescription: "Si te piden un caf\xE9 o jugo de naranja, puedes colocar una taza o vaso vac\xEDo abajo de la cafetera, en segundos esta aparecer\xE1 con el caf\xE9 o jugo servido, listo para entregar!"
     worldAnchor: {fileID: 160923738}
   - stepTitle: Basurero
-    stepDescription: "Y si alguna vez sacas algo que no quer\xEDas o te equivocas,
-      puedes botar los objetos que no quieras en el basurero"
+    stepDescription: "Y si alguna vez sacas algo que no quer\xEDas o te equivocas, puedes botar los objetos que no quieras en el basurero"
     worldAnchor: {fileID: 160923738}
   - stepTitle: Zona de helados
-    stepDescription: "Aqu\xED puedes armar distintos helados! Para ello saca un cono
-      vac\xEDo y con la cuchara saca una bolita del sabor elegido para colocarle
-      encima. Luego puedes decorar con toppings de fruta! Hasta 2 bolitas y 2 toppings."
+    stepDescription: "Aqu\xED puedes armar distintos helados! Para ello saca un cono vac\xEDo y con la cuchara saca una bolita del sabor elegido para colocarle encima. Luego puedes decorar con toppings de fruta! Hasta 2 bolitas y 2 toppings."
     worldAnchor: {fileID: 649045056}
   - stepTitle: Zona de helados
-    stepDescription: "Si te equivocas de sabor de bolita, puedes limpiar la cuchara
-      en el vaso con agua, pero si en el cono queda una bolita o topping que no querias,
-      tendr\xE1s que iniciar desde cero"
+    stepDescription: "Si te equivocas de sabor de bolita, puedes limpiar la cuchara en el vaso con agua, pero si en el cono queda una bolita o topping que no quer\xEDas, tendr\xE1s que iniciar desde cero"
     worldAnchor: {fileID: 649045056}
   - stepTitle: Y eso es todo!
-    stepDescription: "Disfruta de manejar tu propia c\xF3moda y agradable cafeter\xEDa/helader\xEDa
-      cozy! - Andry Guevara y Josefina Ulloa "
+    stepDescription: "Disfruta de manejar tu propia c\xF3moda y agradable cafeter\xEDa/helader\xEDa cozy! - Andry Guevara y Josefina Ulloa "
     worldAnchor: {fileID: 41578412}
   titleLabelName: Titulo_paso
   descriptionLabelName: Texto_paso

@@ -107,6 +107,8 @@ public class TutorialControllerUI : MonoBehaviour
     {
         if (menuDocument != null)
         {
+            // El menú vuelve donde está el tutorial (el paso actual), no donde se abrió la última vez
+            menuDocument.transform.SetPositionAndRotation(transform.position, transform.rotation);
             menuDocument.gameObject.SetActive(true);
         }
 

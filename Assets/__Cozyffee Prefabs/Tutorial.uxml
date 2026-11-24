@@ -2,12 +2,12 @@
     <Style src="project://database/Assets/Content/botonstyle.uss?fileID=7433441132597879392&amp;guid=55ebbfdc5fef8de4c87a24497ae540ca&amp;type=3#botonstyle"/>
     <ui:VisualElement name="Fondo" style="flex-grow: 1; background-color: rgb(255, 240, 228); padding-left: 10px; padding-right: 10px; padding-bottom: 10px; border-left-color: rgb(235, 123, 192); border-right-color: rgb(235, 123, 192); border-top-color: rgb(235, 123, 192); border-bottom-color: rgb(235, 123, 192); border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; border-bottom-left-radius: 20px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;">
         <ui:Label text="a" name="Titulo_paso" style="-unity-text-align: middle-center; color: rgb(235, 123, 192); font-size: 22px; -unity-font-style: bold; -unity-font-definition: url(&quot;project://database/Assets/TextMesh%20Pro/Examples%20&amp;%20Extras/Fonts/Electronic%20Highway%20Sign.TTF?fileID=12800000&amp;guid=8a2b9e2a607dd2143b58c44bc32410b4&amp;type=3#Electronic Highway Sign&quot;); margin-top: 15px; margin-bottom: 0; padding-bottom: 0;"/>
-        <ui:Label text="" name="Texto_paso" style="white-space: pre-wrap; color: rgb(120, 70, 100); font-size: 14px; -unity-text-align: middle-center; height: 108px; -unity-font-definition: url(&quot;project://database/Assets/TextMesh%20Pro/Examples%20&amp;%20Extras/Fonts/Unity.ttf?fileID=12800000&amp;guid=f4eec857a4fdf2f43be0e9f3d1a984e7&amp;type=3#Unity&quot;); -unity-font-style: normal; width: 242px; text-overflow: clip; align-self: center;"/>
-        <ui:VisualElement name="VisualElement" style="flex-grow: 1; flex-direction: row; flex-wrap: nowrap; align-self: center; align-items: auto; justify-content: center; align-content: center;">
+        <ui:Label text="" name="Texto_paso" style="white-space: pre-wrap; color: rgb(120, 70, 100); font-size: 13px; -unity-text-align: middle-center; flex-grow: 1; flex-shrink: 1; -unity-font-definition: url(&quot;project://database/Assets/TextMesh%20Pro/Examples%20&amp;%20Extras/Fonts/Unity.ttf?fileID=12800000&amp;guid=f4eec857a4fdf2f43be0e9f3d1a984e7&amp;type=3#Unity&quot;); -unity-font-style: normal; width: 242px; text-overflow: clip; align-self: center;"/>
+        <ui:VisualElement name="VisualElement" style="flex-grow: 0; flex-shrink: 0; flex-direction: row; flex-wrap: nowrap; align-self: center; align-items: auto; justify-content: center; align-content: center;">
             <ui:Button text="Anterior" name="Boton_anterior" class="botonstyle" style="padding-top: 6px; padding-bottom: 6px;"/>
             <ui:Button text="Siguiente" name="Boton_siguiente" class="botonstyle" style="padding-top: 6px; padding-bottom: 6px;"/>
         </ui:VisualElement>
-        <ui:VisualElement style="flex-grow: 1;">
+        <ui:VisualElement style="flex-grow: 0; flex-shrink: 0;">
             <ui:Button text="Volver al menú" name="Boton_menu" class="botonstyle" style="padding-bottom: 6px; padding-top: 6px; margin-top: 0;"/>
         </ui:VisualElement>
     </ui:VisualElement>

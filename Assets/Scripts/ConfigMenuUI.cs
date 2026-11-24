@@ -189,6 +189,10 @@ public class ConfigMenuUI : MonoBehaviour
 
         if (continuousTurnProvider != null)
             continuousTurnProvider.enabled = !useSnapTurn;
+
+        // El texto dentro del interruptor muestra el estado actual
+        if (toggleSnapTurn != null)
+            toggleSnapTurn.text = useSnapTurn ? "On" : "Off";
     }
 
     private void OnVolverClicked()

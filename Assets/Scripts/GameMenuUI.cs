@@ -82,6 +82,8 @@ public class GameMenuUI : MonoBehaviour
     {
         if (configDocument != null)
         {
+            // El menú puede haberse movido frente al jugador (VRMenuToggle): Configuración aparece donde está el menú
+            configDocument.transform.SetPositionAndRotation(menuDocument.transform.position, menuDocument.transform.rotation);
             configDocument.gameObject.SetActive(true);
             menuDocument.gameObject.SetActive(false);
         }
