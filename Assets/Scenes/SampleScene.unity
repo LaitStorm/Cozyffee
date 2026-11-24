@@ -4763,8 +4763,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5a79cd589fc6e145a36d29b8f045dce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CleanSpoon
+  cleanEffectPrefab: {fileID: 1921079115439858272, guid: 5cadd266a3aa4f5e99ab76f5e77540ea, type: 3}
   audioSource: {fileID: 0}
-  splashSound: {fileID: 0}
+  splashSound: {fileID: 8300000, guid: 01f1e8db41da44fffab1b9b84afad759, type: 3}
 --- !u!65 &293418276
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -179,8 +179,7 @@ public class TrashBin : MonoBehaviour
 
         Vector3 position = GetCenter(target);
 
-        if (trashEffectPrefab != null)
-            PlayEffect(position);
+        OneShotEffect.Play(trashEffectPrefab, position);
 
         if (trashSound != null)
         {
@@ -207,27 +206,6 @@ public class TrashBin : MonoBehaviour
         }
 
         return found ? bounds.center : target.transform.position;
-    }
-
-    // El efecto se reproduce una sola vez aunque el prefab tenga Looping activado, y se destruye al terminar.
-    private void PlayEffect(Vector3 position)
-    {
-        GameObject effect = Instantiate(trashEffectPrefab, position, Quaternion.identity);
-        ParticleSystem[] systems = effect.GetComponentsInChildren<ParticleSystem>();
-        float lifetime = 0f;
-
-        foreach (ParticleSystem system in systems)
-        {
-            // Funciona aunque ya esté reproduciéndose (Play On Awake): termina el ciclo actual y no vuelve a empezar.
-            ParticleSystem.MainModule main = system.main;
-            main.loop = false;
-            lifetime = Mathf.Max(lifetime, main.startDelay.constantMax + main.duration + main.startLifetime.constantMax);
-
-            if (!system.isPlaying)
-                system.Play(false);
-        }
-
-        Destroy(effect, lifetime > 0f ? lifetime + 0.1f : 5f);
     }
 
     private void OnDrawGizmosSelected()

@@ -22,6 +22,9 @@ public class IceCreamSpoon : MonoBehaviour
 
     public bool HasScoop => currentScoopInstance != null;
 
+    /// <summary>Punta de la cuchara, donde va el scoop.</summary>
+    public Vector3 ScoopPosition => scoopHoldPoint != null ? scoopHoldPoint.position : transform.position;
+
     private void OnTriggerEnter(Collider other)
     {
         // 1. Si ya tenemos un scoop y tocamos un cono, lo transferimos con su sabor y limpiamos la cuchara
