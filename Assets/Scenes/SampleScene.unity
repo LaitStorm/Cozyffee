@@ -27031,7 +27031,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ConfigMenuUI
   configDocument: {fileID: 1529094987}
   menuDocument: {fileID: 1238357424}
-  mainAudioMixer: {fileID: 0}
+  mainAudioMixer: {fileID: 24100000, guid: 928d96293023bf743a181c01563cfc47, type: 2}
   ambientMixerParam: AmbientVol
   sfxMixerParam: SFXVol
   ambientAudioSource: {fileID: 0}
