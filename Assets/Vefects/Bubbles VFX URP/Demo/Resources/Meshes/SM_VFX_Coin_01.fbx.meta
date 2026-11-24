@@ -1,7 +1,7 @@
 fileFormatVersion: 2
-guid: f88a9215471327e4ab5c502903aa3499
+guid: c3ad646ba482d614dbc8252447111152
 ModelImporter:
-  serializedVersion: 22200
+  serializedVersion: 24200
   internalIDToNameTable: []
   externalObjects: {}
   materials:
@@ -56,6 +56,9 @@ ModelImporter:
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
     optimizeBones: 1
+    generateMeshLods: 0
+    meshLodGenerationFlags: 0
+    maximumMeshLod: -1
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
@@ -105,10 +108,3 @@ ModelImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 389452
-  packageName: Bubbles VFX - URP
-  packageVersion: 1.0.11
-  assetPath: Assets/Vefects/Bubbles VFX URP/Demo/Resources/Meshes/SM_VFX_Coin_01.fbx
-  uploadId: 1010876
